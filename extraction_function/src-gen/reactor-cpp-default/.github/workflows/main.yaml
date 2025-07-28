@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    name: Try compilation on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest, macos-latest]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: configure
+      run: |
+        mkdir build
+        cd build
+        cmake .. -DREACTOR_CPP_CLANG_TIDY=Off
+    - name: build the library
+      run: cmake --build build
+    - name: build examples
+      run:
+        cmake --build build --target examples
+    - name: build with tracing enabled
+      run: |
+        sudo apt-get install -y liblttng-ust-dev
+        cd build
+        cmake -DREACTOR_CPP_TRACE=ON ..
+        cd ..
+        cmake --build build --target examples
+      if: matrix.os == 'ubuntu-24.04'
+
+  lf-tests-pull-request:
+    uses: lf-lang/lingua-franca/.github/workflows/cpp-tests.yml@master
+    with:
+      runtime-ref: ${{github.ref}}
+    if: ${{ github.event_name == 'pull_request' }}
+  lf-tests-push:
+    uses: lf-lang/lingua-franca/.github/workflows/cpp-tests.yml@master
+    with:
+      runtime-ref: ${{github.ref_name}}
+    if: ${{ github.event_name == 'push' }}

@@ -1,0 +1,988 @@
+<transitionsystem>
+<state id="1_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">21</variable>
+			<variable name="Room.outside_air_blowing" type="int">0</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="0" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<state id="2_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">20</variable>
+			<variable name="Room.outside_air_blowing" type="int">1</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="0" deadline="infinity" sender="room">getTemp(20)</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="1_0" destination="2_0" executionTime="0" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+<state id="3_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">21</variable>
+			<variable name="Room.outside_air_blowing" type="int">0</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="0" deadline="infinity" sender="room">getTemp(21)</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="1_0" destination="3_0" executionTime="0" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+<state id="4_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">20</variable>
+			<variable name="Room.outside_air_blowing" type="int">1</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+			<message arrival="0" deadline="infinity" sender="sensor">getSense(20)</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="2_0" destination="4_0" executionTime="0" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+<state id="5_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">21</variable>
+			<variable name="Room.outside_air_blowing" type="int">0</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+			<message arrival="0" deadline="infinity" sender="sensor">getSense(21)</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="3_0" destination="5_0" executionTime="0" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+<state id="6_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">20</variable>
+			<variable name="Room.outside_air_blowing" type="int">1</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">true</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+			<message arrival="0" deadline="infinity" sender="controller">activateh()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="4_0" destination="6_0" executionTime="0" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+<state id="7_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">21</variable>
+			<variable name="Room.outside_air_blowing" type="int">0</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">21</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<state id="8_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">21</variable>
+			<variable name="Room.outside_air_blowing" type="int">0</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">21</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="7_0" destination="8_0" executionTime="0" shift="0"> <time value="10"/></transition>
+<transition source="5_0" destination="7_0" executionTime="0" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+<state id="9_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">20</variable>
+			<variable name="Room.outside_air_blowing" type="int">1</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="0" deadline="infinity" sender="hc_unit">regulate(1)</message>
+			<message arrival="10" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">true</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="6_0" destination="9_0" executionTime="0" shift="0"> <messageserver sender="controller" owner="hc_unit" title="ACTIVATEH"/></transition>
+<state id="10_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">20</variable>
+			<variable name="Room.outside_air_blowing" type="int">1</variable>
+			<variable name="Room.regulation" type="int">1</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">true</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<state id="11_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">20</variable>
+			<variable name="Room.outside_air_blowing" type="int">1</variable>
+			<variable name="Room.regulation" type="int">1</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">true</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="10_0" destination="11_0" executionTime="0" shift="0"> <time value="10"/></transition>
+<transition source="9_0" destination="10_0" executionTime="0" shift="0"> <messageserver sender="hc_unit" owner="room" title="REGULATE"/></transition>
+<state id="12_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">20</variable>
+			<variable name="Room.outside_air_blowing" type="int">1</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">21</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">getTemp(20)</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="8_0" destination="12_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+<state id="13_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">21</variable>
+			<variable name="Room.outside_air_blowing" type="int">0</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">21</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">getTemp(21)</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="8_0" destination="13_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+<state id="14_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">20</variable>
+			<variable name="Room.outside_air_blowing" type="int">1</variable>
+			<variable name="Room.regulation" type="int">1</variable>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">true</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">getTemp(20)</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="11_0" destination="14_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+<state id="15_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">21</variable>
+			<variable name="Room.outside_air_blowing" type="int">0</variable>
+			<variable name="Room.regulation" type="int">1</variable>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">true</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="room">getTemp(21)</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="11_0" destination="15_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+<state id="16_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">20</variable>
+			<variable name="Room.outside_air_blowing" type="int">1</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">21</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="sensor">getSense(20)</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="12_0" destination="16_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+<state id="17_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">20</variable>
+			<variable name="Room.outside_air_blowing" type="int">1</variable>
+			<variable name="Room.regulation" type="int">1</variable>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">true</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="sensor">getSense(20)</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="14_0" destination="17_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+<state id="18_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">21</variable>
+			<variable name="Room.outside_air_blowing" type="int">0</variable>
+			<variable name="Room.regulation" type="int">1</variable>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">true</variable>
+			<variable name="Controller.sensedValue" type="int">20</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="sensor">getSense(21)</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="15_0" destination="18_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+<transition source="16_0" destination="6_0" executionTime="10" shift="10"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+<transition source="17_0" destination="10_0" executionTime="10" shift="10"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+<state id="19_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">21</variable>
+			<variable name="Room.outside_air_blowing" type="int">0</variable>
+			<variable name="Room.regulation" type="int">0</variable>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">21</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="sensor">getSense(21)</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="13_0" destination="19_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+<state id="20_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">21</variable>
+			<variable name="Room.outside_air_blowing" type="int">0</variable>
+			<variable name="Room.regulation" type="int">1</variable>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">21</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="controller">switchoff()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="18_0" destination="20_0" executionTime="10" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+<transition source="19_0" destination="7_0" executionTime="10" shift="10"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+<state id="21_0" atomicpropositions="" >
+	<rebec name="room">
+		<statevariables>
+			<variable name="Room.temperature" type="int">21</variable>
+			<variable name="Room.outside_air_blowing" type="int">0</variable>
+			<variable name="Room.regulation" type="int">1</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="hc_unit">regulate(0)</message>
+			<message arrival="20" deadline="infinity" sender="room">tempchange()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="controller">
+		<statevariables>
+			<variable name="Controller.heating_active" type="boolean">false</variable>
+			<variable name="Controller.sensedValue" type="int">21</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="sensor">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="hc_unit">
+		<statevariables>
+			<variable name="HC_Unit.heater_on" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="20_0" destination="21_0" executionTime="10" shift="0"> <messageserver sender="controller" owner="hc_unit" title="SWITCHOFF"/></transition>
+<transition source="21_0" destination="7_0" executionTime="10" shift="10"> <messageserver sender="hc_unit" owner="room" title="REGULATE"/></transition>
+</transitionsystem>
+
