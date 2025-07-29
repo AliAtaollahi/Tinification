@@ -1,0 +1,8 @@
+file(GLOB subdirs RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*")
+foreach(subdir ${subdirs})
+  if(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/${subdir}")
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${subdir}/.lf-cpp-marker")
+      add_subdirectory("${subdir}")
+    endif()
+  endif()
+endforeach()

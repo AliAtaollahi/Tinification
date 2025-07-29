@@ -45,13 +45,13 @@ unset(_expectedTargets)
 add_library(reactor-cpp-default SHARED IMPORTED)
 
 set_target_properties(reactor-cpp-default PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/home/vboxuser/Downloads/tinification/MyExample/castfunction_variables/src-gen/reactor-cpp-default/include;/home/vboxuser/Downloads/tinification/MyExample/castfunction_variables/build/reactor-cpp-default/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include;/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/reactor-cpp-default/include"
 )
 
 # Import target "reactor-cpp-default" for configuration "Debug"
 set_property(TARGET reactor-cpp-default APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(reactor-cpp-default PROPERTIES
-  IMPORTED_LOCATION_DEBUG "/home/vboxuser/Downloads/tinification/MyExample/castfunction_variables/build/reactor-cpp-default/lib/libreactor-cpp-default.so.0.0.1"
+  IMPORTED_LOCATION_DEBUG "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/reactor-cpp-default/lib/libreactor-cpp-default.so.0.0.1"
   IMPORTED_SONAME_DEBUG "libreactor-cpp-default.so.1"
   )
 

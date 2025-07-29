@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/vboxuser/Downloads/tinification/MyExample/castfunction_variables/./src -I/home/vboxuser/Downloads/tinification/MyExample/castfunction_variables/src-gen/castfunction_variables -I/home/vboxuser/Downloads/tinification/MyExample/castfunction_variables/src-gen/castfunction_variables/__include__ -I/home/vboxuser/Downloads/tinification/MyExample/castfunction_variables/src-gen/reactor-cpp-default/include -I/home/vboxuser/Downloads/tinification/MyExample/castfunction_variables/build/reactor-cpp-default/include
+CXX_INCLUDES = -I"/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/./src" -I"/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables" -I"/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/__include__" -I"/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include" -I"/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/reactor-cpp-default/include"
 
 CXX_FLAGS = -g -Wall -Wextra -pedantic -std=c++20
 

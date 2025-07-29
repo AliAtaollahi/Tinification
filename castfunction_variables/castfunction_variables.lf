@@ -41,7 +41,7 @@ main reactor {
     std::string filename;
 
        // Open temp.txt to read the filename
-       std::ifstream tempFile("../temp.txt");
+       std::ifstream tempFile("../temp1.txt");
 
        // Check if temp.txt was opened successfully
        if (!tempFile.is_open()) {
