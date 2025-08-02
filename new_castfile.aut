@@ -1,29 +1,172 @@
-des(0,28,25)
+State 1 : 1=1, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=20, heater_on=false, pointless=false
+State 2 : 2=2, temperature=20, outside_air_blowing=1, regulation=0, heating_active=false, sensedValue=20, heater_on=false, pointless=false
+State 3 : 3=3, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=20, heater_on=false, pointless=false
+State 4 : 4=4, temperature=20, outside_air_blowing=1, regulation=0, heating_active=false, sensedValue=20, heater_on=false, pointless=false
+State 5 : 5=5, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=20, heater_on=false, pointless=false
+State 6 : 6=6, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=false, pointless=false
+State 7 : 7=7, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=false
+State 8 : 8=8, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=true, pointless=false
+State 9 : 9=9, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=false, pointless=true
+State 10 : 10=10, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=false, pointless=false
+State 11 : 11=11, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=true
+State 12 : 12=12, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=false
+State 13 : 13=13, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=true, pointless=true
+State 14 : 14=14, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=false, pointless=false
+State 15 : 15=15, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=true, pointless=false
+State 16 : 16=16, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=false, pointless=true
+State 17 : 17=17, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=true
+State 18 : 18=18, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=true
+State 19 : 19=19, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=true, pointless=false
+State 20 : 20=20, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=false
+State 21 : 21=21, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=true, pointless=true
+State 22 : 22=22, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=false
+State 23 : 23=23, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=false
+State 24 : 24=24, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=true
+State 25 : 25=25, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=true
+State 26 : 26=26, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=false
+State 27 : 27=27, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=true
+State 28 : 28=28, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=false
+State 29 : 29=29, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=false
+State 30 : 30=30, temperature=20, outside_air_blowing=1, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=true
+State 31 : 31=31, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=true
+State 32 : 32=32, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=true
+State 33 : 33=33, temperature=21, outside_air_blowing=0, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=true
+State 34 : 34=34, temperature=20, outside_air_blowing=1, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=false
+State 35 : 35=35, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=false
+State 36 : 36=36, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=true
+State 37 : 37=37, temperature=21, outside_air_blowing=0, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=true
+State 38 : 38=38, temperature=20, outside_air_blowing=1, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=false
+State 39 : 39=39, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=false
+State 40 : 40=40, temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=true
+State 41 : 41=41, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=true, pointless=true
+State 42 : 42=42, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=false, pointless=true
+State 43 : 43=43, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=true, pointless=true
+State 44 : 44=44, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=true, pointless=false
+State 45 : 45=45, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=true
+State 46 : 46=46, temperature=20, outside_air_blowing=1, regulation=0, heating_active=false, sensedValue=21, heater_on=false, pointless=true
+State 47 : 47=47, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=false, pointless=false
+State 48 : 48=48, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=true, pointless=true
+State 49 : 49=49, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=true
+State 50 : 50=50, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=false, pointless=true
+State 51 : 51=51, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=false, pointless=true
+State 52 : 52=52, temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=true, pointless=true
+State 53 : 53=53, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=false, pointless=true
+State 54 : 54=54, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=true, pointless=false
+State 55 : 55=55, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=false, pointless=false
+State 56 : 56=56, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=false
+State 57 : 57=57, temperature=21, outside_air_blowing=0, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=false
+State 58 : 58=58, temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=false
+State 59 : 59=59, temperature=21, outside_air_blowing=0, regulation=1, heating_active=true, sensedValue=20, heater_on=true, pointless=false
+State 60 : 60=60, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=true, pointless=false
+State 61 : 61=61, temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=false, pointless=false
+NUBMER OF STATES: 77 NUBMER OF TRANSITIONS: 110
 (0,"room.tempchange[].[_20_1]",1)
 (0,"room.tempchange[].[]",2)
 (1,"sensor.gettemp[20].[]",3)
 (2,"sensor.gettemp[21].[]",4)
 (3,"controller.getsense[20].[]",5)
 (4,"controller.getsense[21].[]",6)
-(5,"hc_unit.activateh[].[]",8)
-(6,"time +=10",7)
-(7,"room.tempchange[].[_20_1]",11)
-(7,"room.tempchange[].[]",12)
-(8,"room.regulate[1].[]",9)
-(9,"time +=10",10)
-(10,"room.tempchange[].[]",13)
-(10,"room.tempchange[].[_21_0]",14)
-(11,"sensor.gettemp[20].[]",15)
-(12,"sensor.gettemp[21].[]",16)
-(13,"sensor.gettemp[20].[]",19)
-(14,"sensor.gettemp[21].[]",17)
-(15,"controller.getsense[20].[]",21)
-(16,"controller.getsense[21].[]",22)
-(17,"controller.getsense[21].[]",18)
-(18,"hc_unit.switchoff[].[]",20)
-(19,"controller.getsense[20].[]",23)
-(20,"room.regulate[0].[]",24)
-(21,"@[10>>10]",5)
-(22,"@[10>>10]",6)
-(23,"@[10>>10]",9)
-(24,"@[10>>10]",6)
+(5,"hc_unit.activateh[].[]",7)
+(5,"meaningless.start[].[]",8)
+(5,"meaningless.finish[].[]",9)
+(6,"meaningless.start[].[]",10)
+(6,"meaningless.finish[].[]",11)
+(7,"room.regulate[1].[]",25)
+(7,"meaningless.start[].[]",12)
+(7,"meaningless.finish[].[]",14)
+(8,"hc_unit.activateh[].[]",12)
+(8,"meaningless.finish[].[]",13)
+(9,"hc_unit.activateh[].[]",14)
+(9,"meaningless.start[].[]",15)
+(10,"meaningless.finish[].[]",27)
+(11,"meaningless.start[].[]",16)
+(12,"room.regulate[1].[]",26)
+(12,"meaningless.finish[].[]",18)
+(13,"hc_unit.activateh[].[]",18)
+(14,"room.regulate[1].[]",19)
+(14,"meaningless.start[].[]",20)
+(15,"hc_unit.activateh[].[]",20)
+(16,"time +=10",17)
+(17,"room.tempchange[].[_20_1]",29)
+(17,"room.tempchange[].[]",30)
+(18,"room.regulate[1].[]",21)
+(19,"meaningless.start[].[]",23)
+(20,"room.regulate[1].[]",23)
+(21,"time +=10",22)
+(22,"room.tempchange[].[]",55)
+(22,"room.tempchange[].[_21_0]",56)
+(23,"time +=10",24)
+(24,"room.tempchange[].[]",31)
+(24,"room.tempchange[].[_21_0]",32)
+(25,"meaningless.start[].[]",26)
+(25,"meaningless.finish[].[]",19)
+(26,"meaningless.finish[].[]",21)
+(27,"time +=10",28)
+(28,"room.tempchange[].[_20_1]",33)
+(28,"room.tempchange[].[]",34)
+(29,"sensor.gettemp[20].[]",45)
+(30,"sensor.gettemp[21].[]",35)
+(31,"sensor.gettemp[20].[]",44)
+(32,"sensor.gettemp[21].[]",36)
+(33,"sensor.gettemp[20].[]",37)
+(34,"sensor.gettemp[21].[]",38)
+(35,"controller.getsense[21].[]",39)
+(36,"controller.getsense[21].[]",40)
+(37,"controller.getsense[20].[]",61)
+(38,"controller.getsense[21].[]",62)
+(39,"meaningless.start[].[]",63)
+(39,"meaningless.finish[].[]",64)
+(40,"hc_unit.switchoff[].[]",41)
+(40,"meaningless.start[].[]",42)
+(40,"meaningless.finish[].[]",43)
+(41,"room.regulate[0].[]",39)
+(41,"meaningless.start[].[]",52)
+(41,"meaningless.finish[].[]",46)
+(42,"hc_unit.switchoff[].[]",52)
+(42,"meaningless.finish[].[]",53)
+(43,"hc_unit.switchoff[].[]",46)
+(43,"meaningless.start[].[]",47)
+(44,"controller.getsense[20].[]",48)
+(45,"controller.getsense[20].[]",49)
+(46,"room.regulate[0].[]",65)
+(46,"meaningless.start[].[]",50)
+(47,"hc_unit.switchoff[].[]",50)
+(48,"meaningless.start[].[]",66)
+(48,"meaningless.finish[].[]",67)
+(49,"hc_unit.activateh[].[]",51)
+(49,"meaningless.start[].[]",68)
+(49,"meaningless.finish[].[]",69)
+(50,"room.regulate[0].[]",70)
+(51,"room.regulate[1].[]",48)
+(51,"meaningless.start[].[]",71)
+(51,"meaningless.finish[].[]",72)
+(52,"room.regulate[0].[]",73)
+(52,"meaningless.finish[].[]",54)
+(53,"hc_unit.switchoff[].[]",54)
+(54,"room.regulate[0].[]",74)
+(55,"sensor.gettemp[20].[]",57)
+(56,"sensor.gettemp[21].[]",58)
+(57,"controller.getsense[20].[]",75)
+(58,"controller.getsense[21].[]",59)
+(59,"hc_unit.switchoff[].[]",60)
+(59,"meaningless.start[].[]",42)
+(59,"meaningless.finish[].[]",43)
+(60,"room.regulate[0].[]",76)
+(60,"meaningless.start[].[]",52)
+(60,"meaningless.finish[].[]",46)
+(61,"@[10>>10]",5)
+(62,"@[10>>10]",6)
+(63,"@[10>>10]",10)
+(64,"@[10>>10]",11)
+(65,"@[10>>10]",11)
+(66,"@[10>>10]",26)
+(67,"@[10>>10]",19)
+(68,"@[10>>10]",8)
+(69,"@[10>>10]",9)
+(70,"@[10>>10]",16)
+(71,"@[10>>10]",12)
+(72,"@[10>>10]",14)
+(73,"@[10>>10]",10)
+(74,"@[10>>10]",27)
+(75,"@[10>>10]",25)
+(76,"@[10>>10]",6)
