@@ -650,24 +650,24 @@ main reactor {
                    }
     	}
     	*/
-	// 		for (int i = 0; i < state_Id.size(); ++i) {
+			for (int i = 0; i < state_Id.size(); ++i) {
 
-	// /* ---------- NEW DEBUG BLOCK ---------- */
-	// // 1. Find the row that belongs to this state.
-	// //    For every *original* Rebeca state the row index is the same
-	// //    number as its place in state_Id.  (Synthetic time-shift
-	// //    states have no variable table, so guard against overflow.)
-	// if (i <= index) {                       // <-- `index` is last real state
-	// std::cout << "State " << stateId_varValue[i][0] << " : ";
-	// for (size_t v = 0; v < stateId_varName[i].size(); ++v) {
-	// std::cout << stateId_varName[i][v] << '='
-	// << stateId_varValue[i][v];
-	// if (v + 1 < stateId_varName[i].size()) std::cout << ", ";
-	// }
-	// std::cout << '\n';
-	// }
-	// /* -------- END DEBUG BLOCK ------------ */
-	// }
+	/* ---------- NEW DEBUG BLOCK ---------- */
+	// 1. Find the row that belongs to this state.
+	//    For every *original* Rebeca state the row index is the same
+	//    number as its place in state_Id.  (Synthetic time-shift
+	//    states have no variable table, so guard against overflow.)
+	if (i <= index) {                       // <-- `index` is last real state
+	std::cout << "State " << stateId_varValue[i][0]-1 << " : ";
+	for (size_t v = 1; v < stateId_varName[i].size(); ++v) {
+	std::cout << stateId_varName[i][v] << '='
+	<< stateId_varValue[i][v];
+	if (v + 1 < stateId_varName[i].size()) std::cout << ", ";
+	}
+	std::cout << '\n';
+	}
+	/* -------- END DEBUG BLOCK ------------ */
+	}
 
 
     	//print out the state transition system with time shift transitions

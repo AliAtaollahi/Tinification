@@ -708,8 +708,8 @@ void castfunction_variables::Inner::reaction_1([[maybe_unused]] const reactor::S
   //    number as its place in state_Id.  (Synthetic time-shift
   //    states have no variable table, so guard against overflow.)
   if (i <= index) {                       // <-- `index` is last real state
-  std::cout << "State " << stateId_varValue[i][0] << " : ";
-  for (size_t v = 0; v < stateId_varName[i].size(); ++v) {
+  std::cout << "State " << stateId_varValue[i][0]-1 << " : ";
+  for (size_t v = 1; v < stateId_varName[i].size(); ++v) {
   std::cout << stateId_varName[i][v] << '='
   << stateId_varValue[i][v];
   if (v + 1 < stateId_varName[i].size()) std::cout << ", ";

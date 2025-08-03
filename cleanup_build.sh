@@ -21,24 +21,24 @@ lfc castfunction_variables.lf >/dev/null 2>&1
 echo "BRTTS generated"
 
 cd ..
-sed -i '1,2d'  castfile.aut
+#sed -i '1,2d'  castfile.aut
 
 file="castfile.aut"
 
 # Extract the number of states and transitions from the first line
-first_line=$(head -n 1 "$file")
+#first_line=$(head -n 1 "$file")
 
 # Get the number of states (the first number after "NUMBER OF STATES:")
-number_of_states=$(echo "$first_line" | awk -F ' ' '{print $4}')
+#number_of_states=$(echo "$first_line" | awk -F ' ' '{print $4}')
 
 # Get the number of transitions (the first number after "NUMBER OF TRANSITIONS:")
-number_of_transitions=$(echo "$first_line" | awk -F ' ' '{print $8}')
+#number_of_transitions=$(echo "$first_line" | awk -F ' ' '{print $8}')
 
 # Prepare the new first line with the des format
-new_first_line="des(0,$number_of_transitions,$number_of_states)"
+#new_first_line="des(0,$number_of_transitions,$number_of_states)"
 
 # Replace the first line with the new line
-sed -i "1s/.*/$new_first_line/" "$file"
+#sed -i "1s/.*/$new_first_line/" "$file"
 python3 mender.py >/dev/null 2>&1
 
 echo -e "../new_castfile.aut">"temp.txt"
