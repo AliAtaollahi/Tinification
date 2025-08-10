@@ -63,7 +63,7 @@ def write_like_original(ts_dict, out_path):
         xml = '<?xml version="1.0" encoding="utf-8"?>\n' + xml
 
     pathlib.Path(out_path).write_text(xml, encoding="utf-8")
-    print("✓ wrote", out_path)
+    #print("✓ wrote", out_path)
 
 
 
