@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen"
+CMAKE_SOURCE_DIR = "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build"
+CMAKE_BINARY_DIR = "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build"
 
 # Include any dependencies generated for this target.
 include castfunction_variables/CMakeFiles/castfunction_variables.dir/depend.make
@@ -70,46 +70,46 @@ include castfunction_variables/CMakeFiles/castfunction_variables.dir/progress.ma
 include castfunction_variables/CMakeFiles/castfunction_variables.dir/flags.make
 
 castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o: castfunction_variables/CMakeFiles/castfunction_variables.dir/flags.make
-castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/castfunction_variables.cc
+castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/castfunction_variables.cc
 castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o: castfunction_variables/CMakeFiles/castfunction_variables.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o -MF CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o.d -o CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/castfunction_variables.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o"
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o -MF CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o.d -o CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/castfunction_variables.cc"
 
 castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.i"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/castfunction_variables.cc" > CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.i
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/castfunction_variables.cc" > CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.i
 
 castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.s"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/castfunction_variables.cc" -o CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.s
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/castfunction_variables.cc" -o CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.s
 
 castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o: castfunction_variables/CMakeFiles/castfunction_variables.dir/flags.make
-castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/_lf_preamble.cc
+castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/_lf_preamble.cc
 castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o: castfunction_variables/CMakeFiles/castfunction_variables.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o -MF CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o.d -o CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/_lf_preamble.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o"
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o -MF CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o.d -o CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/_lf_preamble.cc"
 
 castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.i"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/_lf_preamble.cc" > CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.i
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/_lf_preamble.cc" > CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.i
 
 castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.s"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/_lf_preamble.cc" -o CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.s
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/castfunction_variables/_lf_preamble.cc" -o CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.s
 
 castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.o: castfunction_variables/CMakeFiles/castfunction_variables.dir/flags.make
-castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/main.cc
+castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/main.cc
 castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.o: castfunction_variables/CMakeFiles/castfunction_variables.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.o"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.o -MF CMakeFiles/castfunction_variables.dir/main.cc.o.d -o CMakeFiles/castfunction_variables.dir/main.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/main.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.o"
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.o -MF CMakeFiles/castfunction_variables.dir/main.cc.o.d -o CMakeFiles/castfunction_variables.dir/main.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/main.cc"
 
 castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/castfunction_variables.dir/main.cc.i"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/main.cc" > CMakeFiles/castfunction_variables.dir/main.cc.i
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/main.cc" > CMakeFiles/castfunction_variables.dir/main.cc.i
 
 castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/castfunction_variables.dir/main.cc.s"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables/main.cc" -o CMakeFiles/castfunction_variables.dir/main.cc.s
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables/main.cc" -o CMakeFiles/castfunction_variables.dir/main.cc.s
 
 # Object files for target castfunction_variables
 castfunction_variables_OBJECTS = \
@@ -126,18 +126,18 @@ castfunction_variables/castfunction_variables: castfunction_variables/CMakeFiles
 castfunction_variables/castfunction_variables: castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make
 castfunction_variables/castfunction_variables: reactor-cpp-default/lib/libreactor-cpp-default.so.0.0.1
 castfunction_variables/castfunction_variables: castfunction_variables/CMakeFiles/castfunction_variables.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable castfunction_variables"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/castfunction_variables.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable castfunction_variables"
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/castfunction_variables.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 castfunction_variables/CMakeFiles/castfunction_variables.dir/build: castfunction_variables/castfunction_variables
 .PHONY : castfunction_variables/CMakeFiles/castfunction_variables.dir/build
 
 castfunction_variables/CMakeFiles/castfunction_variables.dir/clean:
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" && $(CMAKE_COMMAND) -P CMakeFiles/castfunction_variables.dir/cmake_clean.cmake
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" && $(CMAKE_COMMAND) -P CMakeFiles/castfunction_variables.dir/cmake_clean.cmake
 .PHONY : castfunction_variables/CMakeFiles/castfunction_variables.dir/clean
 
 castfunction_variables/CMakeFiles/castfunction_variables.dir/depend:
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables/CMakeFiles/castfunction_variables.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables/CMakeFiles/castfunction_variables.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : castfunction_variables/CMakeFiles/castfunction_variables.dir/depend
 

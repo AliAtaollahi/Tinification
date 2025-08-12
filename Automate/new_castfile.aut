@@ -1,52 +1,27 @@
-Loading a state transition system (LTS)!
-Please enter your file name (*.statespace) with directory path (e.g., /Users/fmi04/src-gen/bin/RV-Example.statespace): 
-State 1 : temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=20, heater_on=false
-State 2 : temperature=20, outside_air_blowing=1, regulation=0, heating_active=false, sensedValue=20, heater_on=false
-State 3 : temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=20, heater_on=false
-State 4 : temperature=20, outside_air_blowing=1, regulation=0, heating_active=false, sensedValue=20, heater_on=false
-State 5 : temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=20, heater_on=false
-State 6 : temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=false
-State 7 : temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false
-State 8 : temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false
-State 9 : temperature=20, outside_air_blowing=1, regulation=0, heating_active=true, sensedValue=20, heater_on=true
-State 10 : temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true
-State 11 : temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true
-State 12 : temperature=20, outside_air_blowing=1, regulation=0, heating_active=false, sensedValue=21, heater_on=false
-State 13 : temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false
-State 14 : temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true
-State 15 : temperature=21, outside_air_blowing=0, regulation=1, heating_active=true, sensedValue=20, heater_on=true
-State 16 : temperature=20, outside_air_blowing=1, regulation=0, heating_active=false, sensedValue=21, heater_on=false
-State 17 : temperature=20, outside_air_blowing=1, regulation=1, heating_active=true, sensedValue=20, heater_on=true
-State 18 : temperature=21, outside_air_blowing=0, regulation=1, heating_active=true, sensedValue=20, heater_on=true
-State 19 : temperature=21, outside_air_blowing=0, regulation=0, heating_active=false, sensedValue=21, heater_on=false
-State 20 : temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=true
-State 21 : temperature=21, outside_air_blowing=0, regulation=1, heating_active=false, sensedValue=21, heater_on=false
-NUBMER OF STATES: 25 NUBMER OF TRANSITIONS: 28
-(0,"room.tempchange[].[_20_1]",1)
-(0,"room.tempchange[].[]",2)
-(1,"sensor.gettemp[20].[]",3)
-(2,"sensor.gettemp[21].[]",4)
-(3,"controller.getsense[20].[]",5)
-(4,"controller.getsense[21].[]",6)
-(5,"hc_unit.activateh[].[]",8)
-(6,"time +=10",7)
-(7,"room.tempchange[].[_20_1]",11)
-(7,"room.tempchange[].[]",12)
-(8,"room.regulate[1].[]",9)
-(9,"time +=10",10)
-(10,"room.tempchange[].[]",13)
-(10,"room.tempchange[].[_21_0]",14)
-(11,"sensor.gettemp[20].[]",15)
-(12,"sensor.gettemp[21].[]",18)
-(13,"sensor.gettemp[20].[]",16)
-(14,"sensor.gettemp[21].[]",17)
-(15,"controller.getsense[20].[]",21)
-(16,"controller.getsense[20].[]",22)
+des(0,26,23)
+(1,"room.tempchange[].[_20_1]",4)
+(1,"room.tempchange[].[]",12)
+(4,"sensor.gettemp[20].[]",16)
+(12,"sensor.gettemp[21].[]",17)
+(16,"controller.getsense[20].[]",18)
 (17,"controller.getsense[21].[]",19)
-(18,"controller.getsense[21].[]",23)
-(19,"hc_unit.switchoff[].[]",20)
-(20,"room.regulate[0].[]",24)
-(21,"@[10>>10]",5)
-(22,"@[10>>10]",9)
-(23,"@[10>>10]",6)
-(24,"@[10>>10]",6)
+(18,"hc_unit.activateh[].[]",20)
+(19,"time +=10",0)
+(20,"room.regulate[1].[]",2)
+(0,"room.tempchange[].[_20_1]",5)
+(0,"room.tempchange[].[]",6)
+(2,"time +=10",3)
+(3,"room.tempchange[].[_true]",7)
+(3,"room.tempchange[].[_21_0_true]",8)
+(5,"sensor.gettemp[20].[]",11)
+(6,"sensor.gettemp[21].[]",9)
+(7,"sensor.gettemp[20].[]",15)
+(8,"sensor.gettemp[21].[]",10)
+(9,"controller.getsense[21].[]",19)
+(10,"controller.getsense[21].[]",13)
+(11,"controller.getsense[20].[]",21)
+(13,"hc_unit.switchoff[].[]",14)
+(14,"room.regulate[0].[]",22)
+(15,"controller.getsense[20].[]",2)
+(21,"@[10>>10]",18)
+(22,"@[10>>10]",19)

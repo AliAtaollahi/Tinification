@@ -1,9 +1,9 @@
 reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.o: \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/assert.cc \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/lib/assert.cc \
  /usr/include/stdc-predef.h \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/assert.hh \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/build/reactor-cpp-default/include/reactor-cpp/config.hh \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/fwd.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/assert.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/build/reactor-cpp-default/include/reactor-cpp/config.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/fwd.hh \
  /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -172,22 +172,22 @@ reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.o: \
  /usr/include/c++/11/bits/istream.tcc \
  /usr/include/c++/11/bits/sstream.tcc /usr/include/execinfo.h \
  /usr/include/c++/11/iostream \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/environment.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/environment.hh \
  /usr/include/c++/11/set /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/connection_properties.hh \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/fwd.hh \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/logical_time.hh \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/time.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/connection_properties.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/fwd.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/logical_time.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/time.hh \
  /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
  /usr/include/c++/11/limits /usr/include/c++/11/ctime \
  /usr/include/c++/11/bits/parse_numbers.h \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/graph.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/graph.hh \
  /usr/include/c++/11/map /usr/include/c++/11/bits/stl_map.h \
  /usr/include/c++/11/bits/stl_multimap.h /usr/include/c++/11/optional \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/logging.hh \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/time.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/logging.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/time.hh \
  /usr/include/c++/11/memory \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
  /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
@@ -204,13 +204,13 @@ reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.o: \
  /usr/include/c++/11/pstl/execution_defs.h /usr/include/c++/11/mutex \
  /usr/include/c++/11/bits/std_mutex.h \
  /usr/include/c++/11/bits/unique_lock.h \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/scheduler.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/scheduler.hh \
  /usr/include/c++/11/condition_variable /usr/include/c++/11/future \
  /usr/include/c++/11/atomic /usr/include/c++/11/bits/atomic_futex.h \
  /usr/include/c++/11/bits/std_thread.h /usr/include/c++/11/shared_mutex \
  /usr/include/c++/11/thread /usr/include/c++/11/bits/this_thread_sleep.h \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/assert.hh \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/safe_vector.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/assert.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/safe_vector.hh \
  /usr/include/c++/11/cstddef \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/semaphore.hh \
- /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/reactor_element.hh
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/semaphore.hh \
+ /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/reactor_element.hh

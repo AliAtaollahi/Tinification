@@ -1,8 +1,8 @@
-# Install script for directory: /home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/src-gen/castfunction_variables
+# Install script for directory: /home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen/castfunction_variables
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables")
+  set(CMAKE_INSTALL_PREFIX "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,7 +43,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE OPTIONAL MESSAGE_NEVER FILES "/home/vboxuser/Downloads/MyExample (copy)/Tinification/castfunction_variables/build/castfunction_variables/castfunction_variables")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE OPTIONAL MESSAGE_NEVER FILES "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables/castfunction_variables")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/castfunction_variables" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/castfunction_variables")
     if(CMAKE_INSTALL_DO_STRIP)

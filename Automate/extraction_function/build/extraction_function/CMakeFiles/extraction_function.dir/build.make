@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen"
+CMAKE_SOURCE_DIR = "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build"
+CMAKE_BINARY_DIR = "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build"
 
 # Include any dependencies generated for this target.
 include extraction_function/CMakeFiles/extraction_function.dir/depend.make
@@ -70,46 +70,46 @@ include extraction_function/CMakeFiles/extraction_function.dir/progress.make
 include extraction_function/CMakeFiles/extraction_function.dir/flags.make
 
 extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o: extraction_function/CMakeFiles/extraction_function.dir/flags.make
-extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/extraction_function/src-gen/extraction_function/extraction_function/extraction_function.cc
+extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/extraction_function/extraction_function.cc
 extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o: extraction_function/CMakeFiles/extraction_function.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o -MF CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o.d -o CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/extraction_function/extraction_function/extraction_function.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o"
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o -MF CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o.d -o CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/extraction_function/extraction_function.cc"
 
 extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.i"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/extraction_function/extraction_function/extraction_function.cc" > CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.i
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/extraction_function/extraction_function.cc" > CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.i
 
 extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.s"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/extraction_function/extraction_function/extraction_function.cc" -o CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.s
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/extraction_function/extraction_function.cc" -o CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.s
 
 extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o: extraction_function/CMakeFiles/extraction_function.dir/flags.make
-extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/extraction_function/src-gen/extraction_function/extraction_function/_lf_preamble.cc
+extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/extraction_function/_lf_preamble.cc
 extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o: extraction_function/CMakeFiles/extraction_function.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o -MF CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o.d -o CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/extraction_function/extraction_function/_lf_preamble.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o"
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o -MF CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o.d -o CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/extraction_function/_lf_preamble.cc"
 
 extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.i"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/extraction_function/extraction_function/_lf_preamble.cc" > CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.i
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/extraction_function/_lf_preamble.cc" > CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.i
 
 extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.s"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/extraction_function/extraction_function/_lf_preamble.cc" -o CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.s
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/extraction_function/_lf_preamble.cc" -o CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.s
 
 extraction_function/CMakeFiles/extraction_function.dir/main.cc.o: extraction_function/CMakeFiles/extraction_function.dir/flags.make
-extraction_function/CMakeFiles/extraction_function.dir/main.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/extraction_function/src-gen/extraction_function/main.cc
+extraction_function/CMakeFiles/extraction_function.dir/main.cc.o: /home/vboxuser/Downloads/MyExample\ (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/main.cc
 extraction_function/CMakeFiles/extraction_function.dir/main.cc.o: extraction_function/CMakeFiles/extraction_function.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object extraction_function/CMakeFiles/extraction_function.dir/main.cc.o"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT extraction_function/CMakeFiles/extraction_function.dir/main.cc.o -MF CMakeFiles/extraction_function.dir/main.cc.o.d -o CMakeFiles/extraction_function.dir/main.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/extraction_function/main.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object extraction_function/CMakeFiles/extraction_function.dir/main.cc.o"
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT extraction_function/CMakeFiles/extraction_function.dir/main.cc.o -MF CMakeFiles/extraction_function.dir/main.cc.o.d -o CMakeFiles/extraction_function.dir/main.cc.o -c "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/main.cc"
 
 extraction_function/CMakeFiles/extraction_function.dir/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/extraction_function.dir/main.cc.i"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/extraction_function/main.cc" > CMakeFiles/extraction_function.dir/main.cc.i
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/main.cc" > CMakeFiles/extraction_function.dir/main.cc.i
 
 extraction_function/CMakeFiles/extraction_function.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/extraction_function.dir/main.cc.s"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/extraction_function/main.cc" -o CMakeFiles/extraction_function.dir/main.cc.s
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function/main.cc" -o CMakeFiles/extraction_function.dir/main.cc.s
 
 # Object files for target extraction_function
 extraction_function_OBJECTS = \
@@ -126,18 +126,18 @@ extraction_function/extraction_function: extraction_function/CMakeFiles/extracti
 extraction_function/extraction_function: extraction_function/CMakeFiles/extraction_function.dir/build.make
 extraction_function/extraction_function: reactor-cpp-default/lib/libreactor-cpp-default.so.0.0.1
 extraction_function/extraction_function: extraction_function/CMakeFiles/extraction_function.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable extraction_function"
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/extraction_function.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable extraction_function"
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/extraction_function.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 extraction_function/CMakeFiles/extraction_function.dir/build: extraction_function/extraction_function
 .PHONY : extraction_function/CMakeFiles/extraction_function.dir/build
 
 extraction_function/CMakeFiles/extraction_function.dir/clean:
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" && $(CMAKE_COMMAND) -P CMakeFiles/extraction_function.dir/cmake_clean.cmake
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" && $(CMAKE_COMMAND) -P CMakeFiles/extraction_function.dir/cmake_clean.cmake
 .PHONY : extraction_function/CMakeFiles/extraction_function.dir/clean
 
 extraction_function/CMakeFiles/extraction_function.dir/depend:
-	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/extraction_function" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/extraction_function/CMakeFiles/extraction_function.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function" "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function/CMakeFiles/extraction_function.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : extraction_function/CMakeFiles/extraction_function.dir/depend
 

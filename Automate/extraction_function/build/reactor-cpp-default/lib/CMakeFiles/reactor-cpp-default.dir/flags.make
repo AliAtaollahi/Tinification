@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -Dreactor_cpp_default_EXPORTS
 
-CXX_INCLUDES = -I"/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/reactor-cpp-default/include" -I"/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/build/reactor-cpp-default/include" -I"/home/vboxuser/Downloads/MyExample (copy)/Tinification/extraction_function/src-gen/reactor-cpp-default/lib/src"
+CXX_INCLUDES = -I"/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/reactor-cpp-default/include" -I"/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/reactor-cpp-default/include" -I"/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/reactor-cpp-default/lib/src"
 
 CXX_FLAGS = -g -fPIC -Wall -Wextra -pedantic -Werror -std=c++17
 

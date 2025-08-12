@@ -14,18 +14,32 @@ S6
 S7
 S8
 S9
-S0 -> S5[label="time +=10"];
-S9 -> S7[label="hc_unit.switchoff[].[]"];
-S8 -> S6[label="@[10>>10]"];
-S7 -> S0[label="@[10>>10]"];
-S6 -> S4[label="time +=10"];
-S2 -> S6[label="hc_unit.activateh[].[]"];
-S3 -> S8[label="hc_unit.activateh[].[]"];
-S3 -> S2[label="@[10>>10]"];
-S5 -> S3[label="controller.getsense[20].[]"];
-S5 -> S7[label="controller.getsense[21].[]"];
-S1 -> S2[label="controller.getsense[20].[]"];
-S1 -> S0[label="controller.getsense[21].[]"];
-S4 -> S8[label="controller.getsense[20].[]"];
-S4 -> S9[label="controller.getsense[21].[]"];
+S10
+S11
+S12
+S13
+S14
+S15
+S16
+S17
+S17 -> S13[label="sensor.gettemp[20].[]"];
+S0 -> S14[label="sensor.gettemp[20].[]"];
+S16 -> S11[label="sensor.gettemp[21].[]"];
+S15 -> S12[label="sensor.gettemp[21].[]"];
+S14 -> S2[label="controller.getsense[20].[]"];
+S13 -> S7[label="controller.getsense[20].[]"];
+S12 -> S4[label="controller.getsense[21].[]"];
+S11 -> S8[label="controller.getsense[21].[]"];
+S10 -> S6[label="hc_unit.activateh[].[]"];
+S8 -> S1[label="time +=10"];
+S7 -> S5[label="time +=10"];
+S6 -> S7[label="room.regulate[1].[]"];
+S5 -> S15[label="room.tempchange[].[_21_0_true]"];
+S5 -> S17[label="room.tempchange[].[_true]"];
+S4 -> S3[label="hc_unit.switchoff[].[]"];
+S3 -> S9[label="room.regulate[0].[]"];
+S9 -> S8[label="@[10>>10]"];
+S2 -> S10[label="@[10>>10]"];
+S1 -> S0[label="room.tempchange[].[_20_1]"];
+S1 -> S16[label="room.tempchange[].[]"];
 }
