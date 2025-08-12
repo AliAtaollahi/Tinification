@@ -92,69 +92,7 @@ def parse_msg(rname, m):
         "dl":   to_int(m["@deadline"]),
     }
 
-# ---------- 1)  read once -----------------------------------------------------
-with open("maw.xml") as f:
-    ts = xmltodict.parse(f.read())["transitionsystem"]
 
-# ---------- 2)  build shift_state --------------------------------------------
-shift_state = {}
-
-for st in as_list(ts["state"]):
-    sid = st["@id"]
-
-    # -- pick a rebec we do *not* ignore to read the global clock -------------
-    visible = [r for r in as_list(st.get("rebec"))
-               if r["@name"] not in IGNORE_REBECS]
-    if not visible:           # state contains only ignored rebecs → drop it
-        continue
-
-    global_now = to_int(visible[0].get("now"))
-    state_rec  = {"now": global_now, "rebecs": {}}
-
-    for rebec in as_list(st.get("rebec")):
-        rname = rebec["@name"]
-        if rname in IGNORE_REBECS:
-            continue                         # ← skip everything about it
-
-        # ---- local variables V_r -------------------------------------------
-        var_block = (rebec.get("statevariables") or {})
-        vars_map  = {v["@name"]: v["#text"]
-                     for v in as_list(var_block.get("variable"))}
-
-        # ---- scheduler data -------------------------------------------------
-        pc  = rebec.get("pc")
-        res = massage_res(rebec.get("res"))
-
-        # ---- bag / queue B_r  ----------------------------------------------
-        q    = rebec.get("queue")
-        msgs = [parse_msg(rname, m) for m in as_list(q.get("message"))] if q else []
-
-        # ---- final per-rebec record -----------------------------------------
-        state_rec["rebecs"][rname] = {
-            "pc": pc,
-            "res": res,
-            "vars": vars_map,
-            "bag_size": len(msgs),
-            "messages": msgs,
-        }
-
-    shift_state[sid] = state_rec
-
-# ---------- 3)  demo ----------------------------------------------------------
-example_sid = next(iter(shift_state))
-print(f"\n=== Canonical record for state {example_sid} ===")
-pprint.pp(shift_state[example_sid])
-
-print("\nController.sensedValue in state 1_0 →",
-      shift_state["1_0"]["rebecs"]["controller"]["vars"]["Controller.sensedValue"])
-
-# ---------------------------------------------------------------------------
-# 0)  Accept the "shift_state" map built in the previous step
-#     shift_state[sid] = { "now": int, "rebecs": { … } }
-#     (import or paste it here, or pass it in from another module)
-# ---------------------------------------------------------------------------
-# from build_shift_state import shift_state             # ← typical import
-# (for this demo I assume shift_state already exists)
 
 from collections import Counter, defaultdict
 
@@ -233,36 +171,7 @@ def shift_equivalent(stateA, stateB):
 
     return True, delta
 
-# ---------------------------------------------------------------------------
-# 4)  Build merge-classes -----------------------------------------------------
-classes = []                       # list[list[state-ids]]
-assigned = set()
 
-state_ids = list(shift_state.keys())
-for i, sid in enumerate(state_ids):
-    if sid in assigned:
-        continue
-    cls = [sid]                    # start a new equivalence class
-    assigned.add(sid)
-
-    for sid2 in state_ids[i + 1 :]:
-        if sid2 in assigned:
-            continue
-        eq, Δ = shift_equivalent(shift_state[sid], shift_state[sid2])
-        if eq:
-            cls.append(f"{sid2}  (Δ={Δ})")
-            assigned.add(sid2)
-
-    classes.append(cls)
-
-# ---------------------------------------------------------------------------
-# 5)  Pretty-print the result -------------------------------------------------
-print("\n=== Shift-equivalence classes ===")
-for idx, cls in enumerate(classes, 1):
-    print(f"Class {idx}: ", ", ".join(cls))
-    # ---------------------------------------------------------------------------
-# 6)  Collapse shift-equivalent states and rebuild the transition system
-# ---------------------------------------------------------------------------
 import copy
 from collections import OrderedDict
 
@@ -288,6 +197,10 @@ def merge_shift_equivalent(ts_root, classes):
         for sid in cls:
             rep_map[sid.split()[0]] = rep
 
+    # pprint.pprint(rep_map)
+    # print("*****************ts_root***********************")
+    # pprint.pprint(ts_root)
+    # print("*****************ts_root***********************")
     # ---------------------------------------------------- 6.2 clone the root
     new_ts = copy.deepcopy(ts_root)
 
@@ -302,9 +215,6 @@ def merge_shift_equivalent(ts_root, classes):
 
     new_ts["state"] = list(merged_states.values())
 
-    # ---------------------------------------------------- 6.4 rebuild <transition>
-    # ---------------------------------------------------- 6.4 rebuild <transition>
-       # ---------------------------------------------------- 6.4 rebuild <transition>
     def get_node_id(node):
         if node is None:
             return None
@@ -367,18 +277,162 @@ def merge_shift_equivalent(ts_root, classes):
         uniq[key] = new_tr
 
     new_ts["transition"] = list(uniq.values())
-    # ---- call it ---------------------------------------------------------------
-# If new_ts already has the right wrapper, just hand it in directly
-   # for st in new_ts["state"]:
-      #  st["rebec"] = [r for r in as_list(st["rebec"]) if r["@name"] != "meaningless"]
+    # Assuming new_ts['transition'] is your list of transitions
+    # Assuming new_ts['state'] and new_ts['transition'] are the original state and transition lists
+    states = new_ts['state']
+    transitions = new_ts['transition']
 
+    # Create a set to hold unique states (source + destination)
+    unique_states = set()
+
+    # Iterate through all transitions and add source and destination to the set
+    for transition in transitions:
+        source_state = transition.get('@source')
+        destination_state = transition.get('@destination')
+        
+        # Add source and destination states to the set
+        if source_state:
+            unique_states.add(source_state)
+        if destination_state:
+            unique_states.add(destination_state)
+
+    # Sort the states to ensure they are in a consistent order (optional)
+    sorted_states = sorted(unique_states)
+
+    # Create a mapping from the original state IDs to new numbers in the format '1_0', '2_0', etc.
+    state_mapping = {state: f"{i + 1}_0" for i, state in enumerate(sorted_states)}
+
+    # Now, update the states section with the new state numbers in the '1_0' format
+    for state in states:
+        old_state_id = state.get('@id')
+        if old_state_id in state_mapping:
+            state['@id'] = state_mapping[old_state_id]
+
+    # Update transitions with the new state numbers in the '1_0' format
+    for transition in transitions:
+        if '@source' in transition:
+            transition['@source'] = state_mapping.get(transition['@source'], transition['@source'])
+        if '@destination' in transition:
+            transition['@destination'] = state_mapping.get(transition['@destination'], transition['@destination'])
+
+    # Print the updated state section
+    print("**************** Updated states ****************")
+    pprint.pprint(states)
+    print("**************** End of updated states ****************")
+
+    # Print the updated transitions section
+    print("**************** Updated transitions ****************")
+    pprint.pprint(transitions)
+    print("**************** End of updated transitions ****************")
+    new_ts['state']=states
+    new_ts['transition']=transitions
+
+
+        # ---- call it ---------------------------------------------------------------
+    # If new_ts already has the right wrapper, just hand it in directly
+    # for st in new_ts["state"]:
+        #  st["rebec"] = [r for r in as_list(st["rebec"]) if r["@name"] != "meaningless"]
+
+     
     write_like_original({"transitionsystem": new_ts}, "maw_shift_merged.xml")
 
    
 
+# ---------- 1)  read once -----------------------------------------------------
+with open("maw.xml") as f:
+    ts = xmltodict.parse(f.read())["transitionsystem"]
+
+# ---------- 2)  build shift_state --------------------------------------------
+shift_state = {}
+
+for st in as_list(ts["state"]):
+    sid = st["@id"]
+
+    # -- pick a rebec we do *not* ignore to read the global clock -------------
+    visible = [r for r in as_list(st.get("rebec"))
+               if r["@name"] not in IGNORE_REBECS]
+    if not visible:           # state contains only ignored rebecs → drop it
+        continue
+
+    global_now = to_int(visible[0].get("now"))
+    state_rec  = {"now": global_now, "rebecs": {}}
+
+    for rebec in as_list(st.get("rebec")):
+        rname = rebec["@name"]
+        if rname in IGNORE_REBECS:
+            continue                         # ← skip everything about it
+
+        # ---- local variables V_r -------------------------------------------
+        var_block = (rebec.get("statevariables") or {})
+        vars_map  = {v["@name"]: v["#text"]
+                     for v in as_list(var_block.get("variable"))}
+
+        # ---- scheduler data -------------------------------------------------
+        pc  = rebec.get("pc")
+        res = massage_res(rebec.get("res"))
+
+        # ---- bag / queue B_r  ----------------------------------------------
+        q    = rebec.get("queue")
+        msgs = [parse_msg(rname, m) for m in as_list(q.get("message"))] if q else []
+
+        # ---- final per-rebec record -----------------------------------------
+        state_rec["rebecs"][rname] = {
+            "pc": pc,
+            "res": res,
+            "vars": vars_map,
+            "bag_size": len(msgs),
+            "messages": msgs,
+        }
+
+    shift_state[sid] = state_rec
+
+# ---------- 3)  demo ----------------------------------------------------------
+# example_sid = next(iter(shift_state))
+# print(f"\n=== Canonical record for state {example_sid} ===")
+# pprint.pp(shift_state[example_sid])
+
+# print("\nController.sensedValue in state 1_0 →",
+#       shift_state["1_0"]["rebecs"]["controller"]["vars"]["Controller.sensedValue"])
 
 # ---------------------------------------------------------------------------
+# 0)  Accept the "shift_state" map built in the previous step
+#     shift_state[sid] = { "now": int, "rebecs": { … } }
+#     (import or paste it here, or pass it in from another module)
+# ---------------------------------------------------------------------------
+# from build_shift_state import shift_state             # ← typical import
+# (for this demo I assume shift_state already exists)
+# ---------------------------------------------------------------------------
 # 7)  example usage – write the merged TS back to XML
+# ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# 4)  Build merge-classes -----------------------------------------------------
+classes = []                       # list[list[state-ids]]
+assigned = set()
+
+state_ids = list(shift_state.keys())
+for i, sid in enumerate(state_ids):
+    if sid in assigned:
+        continue
+    cls = [sid]                    # start a new equivalence class
+    assigned.add(sid)
+
+    for sid2 in state_ids[i + 1 :]:
+        if sid2 in assigned:
+            continue
+        eq, Δ = shift_equivalent(shift_state[sid], shift_state[sid2])
+        if eq:
+            cls.append(f"{sid2}  (Δ={Δ})")
+            assigned.add(sid2)
+
+    classes.append(cls)
+
+# ---------------------------------------------------------------------------
+# # 5)  Pretty-print the result -------------------------------------------------
+# print("\n=== Shift-equivalence classes ===")
+# for idx, cls in enumerate(classes, 1):
+#     print(f"Class {idx}: ", ", ".join(cls))
+    # ---------------------------------------------------------------------------
+# 6)  Collapse shift-equivalent states and rebuild the transition system
 # ---------------------------------------------------------------------------
 from xml.dom import minidom
 import xmltodict, pathlib

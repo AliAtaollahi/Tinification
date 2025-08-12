@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <transitionsystem>
-	<state id="1_0" atomicpropositions="">
+	<state id="2_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">21</variable>
@@ -50,7 +50,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="2_0" atomicpropositions="">
+	<state id="5_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">20</variable>
@@ -102,7 +102,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="3_0" atomicpropositions="">
+	<state id="13_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">21</variable>
@@ -154,7 +154,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="4_0" atomicpropositions="">
+	<state id="17_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">20</variable>
@@ -206,7 +206,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="5_0" atomicpropositions="">
+	<state id="18_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">21</variable>
@@ -258,7 +258,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="6_0" atomicpropositions="">
+	<state id="19_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">20</variable>
@@ -313,7 +313,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="7_0" atomicpropositions="">
+	<state id="20_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">21</variable>
@@ -366,7 +366,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="8_0" atomicpropositions="">
+	<state id="21_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">20</variable>
@@ -420,7 +420,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="18_0" atomicpropositions="">
+	<state id="1_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">21</variable>
@@ -470,7 +470,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="20_0" atomicpropositions="">
+	<state id="3_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">20</variable>
@@ -522,7 +522,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="23_0" atomicpropositions="">
+	<state id="4_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">20</variable>
@@ -572,7 +572,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="30_0" atomicpropositions="">
+	<state id="6_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">20</variable>
@@ -624,7 +624,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="31_0" atomicpropositions="">
+	<state id="7_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">21</variable>
@@ -676,7 +676,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="32_0" atomicpropositions="">
+	<state id="8_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">20</variable>
@@ -728,7 +728,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="33_0" atomicpropositions="">
+	<state id="9_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">21</variable>
@@ -780,7 +780,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="36_0" atomicpropositions="">
+	<state id="10_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">21</variable>
@@ -832,7 +832,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="37_0" atomicpropositions="">
+	<state id="11_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">21</variable>
@@ -884,7 +884,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="38_0" atomicpropositions="">
+	<state id="12_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">20</variable>
@@ -936,7 +936,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="41_0" atomicpropositions="">
+	<state id="14_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">21</variable>
@@ -991,7 +991,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="42_0" atomicpropositions="">
+	<state id="15_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">21</variable>
@@ -1045,7 +1045,7 @@
 			<res></res>
 		</rebec>
 	</state>
-	<state id="45_0" atomicpropositions="">
+	<state id="16_0" atomicpropositions="">
 		<rebec name="room">
 			<statevariables>
 				<variable name="Room.temperature" type="int">20</variable>
@@ -1097,28 +1097,28 @@
 			<res></res>
 		</rebec>
 	</state>
-	<transition source="1_0" destination="2_0" executionTime="0" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
-	<transition source="1_0" destination="3_0" executionTime="0" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
-	<transition source="2_0" destination="4_0" executionTime="0" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
-	<transition source="3_0" destination="5_0" executionTime="0" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
-	<transition source="4_0" destination="6_0" executionTime="0" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
-	<transition source="5_0" destination="7_0" executionTime="0" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
-	<transition source="6_0" destination="8_0" executionTime="0" shift="0"> <messageserver sender="controller" owner="hc_unit" title="ACTIVATEH"/></transition>
-	<transition source="7_0" destination="18_0" executionTime="0" shift="0"> <time value="10"/></transition>
-	<transition source="8_0" destination="20_0" executionTime="0" shift="0"> <messageserver sender="hc_unit" owner="room" title="REGULATE"/></transition>
-	<transition source="20_0" destination="23_0" executionTime="0" shift="0"> <time value="10"/></transition>
-	<transition source="18_0" destination="30_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
-	<transition source="18_0" destination="31_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
-	<transition source="23_0" destination="32_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
-	<transition source="23_0" destination="33_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
-	<transition source="31_0" destination="36_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
-	<transition source="33_0" destination="37_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
-	<transition source="30_0" destination="38_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
-	<transition source="36_0" destination="7_0" executionTime="10" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
-	<transition source="37_0" destination="41_0" executionTime="10" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
-	<transition source="38_0" destination="6_0" executionTime="10" shift="10"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
-	<transition source="41_0" destination="42_0" executionTime="10" shift="0"> <messageserver sender="controller" owner="hc_unit" title="SWITCHOFF"/></transition>
-	<transition source="32_0" destination="45_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
-	<transition source="45_0" destination="20_0" executionTime="10" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
-	<transition source="42_0" destination="7_0" executionTime="10" shift="10"> <messageserver sender="hc_unit" owner="room" title="REGULATE"/></transition>
+	<transition source="2_0" destination="5_0" executionTime="0" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+	<transition source="2_0" destination="13_0" executionTime="0" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+	<transition source="5_0" destination="17_0" executionTime="0" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+	<transition source="13_0" destination="18_0" executionTime="0" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+	<transition source="17_0" destination="19_0" executionTime="0" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+	<transition source="18_0" destination="20_0" executionTime="0" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+	<transition source="19_0" destination="21_0" executionTime="0" shift="0"> <messageserver sender="controller" owner="hc_unit" title="ACTIVATEH"/></transition>
+	<transition source="20_0" destination="1_0" executionTime="0" shift="0"> <time value="10"/></transition>
+	<transition source="21_0" destination="3_0" executionTime="0" shift="0"> <messageserver sender="hc_unit" owner="room" title="REGULATE"/></transition>
+	<transition source="3_0" destination="4_0" executionTime="0" shift="0"> <time value="10"/></transition>
+	<transition source="1_0" destination="6_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+	<transition source="1_0" destination="7_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+	<transition source="4_0" destination="8_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+	<transition source="4_0" destination="9_0" executionTime="10" shift="0"> <messageserver sender="room" owner="room" title="TEMPCHANGE"/></transition>
+	<transition source="7_0" destination="10_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+	<transition source="9_0" destination="11_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+	<transition source="6_0" destination="12_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+	<transition source="10_0" destination="20_0" executionTime="10" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+	<transition source="11_0" destination="14_0" executionTime="10" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+	<transition source="12_0" destination="19_0" executionTime="10" shift="10"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+	<transition source="14_0" destination="15_0" executionTime="10" shift="0"> <messageserver sender="controller" owner="hc_unit" title="SWITCHOFF"/></transition>
+	<transition source="8_0" destination="16_0" executionTime="10" shift="0"> <messageserver sender="room" owner="sensor" title="GETTEMP"/></transition>
+	<transition source="16_0" destination="3_0" executionTime="10" shift="0"> <messageserver sender="sensor" owner="controller" title="GETSENSE"/></transition>
+	<transition source="15_0" destination="20_0" executionTime="10" shift="10"> <messageserver sender="hc_unit" owner="room" title="REGULATE"/></transition>
 </transitionsystem>
