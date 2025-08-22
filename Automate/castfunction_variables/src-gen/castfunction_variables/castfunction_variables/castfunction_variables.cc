@@ -93,6 +93,7 @@ void castfunction_variables::Inner::reaction_1([[maybe_unused]] const reactor::S
         // Open temp.txt to read the filename
         std::ifstream tempFile("../temp1.txt");
   
+  
         // Check if temp.txt was opened successfully
         if (!tempFile.is_open()) {
             std::cout << "Failed to open temp.txt." << std::endl;
@@ -105,6 +106,8 @@ void castfunction_variables::Inner::reaction_1([[maybe_unused]] const reactor::S
         // Close temp.txt after reading the filename
         tempFile.close();
      	readFile.open(filename);
+  	#//cout<<"hi\n";
+  	//cout<<filename<<'\n';
      	if (!readFile.is_open()) {
            	 	exit(EXIT_FAILURE);
         	}

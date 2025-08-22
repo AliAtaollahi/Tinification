@@ -1,1 +1,1 @@
-rebedfiles/src/statespace.xml
+../example.statespace
