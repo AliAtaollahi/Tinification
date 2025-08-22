@@ -1,0 +1,58 @@
+digraph G {
+center = TRUE;
+mclimit = 10.0;
+nodesep = 0.05;
+node [ width=0.25, height=0.25, label="" ];
+S23 [ peripheries=2 ];
+S0
+S1
+S2
+S3
+S4
+S5
+S6
+S7
+S8
+S9
+S10
+S11
+S12
+S13
+S14
+S15
+S16
+S17
+S18
+S19
+S20
+S21
+S22
+S23
+S22 -> S15[label="sensor.gettemp[20].[]"];
+S0 -> S16[label="sensor.gettemp[20].[]"];
+S21 -> S17[label="sensor.gettemp[20].[]"];
+S20 -> S12[label="sensor.gettemp[21].[]"];
+S19 -> S13[label="sensor.gettemp[21].[]"];
+S18 -> S14[label="sensor.gettemp[21].[]"];
+S17 -> S8[label="controller.getsense[20].[]"];
+S16 -> S2[label="controller.getsense[20].[]"];
+S15 -> S11[label="controller.getsense[20].[]"];
+S14 -> S10[label="controller.getsense[21].[]"];
+S13 -> S4[label="controller.getsense[21].[]"];
+S12 -> S9[label="controller.getsense[21].[]"];
+S11 -> S6[label="hc_unit.activateh[].[]"];
+S9 -> S1[label="time +=10"];
+S7 -> S5[label="time +=10"];
+S6 -> S7[label="room.regulate[1].[]"];
+S5 -> S19[label="room.tempchange[].[_21_0]"];
+S5 -> S21[label="room.tempchange[].[]"];
+S4 -> S3[label="hc_unit.switchoff[].[]"];
+S3 -> S10[label="room.regulate[0].[]"];
+S10 -> S9[label="@[10>>10]"];
+S2 -> S11[label="@[10>>10]"];
+S8 -> S7[label="@[10>>10]"];
+S23 -> S22[label="room.tempchange[].[_20_1]"];
+S23 -> S20[label="room.tempchange[].[]"];
+S1 -> S18[label="room.tempchange[].[]"];
+S1 -> S0[label="room.tempchange[].[_20_1]"];
+}

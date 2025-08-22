@@ -8,12 +8,19 @@ if [ -z "$1" ] || [ -z "$2" ]; then
     echo "Error: Argument missing. Please provide the argument."
     exit 1
 fi
-
+cd rebecfiles/src
+java -jar rmc-2.14.jar -s "$1" -p "$3"  -o output_folder -v 2.1 -e TIMED_REBECA -x >/dev/null 2>&1
+g++ output_folder/*.cpp -w -o executable
+./executable > result
+rm ./executable result
+rm -rf output_folder
+cd ../..
+echo "statespace generated"    
 # Create a temporary file to hold the argument
 temp_file="temp1.txt"
 
 # Write the argument passed to the temp file
-echo -e "../$1" > "temp1.txt" 
+echo -e "rebedfiles/src/statespace.xml" > "temp1.txt" 
 cd castfunction_variables
 lfc castfunction_variables.lf >/dev/null 2>&1
 
@@ -50,7 +57,12 @@ lfc extraction_function.lf >/dev/null 2>&1
 ./bin/extraction_function > ../tau_actions.txt
 echo "LTS generated"
 cd ..
-sed -i '/<<\|>>/d' tau_actions.txt
+
+# Check for the 'consider-shift-tau' flag
+if [[ "$@" != *"consider-shift-tau"* ]]; then
+    # Only execute this line if the flag is NOT present
+    sed -i '/<<\|>>/d' tau_actions.txt
+fi
 python3 concat.py
 tau_content=$(cat tau_actions.txt)
 
@@ -59,5 +71,5 @@ ltsconvert --equivalence=weak-trace --tau="$tau_content" new_castfile.aut new_ca
 ltsconvert new_castfile_tinytwin.aut new.dot
 
 echo "TinyTwin generated"
-dot -Tpng new.dot -o result.png
-    
+dot -Tpng new.dot -o "$1.png"
+echo "png generated"    
