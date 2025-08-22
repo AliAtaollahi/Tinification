@@ -1,8 +1,8 @@
-# Install script for directory: /home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/reactor-cpp-default
+# Install script for directory: /media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/reactor-cpp-default
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function")
+  set(CMAKE_INSTALL_PREFIX "/media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/extraction_function")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,12 +43,12 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/reactor-cpp-default" TYPE DIRECTORY MESSAGE_NEVER FILES "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/reactor-cpp-default/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/reactor-cpp-default" TYPE DIRECTORY MESSAGE_NEVER FILES "/media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/reactor-cpp-default/include/")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/reactor-cpp-default/lib/cmake_install.cmake")
+  include("/media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/extraction_function/build/reactor-cpp-default/lib/cmake_install.cmake")
 
 endif()
 

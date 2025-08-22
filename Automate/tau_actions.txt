@@ -1,1 +1,1 @@
-room.tempchange[].[_20_1],room.tempchange[].[],sensor.gettemp[20].[],sensor.gettemp[21].[],room.regulate[1].[],room.tempchange[].[_true],room.tempchange[].[_21_0_true],room.regulate[0].[],
+room.tempchange[].[_20_1],room.tempchange[].[],sensor.gettemp[20].[],sensor.gettemp[21].[],room.regulate[1].[],room.tempchange[].[_21_0],room.regulate[0].[],

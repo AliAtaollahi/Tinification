@@ -1,8 +1,8 @@
-# Install script for directory: /home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen
+# Install script for directory: /media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/castfunction_variables/src-gen
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables")
+  set(CMAKE_INSTALL_PREFIX "/media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/castfunction_variables")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,8 +44,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/reactor-cpp-default/cmake_install.cmake")
-  include("/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables/cmake_install.cmake")
+  include("/media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/castfunction_variables/build/reactor-cpp-default/cmake_install.cmake")
+  include("/media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/castfunction_variables/build/castfunction_variables/cmake_install.cmake")
 
 endif()
 
@@ -57,5 +57,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/castfunction_variables/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/castfunction_variables/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

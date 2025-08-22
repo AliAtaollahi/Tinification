@@ -1,8 +1,8 @@
-# Install script for directory: /home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function
+# Install script for directory: /media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/extraction_function/src-gen/extraction_function
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function")
+  set(CMAKE_INSTALL_PREFIX "/media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/extraction_function")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,7 +43,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE OPTIONAL MESSAGE_NEVER FILES "/home/vboxuser/Downloads/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function/extraction_function")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE OPTIONAL MESSAGE_NEVER FILES "/media/vboxuser/8a7cb2fb-d46a-4d79-9e91-c35c5f59a64a/MyExample (copy)/Tinification/Automate/extraction_function/build/extraction_function/extraction_function")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/extraction_function" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/extraction_function")
     if(CMAKE_INSTALL_DO_STRIP)

@@ -52,9 +52,12 @@ echo "LTS generated"
 cd ..
 sed -i '/<<\|>>/d' tau_actions.txt
 python3 concat.py
-#tau_content=$(cat tau_actions.txt)
+tau_content=$(cat tau_actions.txt)
 
-ltsconvert --equivalence=weak-trace --tau="meaningless.finish[]" new_castfile.aut new_castfile_tinytwin.aut
+ltsconvert --equivalence=weak-trace --tau="$tau_content" new_castfile.aut new_castfile_tinytwin.aut
 
 ltsconvert new_castfile_tinytwin.aut new.dot
+
 echo "TinyTwin generated"
+dot -Tpng new.dot -o result.png
+    
