@@ -11,20 +11,11 @@ S3
 S4
 S5
 S6
-S7
-S8
-S9
-S7 -> S9[label="controller.getsense[21].[]"];
-S7 -> S4[label="controller.getsense[20].[]"];
-S0 -> S2[label="controller.getsense[21].[]"];
-S0 -> S1[label="controller.getsense[20].[]"];
-S6 -> S8[label="controller.getsense[21].[]"];
-S6 -> S5[label="controller.getsense[20].[]"];
-S5 -> S3[label="hc_unit.activateh[].[]"];
-S8 -> S7[label="time +=10"];
-S3 -> S0[label="time +=10"];
-S2 -> S9[label="hc_unit.switchoff[].[]"];
-S9 -> S8[label="@[10>>10]"];
-S1 -> S3[label="@[10>>10]"];
-S4 -> S5[label="@[10>>10]"];
+S6 -> S4[label="a.m1[].[]"];
+S0 -> S5[label="a.m1[].[]"];
+S5 -> S1[label="b.m2[].[]"];
+S4 -> S3[label="b.m2[].[]"];
+S3 -> S2[label="time +=2"];
+S2 -> S0[label="time +=8"];
+S1 -> S6[label="time +=10"];
 }

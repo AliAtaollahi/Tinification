@@ -41,8 +41,7 @@ main reactor {
     std::string filename;
 
        // Open temp.txt to read the filename
-       std::ifstream tempFile("../temp1.txt");
-
+       std::ifstream tempFile("../temp.txt");
 
        // Check if temp.txt was opened successfully
        if (!tempFile.is_open()) {
@@ -56,8 +55,6 @@ main reactor {
        // Close temp.txt after reading the filename
        tempFile.close();
     	readFile.open(filename);
-		#//cout<<"hi\n";
-		//cout<<filename<<'\n';
     	if (!readFile.is_open()) {
           	 	exit(EXIT_FAILURE);
        	}
@@ -418,109 +415,37 @@ main reactor {
 
 
 
-    		if(annotateVar == "Y"){ // && branch[i]=="YES"
-               if(ignoreListTrans.find(title) == std::string::npos){
-               //title = title + "_[";
+			if (annotateVar == "Y") {
+				// Try to swap the XML title with the actual queued message name (case-insensitive)
+				if (ignoreListTrans.find(title) == std::string::npos) {
+					for (int i = 0; i <= index; ++i) {
+						if (stateId_varValue[i][0] == srcNumber) {
+							for (int msg = 1; msg < (int)stateId_msg[i].size(); ++msg) {
+								std::string cand = stateId_msg[i][msg];
+								for (char &ch : cand) ch = std::tolower(static_cast<unsigned char>(ch));
+								if (cand.find(title) != std::string::npos) {
+									title = stateId_msg[i][msg];   // keep original form like m2()
+									break;
+								}
+							}
+							break;
+						}
+					}
+				}
 
-               //replace title of transition with msg from Q
-               for(int i = 0; i <= index; i++){
-                   if(stateId_varValue[i][0] == srcNumber){
-                      for(int msg = 1; msg < stateId_msg[i].size(); msg++){
-                       	for(char &ch : stateId_msg[i][msg]){
-           						ch = std::tolower(ch);
-       						}
-                       if(stateId_msg[i][msg].find(title) != std::string::npos){
-                           title = stateId_msg[i][msg];
-                           //std::cout << stateId_msg[i][msg]  + "    to     " + title << "\n";
-                           break;
-                   	}
-                   }
-                   }
-               }
+				// Build "owner.msg", normalize case, convert () -> [] on the message, then append ".[]"
+				title = owner + "." + title;
 
+				for (char &ch : title) ch = std::tolower(static_cast<unsigned char>(ch));
+				for (std::size_t k = 0; k < title.size(); ++k) {
+					if (title[k] == '(')      title[k] = '[';
+					else if (title[k] == ')') title[k] = ']';
+				}
 
-               for(int i = 0; i <= index; i++){
-                   if(stateId_varValue[i][0] == srcNumber){
+				// Always empty variable-annotation
+				title += ".[]";
+			}
 
-
-                       title = owner + "." + title + ".[";
-
-                       /*
-                       //replace title of transition with msg from Q
-                       for(int msg = 1; msg < stateId_msg[i].size(); msg++){
-                       if(stateId_msg[i][msg].find(title) == std::string::npos){
-
-                       }	else {
-
-                                       //std::string state_msg;
-
-                                       //if(title.find("tau=>") == std::string::npos){
-                                       //    state_msg = stateId_msg[i][1];
-                                       //} else {state_msg = "tau." + stateId_msg[i][1];}
-
-                                       //title = state_msg;
-
-                                       //title = stateId_msg[i][msg];
-                                       //std::cout << msg << ": ";
-                                       std::cout << stateId_msg[i][msg]  + "    to     " + title << "\n";
-                                       title = owner + "." + title + ".[";
-                                       break;
-                                  }
-                   	}
-                       */
-
-                       for(int m = 0; m <= index; m++){
-                           if(stateId_varValue[m][0] == destNumber){
-                               for(int v = 1; v < stateId_varValue[i].size(); v++){
-                                   if(stateId_varValue[i][v] != stateId_varValue[m][v] && branch_nondeter[i]=="YES"){
-                                      	 //consider ignore list
-                                      			if(ignoreList.find(stateId_varName[m][v]) == std::string::npos){
-                                           	//put values if transition is not in the igorelistTrans
-
-                                              	title = title + "_" + stateId_varValue[m][v];
-
-                                              	//if(branch_nondeter[i]=="YES"){
-                                               	//title = title + "B" + "_";
-                                          			 //}
-
-                                       } //else {
-                                           //title = title + "-," ;
-                                       //}
-                                   }
-                                   else {
-                                       if(title.find("[0") == std::string::npos){
-
-                                       }else{
-                                           title = title + "0" ;
-                                       }
-
-                                   }
-                               }
-
-                           }
-                       }
-
-                   }
-               }
-               	//if(branch_nondeter[i] != "YES"){
-                   //	title = title + "0";
-               	//}
-               	title = title + "]";
-               	for(char &ch : title){
-           				ch = std::tolower(ch);
-       			}
-
-       			for (int i = 1; i < title.size(); i++) {
-       				if (title[i] == '(') {
-          				 title[i] = '[';
-       				}
-       				if (title[i] == ')') {
-          				 title[i] = ']';
-       				}
-
-    			}
-               }
-    		}
 
 
     		/*
@@ -653,24 +578,6 @@ main reactor {
                    }
     	}
     	*/
-	// 		for (int i = 0; i < state_Id.size(); ++i) {
-
-	// /* ---------- NEW DEBUG BLOCK ---------- */
-	// // 1. Find the row that belongs to this state.
-	// //    For every *original* Rebeca state the row index is the same
-	// //    number as its place in state_Id.  (Synthetic time-shift
-	// //    states have no variable table, so guard against overflow.)
-	// if (i <= index) {                       // <-- `index` is last real state
-	// std::cout << "State " << stateId_varValue[i][0]-1 << " : ";
-	// for (size_t v = 1; v < stateId_varName[i].size(); ++v) {
-	// std::cout << stateId_varName[i][v] << '='
-	// << stateId_varValue[i][v];
-	// if (v + 1 < stateId_varName[i].size()) std::cout << ", ";
-	// }
-	// std::cout << '\n';
-	// }
-	// /* -------- END DEBUG BLOCK ------------ */
-	// }
 
 
     	//print out the state transition system with time shift transitions

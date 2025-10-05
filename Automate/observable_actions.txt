@@ -1,1 +1,1 @@
-getsense,activate,switch,time,(
+m1,m2,time

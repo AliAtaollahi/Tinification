@@ -1,1 +1,1 @@
-room.tempchange[].[_20_1],room.tempchange[].[],sensor.gettemp[20].[],sensor.gettemp[21].[],room.regulate[1].[],room.tempchange[].[_21_0],room.regulate[0].[],
+es(0,22,20),c.m3[].[],@[20>>20],@[22>>20],

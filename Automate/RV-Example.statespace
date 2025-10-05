@@ -1,0 +1,569 @@
+<transitionsystem>
+<state id="1_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="0" deadline="infinity" sender="a">m1()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<state id="2_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+			<message arrival="0" deadline="infinity" sender="a">m2()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="1_0" destination="2_0" executionTime="0" shift="0"> <messageserver sender="a" owner="a" title="M1"/></transition>
+<state id="3_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+			<message arrival="2" deadline="infinity" sender="b">m3()</message>
+		</queue>
+		<now>0</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<state id="4_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>2</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>2</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+			<message arrival="2" deadline="infinity" sender="b">m3()</message>
+		</queue>
+		<now>2</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="3_0" destination="4_0" executionTime="0" shift="0"> <time value="2"/></transition>
+<transition source="2_0" destination="3_0" executionTime="0" shift="0"> <messageserver sender="a" owner="b" title="M2"/></transition>
+<state id="5_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>2</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>2</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>2</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<state id="6_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="5_0" destination="6_0" executionTime="2" shift="0"> <time value="8"/></transition>
+<transition source="4_0" destination="5_0" executionTime="2" shift="0"> <messageserver sender="b" owner="c" title="M3"/></transition>
+<state id="7_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>2</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>2</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>2</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<state id="8_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="7_0" destination="8_0" executionTime="2" shift="0"> <time value="8"/></transition>
+<transition source="4_0" destination="7_0" executionTime="2" shift="0"> <messageserver sender="b" owner="c" title="M3"/></transition>
+<state id="9_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="a">m2()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="6_0" destination="9_0" executionTime="10" shift="0"> <messageserver sender="b" owner="a" title="M1"/></transition>
+<state id="10_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+			<message arrival="10" deadline="infinity" sender="a">m2()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="8_0" destination="10_0" executionTime="10" shift="0"> <messageserver sender="b" owner="a" title="M1"/></transition>
+<state id="11_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<state id="12_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="11_0" destination="12_0" executionTime="10" shift="0"> <time value="10"/></transition>
+<transition source="9_0" destination="11_0" executionTime="10" shift="0"> <messageserver sender="a" owner="b" title="M2"/></transition>
+<state id="13_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>10</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<state id="14_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="13_0" destination="14_0" executionTime="10" shift="0"> <time value="10"/></transition>
+<transition source="10_0" destination="13_0" executionTime="10" shift="0"> <messageserver sender="a" owner="b" title="M2"/></transition>
+<state id="15_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">false</variable>
+		</statevariables>
+		<queue>
+			<message arrival="20" deadline="infinity" sender="a">m2()</message>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="12_0" destination="15_0" executionTime="20" shift="0"> <messageserver sender="b" owner="a" title="M1"/></transition>
+<transition source="14_0" destination="2_0" executionTime="20" shift="20"> <messageserver sender="b" owner="a" title="M1"/></transition>
+<state id="16_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="30" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+			<message arrival="22" deadline="infinity" sender="b">m3()</message>
+		</queue>
+		<now>20</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<state id="17_0" atomicpropositions="" >
+	<rebec name="a">
+		<statevariables>
+		</statevariables>
+		<queue>
+			<message arrival="30" deadline="infinity" sender="b">m1()</message>
+		</queue>
+		<now>22</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="b">
+		<statevariables>
+			<variable name="B.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+		</queue>
+		<now>22</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+	<rebec name="c">
+		<statevariables>
+			<variable name="C.x" type="boolean">true</variable>
+		</statevariables>
+		<queue>
+			<message arrival="22" deadline="infinity" sender="b">m3()</message>
+		</queue>
+		<now>22</now>
+		<pc></pc>
+		<res></res>
+	</rebec>
+</state>
+<transition source="16_0" destination="17_0" executionTime="20" shift="0"> <time value="2"/></transition>
+<transition source="15_0" destination="16_0" executionTime="20" shift="0"> <messageserver sender="a" owner="b" title="M2"/></transition>
+<transition source="17_0" destination="5_0" executionTime="22" shift="20"> <messageserver sender="b" owner="c" title="M3"/></transition>
+<transition source="17_0" destination="7_0" executionTime="22" shift="20"> <messageserver sender="b" owner="c" title="M3"/></transition>
+</transitionsystem>
