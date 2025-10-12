@@ -1,0 +1,152 @@
+digraph "program_cfg_abstract_by_class" {
+compound=true;
+node [shape="rect"];
+subgraph "cluster_HVAC" {
+  label="HVAC";
+  "HVAC__HVAC_main_void_java_lang_String____107374182414" [label = <main> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771152" [label = <&lt;operator&gt;.assignment, 144<BR/>Room room = new Room()> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771154" [label = <&lt;operator&gt;.assignment, 145<BR/>Controller controller = new Controller()> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771156" [label = <&lt;operator&gt;.assignment, 146<BR/>Sensor sensor = new Sensor()> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771158" [label = <&lt;operator&gt;.assignment, 147<BR/>HC_Unit hc_unit = new HC_Unit()> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771160" [label = <&lt;operator&gt;.assignment, 148<BR/>Meaningless meaningless = new Meaningless()> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771162" [label = <&lt;operator&gt;.assignment, 151<BR/>room.sensor = sensor> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771164" [label = <&lt;operator&gt;.assignment, 152<BR/>controller.hc_unit = hc_unit> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771166" [label = <&lt;operator&gt;.assignment, 153<BR/>controller.meaningless = meaningless> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771168" [label = <&lt;operator&gt;.assignment, 154<BR/>sensor.room = room> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771170" [label = <&lt;operator&gt;.assignment, 155<BR/>sensor.controller = controller> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771172" [label = <&lt;operator&gt;.assignment, 156<BR/>hc_unit.room = room> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771174" [label = <&lt;operator&gt;.assignment, 157<BR/>meaningless.controller = controller> ]
+"HVAC__HVAC_main_void_java_lang_String____30064771154" -> "HVAC__HVAC_main_void_java_lang_String____30064771156" [label="ctrl dep"]
+"HVAC__HVAC_main_void_java_lang_String____30064771172" -> "HVAC__HVAC_main_void_java_lang_String____30064771174" [label="ctrl dep"]
+"HVAC__HVAC_main_void_java_lang_String____30064771152" -> "HVAC__HVAC_main_void_java_lang_String____30064771154" [label="ctrl dep"]
+"HVAC__HVAC_main_void_java_lang_String____107374182414" -> "HVAC__HVAC_main_void_java_lang_String____30064771152" [label="ctrl dep"]
+"HVAC__HVAC_main_void_java_lang_String____30064771156" -> "HVAC__HVAC_main_void_java_lang_String____30064771158" [label="ctrl dep"]
+"HVAC__HVAC_main_void_java_lang_String____30064771160" -> "HVAC__HVAC_main_void_java_lang_String____30064771162" [label="ctrl dep"]
+"HVAC__HVAC_main_void_java_lang_String____30064771170" -> "HVAC__HVAC_main_void_java_lang_String____30064771172" [label="ctrl dep"]
+"HVAC__HVAC_main_void_java_lang_String____30064771164" -> "HVAC__HVAC_main_void_java_lang_String____30064771166" [label="ctrl dep"]
+"HVAC__HVAC_main_void_java_lang_String____30064771162" -> "HVAC__HVAC_main_void_java_lang_String____30064771164" [label="ctrl dep"]
+"HVAC__HVAC_main_void_java_lang_String____30064771158" -> "HVAC__HVAC_main_void_java_lang_String____30064771160" [label="ctrl dep"]
+"HVAC__HVAC_main_void_java_lang_String____30064771166" -> "HVAC__HVAC_main_void_java_lang_String____30064771168" [label="ctrl dep"]
+"HVAC__HVAC_main_void_java_lang_String____30064771168" -> "HVAC__HVAC_main_void_java_lang_String____30064771170" [label="ctrl dep"]
+"HVAC__HVAC__init__void___107374182415" [label = <&lt;init&gt;> ]
+}
+
+subgraph "cluster_HVAC_Controller" {
+  label="HVAC$Controller";
+  "HVAC_Controller__HVAC_Controller__init__void___107374182400" [label = <&lt;init&gt;> ]
+"HVAC_Controller__HVAC_Controller__init__void___30064771077" [label = <&lt;operator&gt;.assignment, 16<BR/>this.heating_active = false> ]
+"HVAC_Controller__HVAC_Controller__init__void___30064771079" [label = <&lt;operator&gt;.assignment, 17<BR/>this.sensedValue = 20> ]
+"HVAC_Controller__HVAC_Controller__init__void___30064771077" -> "HVAC_Controller__HVAC_Controller__init__void___30064771079" [label="ctrl dep"]
+"HVAC_Controller__HVAC_Controller__init__void___107374182400" -> "HVAC_Controller__HVAC_Controller__init__void___30064771077" [label="ctrl dep"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__107374182401" [label = <getSense> ]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771081" [label = <start, 22<BR/>this.meaningless.start()> ]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771083" [label = <finish, 23<BR/>this.meaningless.finish()> ]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771085" [label = <&lt;operator&gt;.assignment, 25<BR/>this.sensedValue = temp> ]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771087" [label = <&lt;operator&gt;.logicalAnd, 26<BR/>21 &gt; temp &amp;&amp; heating_active == false> ]
+
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771093" [label = <&lt;operator&gt;.assignment, 28<BR/>this.heating_active = true> ]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771095" [label = <&lt;operator&gt;.logicalAnd, 29<BR/>21 &lt;= temp &amp;&amp; heating_active == true> ]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771099" [label = <switchoff, 30<BR/>this.hc_unit.switchoff()> ]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771101" [label = <&lt;operator&gt;.assignment, 31<BR/>this.heating_active = false> ]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771099" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771101" [label="ctrl dep"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771085" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771087" [label="ctrl dep"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771087" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771095" [label="ctrl dep"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771095" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771099" [label="ctrl dep"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771081" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771083" [label="ctrl dep"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__107374182401" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771081" [label="ctrl dep"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771083" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771085" [label="ctrl dep"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771087" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771091" [label="ctrl dep"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771091" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771093" [label="ctrl dep"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771091" [label = <activateh, 27<BR/>this.hc_unit.activateh()> ]
+}
+
+subgraph "cluster_HVAC_HC_Unit" {
+  label="HVAC$HC_Unit";
+  "HVAC_HC_Unit__HVAC_HC_Unit__init__void___107374182408" [label = <&lt;init&gt;> ]
+"HVAC_HC_Unit__HVAC_HC_Unit__init__void___30064771136" [label = <&lt;operator&gt;.assignment, 102<BR/>this.heater_on = false> ]
+"HVAC_HC_Unit__HVAC_HC_Unit__init__void___107374182408" -> "HVAC_HC_Unit__HVAC_HC_Unit__init__void___30064771136" [label="ctrl dep"]
+"HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___107374182409" [label = <activateh> ]
+"HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___30064771138" [label = <regulate, 107<BR/>this.room.regulate(1)> ]
+"HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___30064771140" [label = <&lt;operator&gt;.assignment, 108<BR/>this.heater_on = true> ]
+"HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___30064771138" -> "HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___30064771140" [label="ctrl dep"]
+"HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___107374182409" -> "HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___30064771138" [label="ctrl dep"]
+"HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___107374182410" [label = <switchoff> ]
+"HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771142" [label = <regulate, 113<BR/>this.room.regulate(0)> ]
+"HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771144" [label = <&lt;operator&gt;.assignment, 114<BR/>this.heater_on = false> ]
+"HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771142" -> "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771144" [label="ctrl dep"]
+"HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___107374182410" -> "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771142" [label="ctrl dep"]
+
+// act deps
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771091" -> "HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___107374182409" [label="act dep", ltail="cluster_HVAC_HC_Unit", lhead="cluster_HVAC_Controller"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771099" -> "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___107374182410" [label="act dep", ltail="cluster_HVAC_HC_Unit", lhead="cluster_HVAC_Controller"]
+
+}
+
+subgraph "cluster_HVAC_Meaningless" {
+  label="HVAC$Meaningless";
+  "HVAC_Meaningless__HVAC_Meaningless__init__void___107374182411" [label = <&lt;init&gt;> ]
+"HVAC_Meaningless__HVAC_Meaningless__init__void___30064771146" [label = <&lt;operator&gt;.assignment, 127<BR/>this.pointless = false> ]
+"HVAC_Meaningless__HVAC_Meaningless__init__void___107374182411" -> "HVAC_Meaningless__HVAC_Meaningless__init__void___30064771146" [label="ctrl dep"]
+"HVAC_Meaningless__HVAC_Meaningless_start_void___107374182412" [label = <start> ]
+"HVAC_Meaningless__HVAC_Meaningless_start_void___30064771148" [label = <&lt;operator&gt;.assignment, 132<BR/>this.pointless = true> ]
+"HVAC_Meaningless__HVAC_Meaningless_start_void___107374182412" -> "HVAC_Meaningless__HVAC_Meaningless_start_void___30064771148" [label="ctrl dep"]
+"HVAC_Meaningless__HVAC_Meaningless_finish_void___107374182413" [label = <finish> ]
+"HVAC_Meaningless__HVAC_Meaningless_finish_void___30064771150" [label = <&lt;operator&gt;.assignment, 137<BR/>this.pointless = false> ]
+"HVAC_Meaningless__HVAC_Meaningless_finish_void___107374182413" -> "HVAC_Meaningless__HVAC_Meaningless_finish_void___30064771150" [label="ctrl dep"]
+
+    
+// act deps
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771081" -> "HVAC_Meaningless__HVAC_Meaningless_start_void___107374182412" [label="act dep", ltail="cluster_HVAC_Meaningless", lhead="cluster_HVAC_Controller"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771083" -> "HVAC_Meaningless__HVAC_Meaningless_finish_void___107374182413" [label="act dep", ltail="cluster_HVAC_Meaningless", lhead="cluster_HVAC_Controller"]
+
+}
+
+subgraph "cluster_HVAC_Room" {
+  label="HVAC$Room";
+  "HVAC_Room__HVAC_Room__init__void___30064771103" [label = <&lt;operator&gt;.assignment, 46<BR/>Random this.rnd = new Random()> ]
+"HVAC_Room__HVAC_Room__init__void___107374182402" [label = <&lt;init&gt;> ]
+"HVAC_Room__HVAC_Room__init__void___30064771108" [label = <&lt;operator&gt;.assignment, 50<BR/>this.temperature = 21> ]
+"HVAC_Room__HVAC_Room__init__void___30064771110" [label = <&lt;operator&gt;.assignment, 51<BR/>this.regulation = 0> ]
+"HVAC_Room__HVAC_Room__init__void___30064771112" [label = <&lt;operator&gt;.assignment, 52<BR/>this.outside_air_blowing = 0> ]
+"HVAC_Room__HVAC_Room__init__void___30064771114" [label = <tempchange, 55<BR/>this.tempchange()> ]
+"HVAC_Room__HVAC_Room__init__void___30064771103" -> "HVAC_Room__HVAC_Room__init__void___30064771108" [label="ctrl dep"]
+"HVAC_Room__HVAC_Room__init__void___107374182402" -> "HVAC_Room__HVAC_Room__init__void___30064771103" [label="ctrl dep"]
+"HVAC_Room__HVAC_Room__init__void___30064771108" -> "HVAC_Room__HVAC_Room__init__void___30064771110" [label="ctrl dep"]
+"HVAC_Room__HVAC_Room__init__void___30064771110" -> "HVAC_Room__HVAC_Room__init__void___30064771112" [label="ctrl dep"]
+"HVAC_Room__HVAC_Room__init__void___30064771112" -> "HVAC_Room__HVAC_Room__init__void___30064771114" [label="ctrl dep"]
+"HVAC_Room__HVAC_Room_tempchange_void___107374182403" [label = <tempchange> ]
+"HVAC_Room__HVAC_Room_tempchange_void___30064771115" [label = <&lt;operator&gt;.assignment, 61<BR/>this.outside_air_blowing = choose(1, 0)> ]
+"HVAC_Room__HVAC_Room_tempchange_void___30064771118" [label = <&lt;operator&gt;.assignment, 62<BR/>this.temperature = temperature - outside_air_bl...> ]
+"HVAC_Room__HVAC_Room_tempchange_void___30064771125" [label = <getTemp, 63<BR/>this.sensor.getTemp(temperature)> ]
+"HVAC_Room__HVAC_Room_tempchange_void___30064771128" [label = <tempchange, 66<BR/>this.tempchange()> ]
+"HVAC_Room__HVAC_Room_tempchange_void___30064771115" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771118" [label="ctrl dep"]
+"HVAC_Room__HVAC_Room_tempchange_void___30064771118" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771125" [label="ctrl dep"]
+"HVAC_Room__HVAC_Room_tempchange_void___30064771125" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771128" [label="ctrl dep"]
+"HVAC_Room__HVAC_Room_tempchange_void___107374182403" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771115" [label="ctrl dep"]
+"HVAC_Room__HVAC_Room_regulate_void_int__107374182404" [label = <regulate> ]
+"HVAC_Room__HVAC_Room_regulate_void_int__30064771129" [label = <&lt;operator&gt;.assignment, 72<BR/>this.regulation = v> ]
+"HVAC_Room__HVAC_Room_regulate_void_int__107374182404" -> "HVAC_Room__HVAC_Room_regulate_void_int__30064771129" [label="ctrl dep"]
+"HVAC_Room__HVAC_Room_choose_int_int_int__107374182405" [label = <choose> ]
+"HVAC_Room__HVAC_Room_choose_int_int_int__141733920768" [label = <RETURN, 77<BR/>return rnd.nextBoolean() ? a : b;> ]
+"HVAC_Room__HVAC_Room_choose_int_int_int__107374182405" -> "HVAC_Room__HVAC_Room_choose_int_int_int__141733920768" [label="ctrl dep"]
+
+    
+// act deps
+"HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___30064771138" -> "HVAC_Room__HVAC_Room_regulate_void_int__107374182404" [label="act dep", ltail="cluster_HVAC_Room", lhead="cluster_HVAC_HC_Unit"]
+"HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771142" -> "HVAC_Room__HVAC_Room_regulate_void_int__107374182404" [label="act dep", ltail="cluster_HVAC_Room", lhead="cluster_HVAC_HC_Unit"]
+"HVAC_Room__HVAC_Room_tempchange_void___30064771128" -> "HVAC_Room__HVAC_Room_tempchange_void___107374182403" [label="act dep", ltail="cluster_HVAC_Room", lhead="cluster_HVAC_Room"]
+"HVAC_Room__HVAC_Room__init__void___30064771114" -> "HVAC_Room__HVAC_Room_tempchange_void___107374182403" [label="act dep", ltail="cluster_HVAC_Room", lhead="cluster_HVAC_Room"]
+}
+
+subgraph "cluster_HVAC_Sensor" {
+  label="HVAC$Sensor";
+  "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__107374182406" [label = <getTemp> ]
+"HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" [label = <getSense, 89<BR/>this.controller.getSense(temp)> ]
+"HVAC_Sensor__HVAC_Sensor_getTemp_void_int__107374182406" -> "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" [label="ctrl dep"]
+"HVAC_Sensor__HVAC_Sensor__init__void___107374182407" [label = <&lt;init&gt;> ]
+
+// act dep
+"HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__107374182401" [label="act dep", ltail="cluster_HVAC_Controller", lhead="cluster_HVAC_Sensor"]
+"HVAC_Room__HVAC_Room_tempchange_void___30064771125" -> "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__107374182406" [label="act dep", ltail="cluster_HVAC_Sensor", lhead="cluster_HVAC_Room"]
+}
+}
