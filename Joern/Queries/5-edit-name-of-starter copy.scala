@@ -49,17 +49,22 @@ def abstractDotByLine(dot: String): String = {
       s""""${n.id}" [label = <${label}> ]"""
     }
 
-  // Rewire edges to the kept node for that line
-  val edgeLines =
-    edgeRx.findAllMatchIn(dot).flatMap { m =>
-      val srcId = m.group(1)
-      val dstId = m.group(2)
+def isRoot(id: String): Boolean =
+  nodeById.get(id).exists(n => n.kind.startsWith("METHOD") || n.kind.equalsIgnoreCase("init"))
 
-      val adjSrc = nodeById.get(srcId).flatMap(n => bestByLine.get(n.line)).map(_.id).getOrElse(srcId)
-      val adjDst = nodeById.get(dstId).flatMap(n => bestByLine.get(n.line)).map(_.id).getOrElse(dstId)
+val edgeLines =
+  edgeRx.findAllMatchIn(dot).flatMap { m =>
+    val srcId = m.group(1)
+    val dstId = m.group(2)
 
-      if (adjSrc != adjDst) Some(s""""$adjSrc" -> "$adjDst"""") else None
-    }.toSet.toList
+    val adjSrc = nodeById.get(srcId).flatMap(n => bestByLine.get(n.line)).map(_.id).getOrElse(srcId)
+    val adjDst = nodeById.get(dstId).flatMap(n => bestByLine.get(n.line)).map(_.id).getOrElse(dstId)
+
+    if (adjSrc != adjDst && !isRoot(adjDst))
+      Some(s""""$adjSrc" -> "$adjDst" [label="ctrl dep"]""")
+    else None
+  }.toSet.toList
+
 
   s"""digraph "cfg_abstract" {
 node [shape="rect"];
