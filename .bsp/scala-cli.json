@@ -1,0 +1,20 @@
+{
+  "name": "scala-cli",
+  "argv": [
+    "/home/marziyeh/.local/share/coursier/bin/.scala-cli.aux",
+    "bsp",
+    "--json-options",
+    "/home/marziyeh/tinification/Tinification/.scala-build/ide-options-v2.json",
+    "--json-launcher-options",
+    "/home/marziyeh/tinification/Tinification/.scala-build/ide-launcher-options.json",
+    "--envs-file",
+    "/home/marziyeh/tinification/Tinification/.scala-build/ide-envs.json",
+    "/home/marziyeh/tinification/Tinification"
+  ],
+  "version": "1.9.1",
+  "bspVersion": "2.1.1",
+  "languages": [
+    "scala",
+    "java"
+  ]
+}

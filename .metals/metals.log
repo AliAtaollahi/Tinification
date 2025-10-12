@@ -1,0 +1,37 @@
+2025.10.12 16:05:04 INFO  no build target found for /home/marziyeh/tinification/Tinification/Joern/Queries/4-delete-leaf-return-transition.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.10.12 16:05:33 INFO  no build target found for /home/marziyeh/tinification/Tinification/Joern/Queries/4-delete-leaf-return-transition.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.10.12 16:05:33 INFO  no build target found for /home/marziyeh/tinification/Tinification/Joern/Queries/4-delete-leaf-return-transition.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.10.12 16:05:33 INFO  no build target found for /home/marziyeh/tinification/Tinification/Joern/Queries/4-delete-leaf-return-transition.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Oct 12, 2025 4:05:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+2025.10.12 16:05:33 INFO  no build target found for /home/marziyeh/tinification/Tinification/Joern/Queries/4-delete-leaf-return-transition.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.10.12 16:05:41 INFO  Running List(/home/marziyeh/.local/share/coursier/bin/scala-cli, setup-ide, /home/marziyeh/tinification/Tinification)[0m
+2025.10.12 16:05:41 INFO  Attempting to connect to the build server...[0m
+2025.10.12 16:05:41 INFO  Running BSP server List(/home/marziyeh/.local/share/coursier/bin/.scala-cli.aux, bsp, --json-options, /home/marziyeh/tinification/Tinification/.scala-build/ide-options-v2.json, --json-launcher-options, /home/marziyeh/tinification/Tinification/.scala-build/ide-launcher-options.json, --envs-file, /home/marziyeh/tinification/Tinification/.scala-build/ide-envs.json, /home/marziyeh/tinification/Tinification)[0m
+2025.10.12 16:05:41 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/marziyeh/tinification/Tinification/.metals/bsp.trace.json or /home/marziyeh/.cache/metals/bsp.trace.json[0m
+2025.10.12 16:05:42 INFO  BSP server: Starting compilation server[0m
+2025.10.12 16:05:42 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.pom[0m
+2025.10.12 16:05:44 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.pom[0m
+2025.10.12 16:05:44 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.jar[0m
+2025.10.12 16:05:44 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.jar[0m
+2025.10.12 16:05:44 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.jar.sha1[0m
+2025.10.12 16:05:44 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.jar.sha1[0m
+2025.10.12 16:05:44 INFO  BSP server: Downloading https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.3/scala3-library_3-3.7.3-sources.jar[0m
+2025.10.12 16:05:44 INFO  BSP server: Downloading https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.16/scala-library-2.13.16-sources.jar[0m
+2025.10.12 16:05:46 INFO  BSP server: Downloaded https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.3/scala3-library_3-3.7.3-sources.jar[0m
+2025.10.12 16:05:46 INFO  BSP server: Downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.16/scala-library-2.13.16-sources.jar[0m
+2025.10.12 16:05:47 INFO  time: Connected to build server in 5.31s[0m
+2025.10.12 16:05:47 INFO  Connected to Build server: scala-cli v1.9.1[0m
+2025.10.12 16:05:47 INFO  time: Imported build in 0.11s[0m
+2025.10.12 16:05:47 INFO  compiling tinification_d5c0a6989e (4 scala sources and 1 java source)[0m
+2025.10.12 16:05:48 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-17-openjdk-amd64/src.zip, /usr/lib/jvm/java-17-openjdk-amd64/lib/src.zip. Java symbols will not be available.[0m
+2025.10.12 16:05:48 INFO  time: indexed workspace in 1.45s[0m
+2025.10.12 16:05:50 INFO  time: compiled Tinification_d5c0a6989e in 2.51s[0m
+2025.10.12 16:05:50 INFO  compiling tinification_d5c0a6989e (4 scala sources and 1 java source)[0m
+2025.10.12 16:05:50 INFO  time: compiled Tinification_d5c0a6989e in 0.73s[0m
+2025.10.12 16:05:50 INFO  compiling tinification_d5c0a6989e (4 scala sources and 1 java source)[0m
+2025.10.12 16:05:51 INFO  time: compiled Tinification_d5c0a6989e in 0.5s[0m
+2025.10.12 16:06:18 INFO  Shutting down server[0m
+2025.10.12 16:06:18 INFO  shutting down Metals[0m
+2025.10.12 16:06:18 INFO  Shut down connection with build server.[0m
+2025.10.12 16:06:18 INFO  Exiting server[0m
