@@ -1,71 +1,78 @@
 def abstractDotByLine(dot: String): String = {
   import scala.util.matching.Regex
+
+  // Expect labels like: <KIND, 123<BR/>code...>
   val nodeRx = "\"(\\d+)\"\\s*\\[label\\s*=\\s*<([^,>]+),\\s*(\\d+)<BR/>(.*?)>\\s*\\]".r
   val edgeRx = "\"(\\d+)\"\\s*->\\s*\"(\\d+)\"".r
 
   case class Node(id: String, kind: String, line: String, code: String, methodName: Option[String] = None)
 
-  // Extract all nodes
-  val nodes = nodeRx.findAllMatchIn(dot).map { m =>
-    val methodName = if (m.group(2).startsWith("METHOD") || m.group(2).contains("init")) {
-      Some(m.group(4))  // Method-related nodes
-    } else {
-      None
-    }
-
-    Node(m.group(1), m.group(2), m.group(3), m.group(4), methodName)
-  }.toList
+  val nodes: List[Node] =
+    nodeRx.findAllMatchIn(dot).map { m =>
+      val kind = m.group(2)
+      val code = m.group(4)
+      val methName =
+        if (kind.startsWith("METHOD") || kind.toLowerCase.contains("init")) Some(code) else None
+      Node(m.group(1), kind, m.group(3), code, methName)
+    }.toList
 
   if (nodes.isEmpty)
     return """digraph "cfg_abstract" { node [shape="rect"]; }"""
 
-  // Group nodes by line and retain the largest (longest) statement
-  val nodesByLine = nodes.groupBy(_.line).mapValues { nodesOnLine =>
-    nodesOnLine.maxBy(_.code.length)  // Choose the node with the longest code
-  }
+  // Helper maps
+  val nodeById: Map[String, Node] = nodes.map(n => n.id -> n).toMap
 
-  // Create a map to store method names dynamically
-  val methodNames = nodes.collect {
-    case n if n.kind.startsWith("METHOD") || n.kind == "init" => 
-      (n.id, n.code)  // Placeholder for Joern API to fetch real methods
-  }.toMap
-
-  // Update the labels for METHOD nodes with their real method names
-  val nodeLines = nodesByLine.values.distinct.sortBy(_.line.toInt).map { n =>
-    val label = n.kind match {
-      case "METHOD" if methodNames.contains(n.id) => methodNames(n.id)  // Use the actual method name
-      case "METHOD_RETURN" if n.methodName.isDefined => n.methodName.get  // Use method name for return too
-      case "init" if n.methodName.isDefined => n.methodName.get  // Use init name
-      case _ => s"${n.kind}, ${n.line}<BR/>${n.code}"
-    }
-    s""""${n.id}" [label = <${label}> ]"""
-  }
-
-  // Adjust edges: redirect those pointing to deleted nodes to the largest node on that line
-  val edgeLines = edgeRx.findAllMatchIn(dot).flatMap { m =>
-    val src = m.group(1)
-    val dst = m.group(2)
-
-    // If source or destination node is deleted, redirect to the largest node on the same line
-    val adjustedSrc = nodesByLine.get(src) match {
-      case Some(n) => n.id
-      case None => src
-    }
-    val adjustedDst = nodesByLine.get(dst) match {
-      case Some(n) => n.id
-      case None => dst
+  // For each line, pick the node with longest 'code'
+  val bestByLine: Map[String, Node] =
+    nodes.groupBy(_.line).map { case (line, xs) =>
+      line -> xs.maxBy(_.code.length)
     }
 
-    // Avoid self-loops (where the source and destination are the same)
-    if (adjustedSrc != adjustedDst) Some(s""""$adjustedSrc" -> "$adjustedDst"""") else None
+  // METHOD names (if you later want to enrich from Joern, do it here)
+  val methodNames: Map[String, String] =
+    nodes.collect {
+      case n if n.kind.startsWith("METHOD") || n.kind.equalsIgnoreCase("init") => n.id -> n.code
+    }.toMap
+
+  // Build node labels for only the kept nodes (the "largest" per line)
+  val keptNodes = bestByLine.values.toList
+  val nodeLines = keptNodes
+    .sortBy(n => n.line.toIntOption.getOrElse(Int.MaxValue))
+    .map { n =>
+      val label =
+        n.kind match {
+          case k if k.startsWith("METHOD") && methodNames.contains(n.id) => methodNames(n.id)
+          case k if k.equalsIgnoreCase("init") && n.methodName.isDefined => n.methodName.get
+          // If you truly want METHOD_RETURN to show the method name, you need a mapping from return->method.
+          case _ => s"${n.kind}, ${n.line}<BR/>${n.code}"
+        }
+      s""""${n.id}" [label = <${label}> ]"""
+    }
+
+def isRoot(id: String): Boolean =
+  nodeById.get(id).exists(n => n.kind.startsWith("METHOD") || n.kind.equalsIgnoreCase("init"))
+
+val edgeLines =
+  edgeRx.findAllMatchIn(dot).flatMap { m =>
+    val srcId = m.group(1)
+    val dstId = m.group(2)
+
+    val adjSrc = nodeById.get(srcId).flatMap(n => bestByLine.get(n.line)).map(_.id).getOrElse(srcId)
+    val adjDst = nodeById.get(dstId).flatMap(n => bestByLine.get(n.line)).map(_.id).getOrElse(dstId)
+
+    if (adjSrc != adjDst && !isRoot(adjDst))
+      Some(s""""$adjSrc" -> "$adjDst" [label="ctrl dep"]""")
+    else None
   }.toSet.toList
 
-  // Create the final DOT representation of the filtered graph
+
   s"""digraph "cfg_abstract" {
 node [shape="rect"];
 ${(nodeLines ++ edgeLines).mkString("\n")}
 }"""
 }
+
+
 
 def prefixIds(dot: String, prefix: String): String = {
   val idRx = "\"(\\d+)\"".r
