@@ -57,6 +57,24 @@ subgraph "cluster_HVAC_Controller" {
 "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771091" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771093" [label="ctrl dep"]
 "HVAC_Controller__HVAC_Controller_getSense_void_int__107374182401" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771081" [label="ctrl dep"]
 "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771083" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771085" [label="ctrl dep"]
+"sv_heating_active" [label = <sv_heating_active<BR/>heating_active>]
+
+"sv_heating_active" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771087" [color="blue"]
+"sv_heating_active" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771095" [color="blue"]
+
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771093"-> "sv_heating_active" [color="red"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771101" -> "sv_heating_active" [ color="red"]
+"HVAC_Controller__HVAC_Controller__init__void___30064771077" -> "sv_heating_active" [ color="red"]
+"sv_sensed_value" [label = <sv_sensed_value<BR/>sensed_value>]
+
+"HVAC_Controller__HVAC_Controller__init__void___30064771079" -> "sv_sensed_value" [color="red"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771085" -> "sv_sensed_value" [ color="red"]
+"get_sense_par_temp" [label = get_sense_par_temp]
+
+"get_sense_par_temp" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771087" [color="blue"]
+"get_sense_par_temp" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771095"  [color="blue"]
+
+    
 }
 
 subgraph "cluster_HVAC_HC_Unit" {
@@ -74,6 +92,12 @@ subgraph "cluster_HVAC_HC_Unit" {
 "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771144" [label = <&lt;operator&gt;.assignment, 114<BR/>this.heater_on = false> ]
 "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771142" -> "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771144" [label="ctrl dep"]
 "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___107374182410" -> "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771142" [label="ctrl dep"]
+"sv_heater_on" [label = sv_heater_on]
+
+"HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___30064771140" -> "sv_heater_on" [color="red"]
+
+"HVAC_HC_Unit__HVAC_HC_Unit__init__void___30064771136" -> "sv_heater_on" [color="red"]
+"HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771144" -> "sv_heater_on" [ color="red"]
 }
 
 subgraph "cluster_HVAC_Meaningless" {
@@ -87,6 +111,14 @@ subgraph "cluster_HVAC_Meaningless" {
 "HVAC_Meaningless__HVAC_Meaningless_finish_void___107374182413" [label = <finish> ]
 "HVAC_Meaningless__HVAC_Meaningless_finish_void___30064771150" [label = <&lt;operator&gt;.assignment, 137<BR/>this.pointless = false> ]
 "HVAC_Meaningless__HVAC_Meaningless_finish_void___107374182413" -> "HVAC_Meaningless__HVAC_Meaningless_finish_void___30064771150" [label="ctrl dep"]
+"sv_pointless" [label = sv_pointless]
+
+
+"HVAC_Meaningless__HVAC_Meaningless_start_void___30064771148" -> "sv_pointless" [ color="red"]
+
+"HVAC_Meaningless__HVAC_Meaningless_finish_void___30064771150" -> "sv_pointless" [ color="red"]
+"HVAC_Meaningless__HVAC_Meaningless__init__void___30064771146" -> "sv_pointless" [color="red"]
+    
 }
 
 subgraph "cluster_HVAC_Room" {
@@ -117,6 +149,32 @@ subgraph "cluster_HVAC_Room" {
 "HVAC_Room__HVAC_Room_choose_int_int_int__107374182405" [label = <choose> ]
 "HVAC_Room__HVAC_Room_choose_int_int_int__141733920768" [label = <RETURN, 77<BR/>return rnd.nextBoolean() ? a : b;> ]
 "HVAC_Room__HVAC_Room_choose_int_int_int__107374182405" -> "HVAC_Room__HVAC_Room_choose_int_int_int__141733920768" [label="ctrl dep"]
+"HVAC_Room__HVAC_Room__init__void___30064771108" -> "sv_temperature" [label="ctrl dep", color="red"]
+"HVAC_Room__HVAC_Room_tempchange_void___30064771118" -> "sv_temperature" [label="ctrl dep", color="red"]
+
+"sv_temperature" [label = <sv_temperature<BR/>this.temperature>]
+
+"sv_temperature" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771118" [ color="blue"]
+"sv_temperature" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771125" [lcolor="blue"]
+
+"HVAC_Room__HVAC_Room__init__void___30064771112" -> "sv_outside_air_blowing" [color="red"]
+
+"sv_outside_air_blowing" [label = <sv_outside_air_blowing<BR/>this.outside_air_blowing>]
+
+"sv_outside_air_blowing" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771118" [color="blue"]
+
+
+"HVAC_Room__HVAC_Room__init__void___30064771110" -> "sv_regulation" [ color="red"]
+"HVAC_Room__HVAC_Room_regulate_void_int__30064771129" -> "sv_regulation" [color="red"]
+
+"sv_regulation" [label = <sv_regulation<BR/>this.regulation>]
+
+"sv_regulation" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771118" [ color="blue"]
+"regulate_param_v" [label = <regulate_param_v<BR/>v>]
+
+"regulate_param_v" -> "HVAC_Room__HVAC_Room_regulate_void_int__30064771129" [color="blue"]
+
+
 }
 
 subgraph "cluster_HVAC_Sensor" {
@@ -125,6 +183,11 @@ subgraph "cluster_HVAC_Sensor" {
 "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" [label = <getSense, 89<BR/>this.controller.getSense(temp)> ]
 "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__107374182406" -> "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" [label="ctrl dep"]
 "HVAC_Sensor__HVAC_Sensor__init__void___107374182407" [label = <&lt;init&gt;> ]
+"sv_temp" [label = sv_temp]
+
+"sv_temp" -> "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" [color="blue"]
 }
+
+
 
 }

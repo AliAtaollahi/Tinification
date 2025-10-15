@@ -11,6 +11,7 @@ def abstractDotByLine(dot: String): String = {
     nodeRx.findAllMatchIn(dot).map { m =>
       val kind = m.group(2)
       val code = m.group(4)
+      println(code)
       val methName =
         if (kind.startsWith("METHOD") || kind.toLowerCase.contains("init")) Some(code) else None
       Node(m.group(1), kind, m.group(3), code, methName)
