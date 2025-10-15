@@ -187,7 +187,10 @@ subgraph "cluster_HVAC_Sensor" {
 
 "sv_temp" -> "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" [color="blue"]
 }
-
+"HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771142" -> "regulate_param_v" [color="purple"]
+"HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___30064771138" -> "regulate_param_v" [color="purple"]
+"HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" -> "get_sense_par_temp" [color="purple"]
+"HVAC_Room__HVAC_Room_tempchange_void___30064771125" -> "sv_temp" [color="purple"]
 
 
 }
