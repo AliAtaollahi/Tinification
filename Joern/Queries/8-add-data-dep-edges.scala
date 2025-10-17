@@ -142,7 +142,7 @@ object CfgByClass {
     val methodsByOwner =
       methods.groupBy { m => m.typeDecl.name.headOption.getOrElse(ownerTypeOf(m.fullName)) }
 
-    // --- NEW: names of user-defined classes (base name after '$', lower-cased) ---
+    // Inner/user class basenames to filter fields like room/controller/etc.
     val innerClassBaseNames: Set[String] =
       cpg.typeDecl
         .where(_.isExternal(false))
@@ -154,7 +154,7 @@ object CfgByClass {
         }
         .toSet
 
-    // Caches per run
+    // Caches
     val methodToPrefixedRootId = scala.collection.mutable.Map.empty[String, String]
     val methodToLineMap        = scala.collection.mutable.Map.empty[String, Map[String,String]]
     val methodToLineCode       = scala.collection.mutable.Map.empty[String, Map[String,String]]
@@ -167,12 +167,12 @@ object CfgByClass {
     val emittedStateNodeIds    = scala.collection.mutable.Set.empty[String]
     val emittedParamNodeIds    = scala.collection.mutable.Set.empty[String]
 
-    val blueEdges   = scala.collection.mutable.Set.empty[String]
-    val redEdges    = scala.collection.mutable.Set.empty[String]
+    val blueEdges   = scala.collection.mutable.Set.empty[String]   // influencer -> influenced (outgoing from influencer)
+    val redEdges    = scala.collection.mutable.Set.empty[String]    // incoming to influenced from influencer
     val actDepEdges = scala.collection.mutable.Set.empty[String]
     val purpleArgEdges = scala.collection.mutable.Set.empty[String]
 
-    // regexes for variable spotting
+    // regexes
     val thisFieldRx        = "\\bthis\\.([A-Za-z_]\\w*)".r
     val assignLhsThisRx    = "\\bthis\\.([A-Za-z_]\\w*)\\s*=".r
 
@@ -183,7 +183,7 @@ object CfgByClass {
 
       val buf = ownerToBodies.getOrElseUpdate(owner, scala.collection.mutable.ListBuffer.empty[String])
 
-      // --- parameter nodes for this method ---
+      // --- parameter nodes ---
       val params = m.parameter.orderGt(0).l
       val paramIdxToId: Map[Int,String] =
         params.zipWithIndex.map { case (p, i0) =>
@@ -216,7 +216,7 @@ object CfgByClass {
         methodToBody    += (m.fullName -> stripped)
         rootIdsPrefixed.headOption.foreach(r => methodToPrefixedRootId += (m.fullName -> r))
 
-        // --- state var nodes (once per owner/field) ---
+        // --- state var nodes (exclude inner-class-like names) ---
         val allCodes = lineCode.values.mkString("\n")
         val fieldsUsed = thisFieldRx.findAllMatchIn(allCodes).map(_.group(1)).toSet
         val fieldsUsedFiltered = fieldsUsed.filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
@@ -229,53 +229,59 @@ object CfgByClass {
           }
         }
 
-        // --- blue/red edges inside method (state vars + params) ---
+        // --- DATA-DEPS (color semantics swapped as requested) ---
         lineMapPrefixed.foreach { case (ln, nodeId) =>
           val code = lineCode.getOrElse(ln, "")
 
-          // state var uses (blue)
+          // 1) STATE VARS
           val rhsFieldsRaw = thisFieldRx.findAllMatchIn(code).map(_.group(1)).toSet
-          val rhsFields = rhsFieldsRaw.filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
-          rhsFields.foreach { f =>
-            val sv = ownerStateVarToNodeId.getOrElseUpdate((owner, f), stateVarId(owner, f))
-            blueEdges += "\"" + sv + "\" -> \"" + nodeId + "\" [color=\"blue\"]"
-          }
-
-          // state var def on LHS (red) + optional blue to the assignment node
           val lhsFieldsRaw = assignLhsThisRx.findAllMatchIn(code).map(_.group(1)).toSet
-          val lhsFields = lhsFieldsRaw.filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
-          lhsFields.foreach { f =>
+          val rhsCand = rhsFieldsRaw.filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
+          val lhsSet  = lhsFieldsRaw.filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
+
+          // Node is influenced by RHS uses  => RED edge from variable to node
+          val rhsOnly = rhsCand.diff(lhsSet)
+          rhsOnly.foreach { f =>
             val sv = ownerStateVarToNodeId.getOrElseUpdate((owner, f), stateVarId(owner, f))
-            redEdges  += "\"" + nodeId + "\" -> \"" + sv + "\" [color=\"red\"]"
-            blueEdges += "\"" + sv + "\" -> \"" + nodeId + "\" [color=\"blue\"]"
+            redEdges += "\"" + sv + "\" -> \"" + nodeId + "\" [color=\"blue\"]"
           }
 
-          // params influence node when referenced by name (blue); param as LHS (red)
+          // Node influences variable on LHS  => BLUE edge from node to variable
+          lhsSet.foreach { f =>
+            val sv = ownerStateVarToNodeId.getOrElseUpdate((owner, f), stateVarId(owner, f))
+            blueEdges  += "\"" + nodeId + "\" -> \"" + sv + "\" [color=\"red\"]"
+          }
+
+          // 2) PARAMS
           params.zipWithIndex.foreach { case (p, i0) =>
             val idx   = i0 + 1
             val pName = Option(p.name).getOrElse("")
             if (pName.nonEmpty) {
-              val qn = java.util.regex.Pattern.quote(pName)
+              val qn    = java.util.regex.Pattern.quote(pName)
               val useRx = ( "(?<![\\w$])" + qn + "(?![\\w$])" ).r
-              if (useRx.findFirstIn(code).isDefined) {
-                val pid = paramIdxToId(idx)
-                blueEdges += "\"" + pid + "\" -> \"" + nodeId + "\" [color=\"blue\"]"
-              }
               val lhsRx = ( "(?<![\\w$])" + qn + "\\s*=" ).r
-              if (lhsRx.findFirstIn(code).isDefined) {
+
+              val isLhs = lhsRx.findFirstIn(code).isDefined
+              val used  = useRx.findFirstIn(code).isDefined
+
+              if (used && !isLhs) {
                 val pid = paramIdxToId(idx)
-                redEdges += "\"" + nodeId + "\" -> \"" + pid + "\" [color=\"red\"]"
+                redEdges += "\"" + pid + "\" -> \"" + nodeId + "\" [color=\"blue\"]"   // influenced by param
+              }
+              if (isLhs) {
+                val pid = paramIdxToId(idx)
+                blueEdges += "\"" + nodeId + "\" -> \"" + pid + "\" [color=\"red\"]" // node defines param (rare)
               }
             }
           }
         }
 
-        // add the method body to this owner's cluster
+        // add body to cluster
         buf += stripped
       }
     }
 
-    // --- build clusters ---
+    // --- clusters ---
     val clustersByClass: List[String] =
       methodsByOwner.toList.sortBy(_._1).flatMap { case (owner, ms) =>
         val ownerSan = sanitize(owner)
@@ -289,7 +295,7 @@ object CfgByClass {
         )
       }
 
-    // --- cross-method: act-dep (callsites -> callee root) ---
+    // --- act-dep (callsite -> callee root) ---
     val internalFullNames: Set[String] = methodToPrefixedRootId.keySet.toSet
     methods.foreach { callerM =>
       val callerMap  = methodToLineMap.getOrElse(callerM.fullName, Map.empty)
@@ -301,13 +307,13 @@ object CfgByClass {
           val srcIdOpt = callerMap.get(ln)
           val dstIdOpt = methodToPrefixedRootId.get(callee)
           if (srcIdOpt.isDefined && dstIdOpt.isDefined && srcIdOpt.get != dstIdOpt.get) {
-            actDepEdges += "\"" + srcIdOpt.get + "\" -> \"" + dstIdOpt.get + "\" [label=\"act dep\", color=\"purple\"]"
+            actDepEdges += "\"" + srcIdOpt.get + "\" -> \"" + dstIdOpt.get + "\" [label=\"act dep\"]"
           }
         }
       }
     }
 
-    // --- cross-method: argument binding (callsites -> callee param nodes) ---
+    // --- argument binding (callsite -> callee param nodes) ---
     methods.foreach { callerM =>
       val callerMap = methodToLineMap.getOrElse(callerM.fullName, Map.empty)
       callerM.call.l.foreach { c =>

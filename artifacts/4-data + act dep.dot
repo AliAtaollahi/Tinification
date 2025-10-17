@@ -58,6 +58,22 @@ subgraph "cluster_HVAC_Controller" {
 "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771087" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771091" [label="ctrl dep"]
 "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771091" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771093" [label="ctrl dep"]
 "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771091" [label = <activateh, 27<BR/>this.hc_unit.activateh()> ]
+"sv_heating_active" [label = <sv_heating_active<BR/>heating_active>]
+
+"sv_heating_active" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771087" [color="blue"]
+"sv_heating_active" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771095" [color="blue"]
+
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771093"-> "sv_heating_active" [color="red"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771101" -> "sv_heating_active" [ color="red"]
+"HVAC_Controller__HVAC_Controller__init__void___30064771077" -> "sv_heating_active" [ color="red"]
+"sv_sensed_value" [label = <sv_sensed_value<BR/>sensed_value>]
+
+"HVAC_Controller__HVAC_Controller__init__void___30064771079" -> "sv_sensed_value" [color="red"]
+"HVAC_Controller__HVAC_Controller_getSense_void_int__30064771085" -> "sv_sensed_value" [ color="red"]
+"get_sense_par_temp" [label = get_sense_par_temp]
+
+"get_sense_par_temp" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771087" [color="blue"]
+"get_sense_par_temp" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771095"  [color="blue"]
 }
 
 subgraph "cluster_HVAC_HC_Unit" {
