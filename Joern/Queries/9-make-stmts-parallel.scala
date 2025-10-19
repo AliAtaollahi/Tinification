@@ -273,7 +273,7 @@ object CfgByClass {
           }
         }
 
-        // --- CONTROL DEPENDENCIES by AST scope with full IF/ELSE/ELSE-IF handling ---
+        // --- CONTROL DEPENDENCIES with robust IF/ELSE/ELSE-IF handling ---
         try {
           val mBlockOpt: Option[Block] = m.ast.isBlock.headOption
           val rootIdOpt = rootIdsPrefixed.headOption
@@ -302,45 +302,60 @@ object CfgByClass {
               id
             }
 
-            // Recurse down blocks
-            def addFrom(parentId: String, block: Block): Unit = {
-              block.astChildren.l.foreach {
-                case cs: ControlStructure =>
-                  val csNodeId = ensureCtrlNode(cs)
-                  ctrlScopeEdges += s""""$parentId" -> "$csNodeId" [label="ctrl dep"]"""
-                  // Walk ALL children except the condition (order == 1)
-                  cs.astChildren.l.foreach {
-                    case b: Block if b.order.forall(_ != 1) =>
-                      addFrom(csNodeId, b)
-                    case nested: ControlStructure if nested.order.forall(_ != 1) =>
-                      val nestedId = ensureCtrlNode(nested)
-                      ctrlScopeEdges += s""""$csNodeId" -> "$nestedId" [label="ctrl dep"]"""
-                      // recurse into nested's own children
-                      nested.astChildren.l.foreach {
-                        case nb: Block if nb.order.forall(_ != 1) => addFrom(nestedId, nb)
-                        case other: AstNode if other.order.forall(_ != 1) =>
-                          idOf(other).foreach { oid =>
-                            ctrlScopeEdges += s""""$nestedId" -> "$oid" [label="ctrl dep"]"""
-                          }
-                        case _ => ()
-                      }
-                    case other: AstNode if other.order.forall(_ != 1) =>
-                      idOf(other).foreach { oid =>
-                        ctrlScopeEdges += s""""$csNodeId" -> "$oid" [label="ctrl dep"]"""
-                      }
+            // Attach edges from a CS node to all statements in a given branch
+            def attachBranch(parentId: String, cs: ControlStructure, bodyNodes: List[AstNode]): Unit = {
+              bodyNodes.foreach {
+                case b: Block =>
+                  // Recurse through statements of the block
+                  b.astChildren.l.foreach {
+                    case nestedCs: ControlStructure => addCtrlFromCS(parentId, nestedCs)
+                    case n: AstNode                 => idOf(n).foreach(oid => ctrlScopeEdges += s""""$parentId" -> "$oid" [label="ctrl dep"]""")
                     case _ => ()
                   }
-
-                case child: AstNode =>
-                  idOf(child).foreach { childId =>
-                    ctrlScopeEdges += s""""$parentId" -> "$childId" [label="ctrl dep"]"""
-                  }
-
-                case _ => () // ignore
+                case nestedCs: ControlStructure =>
+                  addCtrlFromCS(parentId, nestedCs)
+                case n: AstNode =>
+                  idOf(n).foreach(oid => ctrlScopeEdges += s""""$parentId" -> "$oid" [label="ctrl dep"]""")
               }
             }
 
-            // Root (method) controls all immediate body statements
+            // Add CS with both branches handled
+            def addCtrlFromCS(parentId: String, cs: ControlStructure): Unit = {
+              val csNodeId = ensureCtrlNode(cs)
+              ctrlScopeEdges += s""""$parentId" -> "$csNodeId" [label="ctrl dep"]"""
+
+              // Prefer Joern branch traversals if present
+              val (trueNodes, falseNodes) =
+                try {
+                  val tNodes = cs.whenTrue.astChildren.collectAll[AstNode].l
+                  val fNodes = cs.whenFalse.astChildren.collectAll[AstNode].l
+                  (tNodes, fNodes)
+                } catch {
+                  case _: Throwable =>
+                    // Fallback: take all children except the condition (order==1)
+                    val nonCond = cs.astChildren.collectAll[AstNode].whereNot(_.order(1)).l
+                    // Heuristic: if there are 2+ bodies, assume first is THEN, second is ELSE
+                    val (tn, fn) =
+                      if (nonCond.size >= 2) (List(nonCond.head), nonCond.tail)
+                      else (nonCond, Nil)
+                    (tn, fn)
+                }
+
+              attachBranch(csNodeId, cs, trueNodes)
+              attachBranch(csNodeId, cs, falseNodes)
+            }
+
+            // Walk the method body: root → immediate statements/CSs
+            def addFrom(parentId: String, block: Block): Unit = {
+              block.astChildren.l.foreach {
+                case cs: ControlStructure => addCtrlFromCS(parentId, cs)
+                case child: AstNode       => idOf(child).foreach { childId =>
+                  ctrlScopeEdges += s""""$parentId" -> "$childId" [label="ctrl dep"]"""
+                }
+                case _ => ()
+              }
+            }
+
             addFrom(rootId, methodBlock)
           }
         } catch {
