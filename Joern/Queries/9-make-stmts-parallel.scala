@@ -53,24 +53,27 @@ object CfgByClass {
   // ---------- abstraction with root relabel ----------
   case class Abstracted(
     inner: String,
-    lineToKeptNodeId: Map[String,String],  // raw ids (unprefixed)
+    lineToKeptNodeId: Map[String,String],  // raw ids (unprefixed) ONLY for kept lines
     rootIds: Set[String],                  // raw ids (unprefixed)
-    lineToCode: Map[String,String]
+    lineToCode: Map[String,String]         // code for ALL lines (kept + suppressed)
   )
 
-  def abstractDotByLine(dot: String, rootLabelOverride: Option[String] = None): Abstracted = {
+  // Build an abstracted DOT that keeps one node per source line, with the option to suppress some lines (e.g., IF conditions)
+  def abstractDotByLine(
+      dot: String,
+      rootLabelOverride: Option[String] = None,
+      suppressLines: Set[String] = Set.empty
+  ): Abstracted = {
     import scala.util.matching.Regex
 
     val nodeRx: Regex =
       "\"(\\d+)\"\\s*\\[label\\s*=\\s*<([^,>]+),\\s*(\\d+)<BR/>(.*?)>\\s*\\]".r
     val simpleLabelRx: Regex =
       "\"(\\d+)\"\\s*\\[label\\s*=\\s*<([^,><]+)>\\s*\\]".r
-    val edgeRx: Regex =
-      "\"(\\d+)\"\\s*->\\s*\"(\\d+)\"".r
 
     case class Node(id: String, kind: String, line: String, code: String, methodName: Option[String] = None)
 
-    val nodes: List[Node] =
+    val nodesAll: List[Node] =
       nodeRx.findAllMatchIn(dot).map { m =>
         val kind = m.group(2)
         val code = m.group(4)
@@ -79,24 +82,28 @@ object CfgByClass {
         Node(m.group(1), kind, m.group(3), code, methName)
       }.toList
 
-    val edges: List[(String, String)] =
-      edgeRx.findAllMatchIn(dot).map(m => (m.group(1), m.group(2))).toList
-
     val labelRootIds: Set[String] =
       simpleLabelRx.findAllMatchIn(dot).map(_.group(1)).toSet
 
-    val srcs = edges.map(_._1).toSet
-    val dsts = edges.map(_._2).toSet
-    val structuralRootIds: Set[String] = srcs -- dsts
-    val rootIds: Set[String] = (labelRootIds ++ structuralRootIds)
-
-    if (nodes.isEmpty && edges.isEmpty)
+    if (nodesAll.isEmpty)
       return Abstracted("", Map.empty, Set.empty, Map.empty)
 
-    val bestByLine: Map[String, Node] =
-      nodes.groupBy(_.line).map { case (line, xs) => line -> xs.maxBy(_.code.length) }
+    // Detect roots directly from METHOD/init nodes (do NOT rely on CFG edges)
+    val methodNodeIds: Set[String] =
+      nodesAll.iterator
+        .filter(n => n.kind.startsWith("METHOD") || n.kind.equalsIgnoreCase("init"))
+        .map(_.id)
+        .toSet
 
-    val keptNodes = bestByLine.values.toList
+    val rootIds: Set[String] = labelRootIds ++ methodNodeIds
+
+    // Best node per line across ALL lines (for labels, even if suppressed)
+    val bestAllByLine: Map[String, Node] =
+      nodesAll.groupBy(_.line).map { case (line, xs) => line -> xs.maxBy(_.code.length) }
+
+    // Keep nodes EXCEPT on suppressed lines
+    val keptByLine: Map[String, Node] = bestAllByLine.filterNot { case (ln, _) => suppressLines.contains(ln) }
+    val keptNodes: List[Node] = keptByLine.values.toList
 
     val nodeLines: List[String] =
       keptNodes
@@ -111,7 +118,7 @@ object CfgByClass {
           "\"" + n.id + "\" [label = <" + label + "> ]"
         }
 
-    // Do NOT emit original CFG edges; we add scope-based ones later.
+    // No original CFG edges; we add scope-based ones later.
     val edgeLines: List[String] = Nil
 
     val rootLines: List[String] =
@@ -121,8 +128,8 @@ object CfgByClass {
       } else Nil
 
     val inner = (nodeLines ++ edgeLines ++ rootLines).mkString("\n")
-    val keptMap: Map[String,String] = bestByLine.map{ case (ln, n) => ln -> n.id }
-    val codeMap: Map[String,String] = bestByLine.map{ case (ln, n) => ln -> n.code }
+    val keptMap: Map[String,String] = keptByLine.map{ case (ln, n) => ln -> n.id }
+    val codeMap: Map[String,String] = bestAllByLine.map{ case (ln, n) => ln -> n.code } // includes suppressed
     Abstracted(inner, keptMap, rootIds, codeMap)
   }
 
@@ -169,6 +176,9 @@ object CfgByClass {
     val purpleArgEdges   = scala.collection.mutable.Set.empty[String]
     val ctrlScopeEdges   = scala.collection.mutable.Set.empty[String]    // only scope-based ctrl deps
 
+    // NEW: collect (owner, ctrlNodeId, conditionText) for all CS nodes we create
+    val condUse = scala.collection.mutable.ListBuffer.empty[(String, String, String)]
+
     // regexes
     val thisFieldRx        = "\\bthis\\.([A-Za-z_]\\w*)".r
     val assignLhsThisRx    = "\\bthis\\.([A-Za-z_]\\w*)\\s*=".r
@@ -197,15 +207,19 @@ object CfgByClass {
       methodParamIdxToNodeId += (m.fullName -> paramIdxToId)
 
       if (raw.nonEmpty) {
+        // SUPPRESS condition-expression nodes: one per control-structure line (if/else if)
+        val csLines: Set[String] =
+          m.controlStructure.lineNumber.l.flatMap(x => Option(x).map(_.toString)).toSet
+
         val rootLabel = prettyMethodLabel(m)
-        val abs = abstractDotByLine(raw, Some(rootLabel))
+        val abs = abstractDotByLine(raw, Some(rootLabel), suppressLines = csLines)
         val withWrapper =
           "digraph \"cfg_abstract\" {\nnode [shape=\"rect\"];\n" + abs.inner + "\n}"
         val prefixed  = prefixIds(withWrapper, pfx)
         val stripped  = stripDotWrapper(prefixed)
 
         val lineMapPrefixed  = abs.lineToKeptNodeId.map{ case (ln,id) => ln -> (pfx + "_" + id) }
-        val lineCode         = abs.lineToCode
+        val lineCode         = abs.lineToCode       // includes suppressed lines (for labels)
         val rootIdsPrefixed  = abs.rootIds.map(id => pfx + "_" + id)
 
         methodToLineMap += (m.fullName -> lineMapPrefixed)
@@ -236,14 +250,14 @@ object CfgByClass {
           val rhsCand = rhsFieldsRaw.filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
           val lhsSet  = lhsFieldsRaw.filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
 
-          // Node is influenced by RHS uses  => RED edge from variable to node
+          // Node is influenced by RHS uses  => RED set (styled blue)
           val rhsOnly = rhsCand.diff(lhsSet)
           rhsOnly.foreach { f =>
             val sv = ownerStateVarToNodeId.getOrElseUpdate((owner, f), stateVarId(owner, f))
             redEdges += "\"" + sv + "\" -> \"" + nodeId + "\" [color=\"blue\"]"
           }
 
-          // Node influences variable on LHS  => BLUE edge from node to variable
+          // Node influences variable on LHS  => BLUE set (styled red)
           lhsSet.foreach { f =>
             val sv = ownerStateVarToNodeId.getOrElseUpdate((owner, f), stateVarId(owner, f))
             blueEdges  += "\"" + nodeId + "\" -> \"" + sv + "\" [color=\"red\"]"
@@ -273,7 +287,7 @@ object CfgByClass {
           }
         }
 
-        // --- CONTROL DEPENDENCIES with robust IF/ELSE/ELSE-IF handling ---
+        // --- CONTROL DEPENDENCIES with line-labelled IF / ELSEIF / ELSE nodes ---
         try {
           val mBlockOpt: Option[Block] = m.ast.isBlock.headOption
           val rootIdOpt = rootIdsPrefixed.headOption
@@ -287,42 +301,51 @@ object CfgByClass {
             def idOf(n: AstNode): Option[String] =
               n.lineNumber.map(_.toString).flatMap(lineMapPrefixed.get)
 
-            // Create or reuse a synthetic control-structure node (IF/WHILE/...)
-            def ensureCtrlNode(cs: ControlStructure): String = {
-              val kind = Option(cs.controlStructureType).getOrElse("IF")
-              val ln   = cs.lineNumber
-              val id   = ctrlNodeId(owner, m.fullName, kind, ln)
+            // First line in a set of nodes
+            def firstLine(nodes: List[AstNode]): Option[Int] =
+              nodes.flatMap(_.lineNumber).sorted.headOption
+
+            // Create or reuse a synthetic control-structure node (IF/ELSEIF/WHILE/ELSE)
+            def ensureCtrlNode(labelKind: String, lineOpt: Option[Int], condTextOpt: Option[String]): String = {
+              val id = ctrlNodeId(owner, m.fullName, labelKind, lineOpt)
               if (!emittedCtrlNodeIds.contains(id)) {
-                val condText =
-                  ln.flatMap(lnv => lineCode.get(lnv.toString)).getOrElse(kind)
-                val label = s"${kind.toLowerCase} (${condText})"
-                buf += "\"" + id + "\" [label = <<FONT>" + html(label) + "</FONT>> ]"
+                val kindUpper = labelKind.toUpperCase
+                val lnStr = lineOpt.map(_.toString).getOrElse("?")
+                val body = condTextOpt.getOrElse(kindUpper.toLowerCase)
+                val label = s"$kindUpper, $lnStr<BR/>" + html(body)
+                buf += "\"" + id + "\" [label = <" + label + "> ]"
                 emittedCtrlNodeIds += id
               }
               id
             }
 
             // Attach edges from a CS node to all statements in a given branch
-            def attachBranch(parentId: String, cs: ControlStructure, bodyNodes: List[AstNode]): Unit = {
+            def attachBranch(parentId: String, bodyNodes: List[AstNode]): Unit = {
               bodyNodes.foreach {
                 case b: Block =>
-                  // Recurse through statements of the block
                   b.astChildren.l.foreach {
-                    case nestedCs: ControlStructure => addCtrlFromCS(parentId, nestedCs)
-                    case n: AstNode                 => idOf(n).foreach(oid => ctrlScopeEdges += s""""$parentId" -> "$oid" [label="ctrl dep"]""")
+                    case nestedCs: ControlStructure => addCtrlFromCS(parentId, nestedCs, isElseIf = false)
+                    case n: AstNode                 => idOf(n).foreach(oid => ctrlScopeEdges += s""""$parentId" -> "$oid" [label="ctrl dep"]"""
+                    )
                     case _ => ()
                   }
                 case nestedCs: ControlStructure =>
-                  addCtrlFromCS(parentId, nestedCs)
+                  addCtrlFromCS(parentId, nestedCs, isElseIf = false)
                 case n: AstNode =>
                   idOf(n).foreach(oid => ctrlScopeEdges += s""""$parentId" -> "$oid" [label="ctrl dep"]""")
               }
             }
 
-            // Add CS with both branches handled
-            def addCtrlFromCS(parentId: String, cs: ControlStructure): Unit = {
-              val csNodeId = ensureCtrlNode(cs)
+            // Add CS; THEN hangs from IF/ELSEIF node; ELSE is either flattened ELSEIF or its own ELSE node with a line.
+            def addCtrlFromCS(parentId: String, cs: ControlStructure, isElseIf: Boolean): Unit = {
+              val csLine = cs.lineNumber
+              val condText = csLine.flatMap(lnv => lineCode.get(lnv.toString))
+              val labelKind = if (isElseIf) "ELSEIF" else Option(cs.controlStructureType).getOrElse("IF").toUpperCase
+              val csNodeId = ensureCtrlNode(labelKind, csLine, condText)
               ctrlScopeEdges += s""""$parentId" -> "$csNodeId" [label="ctrl dep"]"""
+
+              // Record for state-var used-by edges into condition
+              condUse += ((owner, csNodeId, condText.getOrElse("")))
 
               // Prefer Joern branch traversals if present
               val (trueNodes, falseNodes) =
@@ -332,23 +355,47 @@ object CfgByClass {
                   (tNodes, fNodes)
                 } catch {
                   case _: Throwable =>
-                    // Fallback: take all children except the condition (order==1)
                     val nonCond = cs.astChildren.collectAll[AstNode].whereNot(_.order(1)).l
-                    // Heuristic: if there are 2+ bodies, assume first is THEN, second is ELSE
                     val (tn, fn) =
                       if (nonCond.size >= 2) (List(nonCond.head), nonCond.tail)
                       else (nonCond, Nil)
                     (tn, fn)
                 }
 
-              attachBranch(csNodeId, cs, trueNodes)
-              attachBranch(csNodeId, cs, falseNodes)
+              // THEN branch under this node
+              attachBranch(csNodeId, trueNodes)
+
+              // ELSE branch
+              // If it’s exactly an ELSE-IF: flatten as sibling with line label
+              val elseAsElseIf: Option[ControlStructure] =
+                falseNodes match {
+                  case (c: ControlStructure) :: Nil => Some(c)
+                  case b :: Nil if b.isInstanceOf[Block] =>
+                    b.asInstanceOf[Block].astChildren.collectAll[ControlStructure].l match {
+                      case x :: Nil => Some(x)
+                      case _        => None
+                    }
+                  case _ => None
+                }
+
+              elseAsElseIf match {
+                case Some(nestedIf) =>
+                  // Flattened "ELSEIF" sibling
+                  addCtrlFromCS(parentId, nestedIf, isElseIf = true)
+                case None if falseNodes.nonEmpty =>
+                  // Real ELSE body: make a dedicated ELSE node with its own line
+                  val elseLine = firstLine(falseNodes).orElse(csLine)
+                  val elseNodeId = ensureCtrlNode("ELSE", elseLine, Some("else"))
+                  ctrlScopeEdges += s""""$csNodeId" -> "$elseNodeId" [label="ctrl dep"]"""
+                  attachBranch(elseNodeId, falseNodes)
+                case _ => () // no else
+              }
             }
 
             // Walk the method body: root → immediate statements/CSs
             def addFrom(parentId: String, block: Block): Unit = {
               block.astChildren.l.foreach {
-                case cs: ControlStructure => addCtrlFromCS(parentId, cs)
+                case cs: ControlStructure => addCtrlFromCS(parentId, cs, isElseIf = false)
                 case child: AstNode       => idOf(child).foreach { childId =>
                   ctrlScopeEdges += s""""$parentId" -> "$childId" [label="ctrl dep"]"""
                 }
@@ -364,6 +411,19 @@ object CfgByClass {
 
         // add body to cluster
         buf += stripped
+      }
+    }
+
+    // --- add state-var used-by edges into IF/ELSEIF condition nodes (blue) ---
+    condUse.foreach { case (own, csId, cond) =>
+      if (cond.nonEmpty) {
+        val fields =
+          thisFieldRx.findAllMatchIn(cond).map(_.group(1)).toSet
+            .filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
+        fields.foreach { f =>
+          val sv = ownerStateVarToNodeId.getOrElseUpdate((own, f), stateVarId(own, f))
+          redEdges += s""""$sv" -> "$csId" [color="blue"]"""
+        }
       }
     }
 
