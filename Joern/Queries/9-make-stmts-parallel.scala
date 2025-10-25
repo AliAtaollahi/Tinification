@@ -24,13 +24,21 @@ object CfgByClass {
 
   // HTML-escape for Graphviz HTML-like labels
   def html(s: String): String =
-    s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    s.replace("&", "&amp;")
+      .replace("<", "&lt;")
+      .replace(">", "&gt;")
+      .replace("\"", "&quot;")
 
   // Graphviz id helpers (stable + unique)
   def sanitize(s: String): String = s.replaceAll("[^A-Za-z0-9_]", "_")
-  def stateVarId(owner: String, field: String): String = sanitize(owner) + "__sv_" + sanitize(field)
+  private def h(s: String): String = Integer.toHexString(s.hashCode).take(6)
+
+  def stateVarId(owner: String, field: String): String =
+    sanitize(owner) + "__sv_" + sanitize(field) + "_" + h(field)
+
   def paramId(owner: String, mFull: String, pName: String, idx: Int): String =
-    sanitize(owner) + "__" + sanitize(mFull) + "__param_" + idx + "_" + sanitize(pName)
+    sanitize(owner) + "__" + sanitize(mFull) + "__param_" + idx + "_" + sanitize(pName) + "_" + h(pName)
+
   def ctrlNodeId(owner: String, mFull: String, kind: String, line: Option[Int]): String = {
     val ln = line.map(_.toString).getOrElse("u")
     sanitize(owner) + "__" + sanitize(mFull) + "__ctrl_" + sanitize(kind.toLowerCase) + "_" + ln
@@ -58,20 +66,21 @@ object CfgByClass {
     lineToCode: Map[String,String]         // code for ALL lines (kept + suppressed)
   )
 
-  // Build an abstracted DOT that keeps one node per source line, with the option to suppress some lines (e.g., IF conditions)
+  // Keep one node per source line, optionally suppressing some lines (e.g., IF conditions).
+  // Deterministically choose exactly ONE root (METHOD/init) and relabel only that node.
   def abstractDotByLine(
       dot: String,
       rootLabelOverride: Option[String] = None,
       suppressLines: Set[String] = Set.empty
   ): Abstracted = {
     import scala.util.matching.Regex
+    import scala.util.Try
 
     val nodeRx: Regex =
       "\"(\\d+)\"\\s*\\[label\\s*=\\s*<([^,>]+),\\s*(\\d+)<BR/>(.*?)>\\s*\\]".r
-    val simpleLabelRx: Regex =
-      "\"(\\d+)\"\\s*\\[label\\s*=\\s*<([^,><]+)>\\s*\\]".r
 
     case class Node(id: String, kind: String, line: String, code: String, methodName: Option[String] = None)
+    def asLong(s: String): Long = Try(s.toLong).getOrElse(Long.MaxValue)
 
     val nodesAll: List[Node] =
       nodeRx.findAllMatchIn(dot).map { m =>
@@ -82,20 +91,17 @@ object CfgByClass {
         Node(m.group(1), kind, m.group(3), code, methName)
       }.toList
 
-    val labelRootIds: Set[String] =
-      simpleLabelRx.findAllMatchIn(dot).map(_.group(1)).toSet
-
     if (nodesAll.isEmpty)
       return Abstracted("", Map.empty, Set.empty, Map.empty)
 
-    // Detect roots directly from METHOD/init nodes (do NOT rely on CFG edges)
-    val methodNodeIds: Set[String] =
+    // Deterministic single root id: prefer METHOD/init, tie-breaker by numeric id
+    val methodRootIds: List[String] =
       nodesAll.iterator
         .filter(n => n.kind.startsWith("METHOD") || n.kind.equalsIgnoreCase("init"))
-        .map(_.id)
-        .toSet
+        .map(_.id).toList.sortBy(asLong)
 
-    val rootIds: Set[String] = labelRootIds ++ methodNodeIds
+    val chosenRootIdOpt: Option[String] = methodRootIds.headOption
+    val rootIds: Set[String] = chosenRootIdOpt.toSet
 
     // Best node per line across ALL lines (for labels, even if suppressed)
     val bestAllByLine: Map[String, Node] =
@@ -107,7 +113,7 @@ object CfgByClass {
 
     val nodeLines: List[String] =
       keptNodes
-        .sortBy(n => n.line.toIntOption.getOrElse(Int.MaxValue))
+        .sortBy(n => Try(n.line.toInt).getOrElse(Int.MaxValue))
         .map { n =>
           val label =
             n.kind match {
@@ -118,14 +124,14 @@ object CfgByClass {
           "\"" + n.id + "\" [label = <" + label + "> ]"
         }
 
-    // No original CFG edges; we add scope-based ones later.
     val edgeLines: List[String] = Nil
 
+    // Relabel only the chosen root id (if any)
     val rootLines: List[String] =
-      if (rootIds.nonEmpty) {
+      chosenRootIdOpt.toList.map { id =>
         val text = html(rootLabelOverride.getOrElse("METHOD"))
-        rootIds.toList.map { id => "\"" + id + "\" [label = <<FONT>" + text + "</FONT>> ]" }
-      } else Nil
+        "\"" + id + "\" [label = <<FONT>" + text + "</FONT>> ]"
+      }
 
     val inner = (nodeLines ++ edgeLines ++ rootLines).mkString("\n")
     val keptMap: Map[String,String] = keptByLine.map{ case (ln, n) => ln -> n.id }
@@ -165,6 +171,7 @@ object CfgByClass {
 
     val methodParamIdxToNodeId = scala.collection.mutable.Map.empty[String, Map[Int, String]]
     val ownerStateVarToNodeId  = scala.collection.mutable.Map.empty[(String,String), String]
+    val ownerToFieldNames      = scala.collection.mutable.Map.empty[String, Set[String]]
 
     val emittedStateNodeIds    = scala.collection.mutable.Set.empty[String]
     val emittedParamNodeIds    = scala.collection.mutable.Set.empty[String]
@@ -176,12 +183,17 @@ object CfgByClass {
     val purpleArgEdges   = scala.collection.mutable.Set.empty[String]
     val ctrlScopeEdges   = scala.collection.mutable.Set.empty[String]    // only scope-based ctrl deps
 
-    // NEW: collect (owner, ctrlNodeId, conditionText) for all CS nodes we create
+    // collect (owner, ctrlNodeId, conditionText) for all CS nodes we create
     val condUse = scala.collection.mutable.ListBuffer.empty[(String, String, String)]
 
     // regexes
     val thisFieldRx        = "\\bthis\\.([A-Za-z_]\\w*)".r
-    val assignLhsThisRx    = "\\bthis\\.([A-Za-z_]\\w*)\\s*=".r
+
+    // assignment operators (longer first; '=' guarded to avoid '==')
+    val assignOpsPattern = "(?:<<=|>>=|\\+=|-=|\\*=|/=|%=|\\|=|&=|\\^=|=(?!=))"
+
+    // explicit this.field on LHS
+    val assignLhsThisRx    = (s"\\bthis\\.([A-Za-z_]\\w*)\\s*$assignOpsPattern").r
 
     methods.foreach { m =>
       val owner = m.typeDecl.name.headOption.getOrElse(ownerTypeOf(m.fullName))
@@ -189,6 +201,12 @@ object CfgByClass {
       val raw   = m.dotCfg.l.headOption.getOrElse("")
 
       val buf = ownerToBodies.getOrElseUpdate(owner, scala.collection.mutable.ListBuffer.empty[String])
+
+      // collect declared field names for this owner (once)
+      val ownerFields: Set[String] = ownerToFieldNames.getOrElseUpdate(
+        owner,
+        m.typeDecl.member.name.l.toSet
+      )
 
       // --- parameter nodes ---
       val params = m.parameter.orderGt(0).l
@@ -227,10 +245,20 @@ object CfgByClass {
         methodToBody    += (m.fullName -> stripped)
         rootIdsPrefixed.headOption.foreach(r => methodToPrefixedRootId += (m.fullName -> r))
 
-        // --- state var nodes (exclude inner-class-like names) ---
+        // --- state var nodes (include explicit 'this.' and bare field references) ---
         val allCodes = lineCode.values.mkString("\n")
-        val fieldsUsed = thisFieldRx.findAllMatchIn(allCodes).map(_.group(1)).toSet
-        val fieldsUsedFiltered = fieldsUsed.filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
+
+        val fieldsViaThis = thisFieldRx.findAllMatchIn(allCodes).map(_.group(1)).toSet
+        val bareFieldMatches: Set[String] =
+          ownerFields.filter { f =>
+            val q = java.util.regex.Pattern.quote(f)
+            val rx = ("(?<![\\w\\$])" + q + "(?![\\w\\$])").r
+            rx.findFirstIn(allCodes).isDefined
+          }
+
+        val fieldsUsedFiltered = (fieldsViaThis ++ bareFieldMatches)
+          .filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
+
         fieldsUsedFiltered.foreach { f =>
           val id = ownerStateVarToNodeId.getOrElseUpdate((owner, f), stateVarId(owner, f))
           if (!emittedStateNodeIds.contains(id)) {
@@ -245,10 +273,25 @@ object CfgByClass {
           val code = lineCode.getOrElse(ln, "")
 
           // 1) STATE VARS
-          val rhsFieldsRaw = thisFieldRx.findAllMatchIn(code).map(_.group(1)).toSet
-          val lhsFieldsRaw = assignLhsThisRx.findAllMatchIn(code).map(_.group(1)).toSet
-          val rhsCand = rhsFieldsRaw.filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
-          val lhsSet  = lhsFieldsRaw.filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
+          val rhsFieldsThis = thisFieldRx.findAllMatchIn(code).map(_.group(1)).toSet
+          val lhsFieldsThis = assignLhsThisRx.findAllMatchIn(code).map(_.group(1)).toSet
+
+          // bare field LHS (assignment) and any occurrence (use)
+          val (lhsBare, anyBare): (Set[String], Set[String]) = {
+            val l = scala.collection.mutable.Set.empty[String]
+            val u = scala.collection.mutable.Set.empty[String]
+            ownerFields.foreach { f =>
+              val q = java.util.regex.Pattern.quote(f)
+              val lhsRx = ("(?<![\\w\\$])" + q + "\\s*" + assignOpsPattern).r
+              val useRx = ("(?<![\\w\\$])" + q + "(?![\\w\\$])").r
+              if (lhsRx.findFirstIn(code).isDefined) l += f
+              if (useRx.findFirstIn(code).isDefined) u += f
+            }
+            (l.toSet, u.toSet)
+          }
+
+          val lhsSet  = (lhsFieldsThis ++ lhsBare).filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
+          val rhsCand = (rhsFieldsThis ++ (anyBare -- lhsBare)).filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
 
           // Node is influenced by RHS uses  => RED set (styled blue)
           val rhsOnly = rhsCand.diff(lhsSet)
@@ -269,8 +312,8 @@ object CfgByClass {
             val pName = Option(p.name).getOrElse("")
             if (pName.nonEmpty) {
               val qn    = java.util.regex.Pattern.quote(pName)
-              val useRx = ( "(?<![\\w$])" + qn + "(?![\\w$])" ).r
-              val lhsRx = ( "(?<![\\w$])" + qn + "\\s*=" ).r
+              val useRx = ("(?<![\\w\\$])" + qn + "(?![\\w\\$])").r
+              val lhsRx = ("(?<![\\w\\$])" + qn + "\\s*" + assignOpsPattern).r
 
               val isLhs = lhsRx.findFirstIn(code).isDefined
               val used  = useRx.findFirstIn(code).isDefined
@@ -347,6 +390,22 @@ object CfgByClass {
               // Record for state-var used-by edges into condition
               condUse += ((owner, csNodeId, condText.getOrElse("")))
 
+              // --- NEW: parameter used-by edges into the condition node (blue) ---
+              condText.foreach { cond =>
+                params.zipWithIndex.foreach { case (p, i0) =>
+                  val idx   = i0 + 1
+                  val pName = Option(p.name).getOrElse("")
+                  if (pName.nonEmpty) {
+                    val q   = java.util.regex.Pattern.quote(pName)
+                    val useRx = ("(?<![\\w\\$])" + q + "(?![\\w\\$])").r
+                    if (useRx.findFirstIn(cond).isDefined) {
+                      val pid = paramIdxToId(idx)
+                      redEdges += s""""$pid" -> "$csNodeId" [color="blue"]"""
+                    }
+                  }
+                }
+              }
+
               // Prefer Joern branch traversals if present
               val (trueNodes, falseNodes) =
                 try {
@@ -366,7 +425,6 @@ object CfgByClass {
               attachBranch(csNodeId, trueNodes)
 
               // ELSE branch
-              // If it’s exactly an ELSE-IF: flatten as sibling with line label
               val elseAsElseIf: Option[ControlStructure] =
                 falseNodes match {
                   case (c: ControlStructure) :: Nil => Some(c)
@@ -417,19 +475,37 @@ object CfgByClass {
     // --- add state-var used-by edges into IF/ELSEIF condition nodes (blue) ---
     condUse.foreach { case (own, csId, cond) =>
       if (cond.nonEmpty) {
-        val fields =
+        val fieldsThis =
           thisFieldRx.findAllMatchIn(cond).map(_.group(1)).toSet
             .filterNot(f => innerClassBaseNames.contains(f.toLowerCase))
-        fields.foreach { f =>
-          val sv = ownerStateVarToNodeId.getOrElseUpdate((own, f), stateVarId(own, f))
-          redEdges += s""""$sv" -> "$csId" [color="blue"]"""
+
+        val ownerFields = ownerToFieldNames.getOrElse(own, Set.empty)
+        val bareMatches: Set[String] = ownerFields.filter { f =>
+          val q = java.util.regex.Pattern.quote(f)
+          val rx = ("(?<![\\w\\$])" + q + "(?![\\w\\$])").r
+          rx.findFirstIn(cond).isDefined
+        }
+
+        val fields = fieldsThis ++ bareMatches
+        if (fields.nonEmpty) {
+          val buf = ownerToBodies.getOrElseUpdate(own, scala.collection.mutable.ListBuffer.empty[String])
+          fields.foreach { f =>
+            val sv = ownerStateVarToNodeId.getOrElseUpdate((own, f), stateVarId(own, f))
+            if (!emittedStateNodeIds.contains(sv)) {
+              val label = "sv_" + sanitize(f) + " " + html("this." + f)
+              buf += s""""$sv" [label = <<FONT>$label</FONT>> ]"""
+              emittedStateNodeIds += sv
+            }
+            // sv used by condition ⇒ blue edge
+            redEdges += s""""$sv" -> "$csId" [color="blue"]"""
+          }
         }
       }
     }
 
     // --- clusters ---
     val clustersByClass: List[String] =
-      methodsByOwner.toList.sortBy(_._1).flatMap { case (owner, ms) =>
+      methodsByOwner.toList.sortBy(_._1).flatMap { case (owner, _) =>
         val ownerSan = sanitize(owner)
         val bodies = ownerToBodies.get(owner).map(_.toList).getOrElse(Nil)
         if (bodies.isEmpty) None
@@ -491,6 +567,7 @@ object CfgByClass {
   }
 }
 
+// --- run and write file ---
 val dot = CfgByClass.run()
 import java.nio.file.{Files, Paths}
 import java.nio.charset.StandardCharsets

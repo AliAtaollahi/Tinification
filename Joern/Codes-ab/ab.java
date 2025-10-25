@@ -26,18 +26,18 @@ public class AB {
         // knownrebecs
         A a;
 
-        // statevars
-        int x;
+    
 
         private final Random rnd = new Random();
 
         public B() {
-            x = 0;
+        
         }
 
         // msgsrv m2(){ ... }
         public void m2() {
-            x = choose(0, 1, 2);
+     
+            a.m1();
 
             // Previously called c.m3() with various delays; C is removed, so no-op here.
 

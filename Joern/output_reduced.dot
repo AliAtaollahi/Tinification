@@ -1,0 +1,97 @@
+digraph "program_cfg_abstract_by_class" {
+  compound=true;
+  node [shape="rect"];
+  subgraph "cluster_HVAC" {
+    label="HVAC";
+    "HVAC__HVAC_main_void_java_lang_String____107374182414" [label = <<FONT>HVAC.main(args)</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC__HVAC_main_void_java_lang_String____30064771152" [label = <&lt;operator&gt;.assignment, 144<BR/>Room room = new Room()> style=filled fillcolor="lightblue" ];
+    "HVAC__HVAC_main_void_java_lang_String____30064771154" [label = <&lt;operator&gt;.assignment, 145<BR/>Controller controller = new Controller()> style=filled fillcolor="lightblue" ];
+    "HVAC__HVAC_main_void_java_lang_String____107374182414" [label = <<FONT>HVAC.main(args)</FONT>> style=filled fillcolor="lightblue" ];
+  }
+  subgraph "cluster_HVAC_Controller" {
+    label="HVAC$Controller";
+    "HVAC_Controller__sv_heating_active_3d7bc3" [label = <<FONT>sv_heating_active this.heating_active</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC_Controller__HVAC_Controller__init__void___107374182400" [label = <<FONT>HVAC$Controller.&lt;init&gt;()</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC_Controller__HVAC_Controller__init__void___30064771077" [label = <&lt;operator&gt;.assignment, 16<BR/>this.heating_active = false> style=filled fillcolor="lightblue" ];
+    "HVAC_Controller__HVAC_Controller__init__void___107374182400" [label = <<FONT>HVAC$Controller.&lt;init&gt;()</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC_Controller__HVAC_Controller_getSense_void_int___param_1_temp_3643d4" [label = <<FONT>getSense_param_temp</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_if_26" [label = <IF, 26<BR/>21 &amp;gt; temp &amp;amp;&amp;amp; heating_active == false> style=filled fillcolor="lightblue" ];
+    "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_elseif_29" [label = <ELSEIF, 29<BR/>21 &amp;lt;= temp &amp;amp;&amp;amp; heating_active == true> style=filled fillcolor="lightblue" ];
+    "HVAC_Controller__HVAC_Controller_getSense_void_int__107374182401" [label = <<FONT>HVAC$Controller.getSense(temp)</FONT>> style=filled fillcolor="red" ];
+    "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771091" [label = <activateh, 27<BR/>this.hc_unit.activateh()> style=filled fillcolor="red" ];
+    "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771093" [label = <&lt;operator&gt;.assignment, 28<BR/>this.heating_active = true> style=filled fillcolor="lightblue" ];
+    "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771099" [label = <switchoff, 30<BR/>this.hc_unit.switchoff()> style=filled fillcolor="red" ];
+    "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771101" [label = <&lt;operator&gt;.assignment, 31<BR/>this.heating_active = false> style=filled fillcolor="lightblue" ];
+    "HVAC_Controller__HVAC_Controller_getSense_void_int__107374182401" [label = <<FONT>HVAC$Controller.getSense(temp)</FONT>> style=filled fillcolor="red" ];
+  }
+  subgraph "cluster_HVAC_HC_Unit" {
+    label="HVAC$HC_Unit";
+    "HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___107374182409" [label = <<FONT>HVAC$HC_Unit.activateh()</FONT>> style=filled fillcolor="red" ];
+    "HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___30064771138" [label = <regulate, 107<BR/>this.room.regulate(1)> style=filled fillcolor="lightblue" ];
+    "HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___107374182409" [label = <<FONT>HVAC$HC_Unit.activateh()</FONT>> style=filled fillcolor="red" ];
+    "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___107374182410" [label = <<FONT>HVAC$HC_Unit.switchoff()</FONT>> style=filled fillcolor="red" ];
+    "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771142" [label = <regulate, 113<BR/>this.room.regulate(0)> style=filled fillcolor="lightblue" ];
+    "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___107374182410" [label = <<FONT>HVAC$HC_Unit.switchoff()</FONT>> style=filled fillcolor="red" ];
+  }
+  subgraph "cluster_HVAC_Room" {
+    label="HVAC$Room";
+    "HVAC_Room__sv_tempchange_3eb828" [label = <<FONT>sv_tempchange this.tempchange</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC_Room__sv_temperature_132cc5" [label = <<FONT>sv_temperature this.temperature</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC_Room__HVAC_Room__init__void___107374182402" [label = <<FONT>HVAC$Room.&lt;init&gt;()</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC_Room__HVAC_Room__init__void___30064771108" [label = <&lt;operator&gt;.assignment, 50<BR/>this.temperature = 21> style=filled fillcolor="lightblue" ];
+    "HVAC_Room__HVAC_Room__init__void___30064771114" [label = <tempchange, 55<BR/>this.tempchange()> style=filled fillcolor="lightblue" ];
+    "HVAC_Room__HVAC_Room__init__void___107374182402" [label = <<FONT>HVAC$Room.&lt;init&gt;()</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC_Room__HVAC_Room_tempchange_void___107374182403" [label = <<FONT>HVAC$Room.tempchange()</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC_Room__HVAC_Room_tempchange_void___30064771118" [label = <&lt;operator&gt;.assignment, 62<BR/>this.temperature = temperature - outside_air_bl...> style=filled fillcolor="lightblue" ];
+    "HVAC_Room__HVAC_Room_tempchange_void___30064771125" [label = <getTemp, 63<BR/>this.sensor.getTemp(temperature)> style=filled fillcolor="lightblue" ];
+    "HVAC_Room__HVAC_Room_tempchange_void___30064771128" [label = <tempchange, 66<BR/>this.tempchange()> style=filled fillcolor="lightblue" ];
+    "HVAC_Room__HVAC_Room_tempchange_void___107374182403" [label = <<FONT>HVAC$Room.tempchange()</FONT>> style=filled fillcolor="lightblue" ];
+  }
+  subgraph "cluster_HVAC_Sensor" {
+    label="HVAC$Sensor";
+    "HVAC_Sensor__HVAC_Sensor_getTemp_void_int___param_1_temp_3643d4" [label = <<FONT>getTemp_param_temp</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__107374182406" [label = <<FONT>HVAC$Sensor.getTemp(temp)</FONT>> style=filled fillcolor="lightblue" ];
+    "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" [label = <getSense, 89<BR/>this.controller.getSense(temp)> style=filled fillcolor="red" ];
+    "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__107374182406" [label = <<FONT>HVAC$Sensor.getTemp(temp)</FONT>> style=filled fillcolor="lightblue" ];
+  }
+  "HVAC_Room__sv_tempchange_3eb828" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771128" [color="blue"];
+  "HVAC_Room__HVAC_Room_tempchange_void___30064771128" -> "HVAC_Room__HVAC_Room_tempchange_void___107374182403" [label="act dep"];
+  "HVAC__HVAC_main_void_java_lang_String____30064771152" -> "HVAC_Room__HVAC_Room__init__void___107374182402" [label="act dep"];
+  "HVAC__HVAC_main_void_java_lang_String____30064771154" -> "HVAC_Controller__HVAC_Controller__init__void___107374182400" [label="act dep"];
+  "HVAC_Room__HVAC_Room_tempchange_void___30064771125" -> "HVAC_Sensor__HVAC_Sensor_getTemp_void_int___param_1_temp_3643d4" [color="purple"];
+  "HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___107374182409" -> "HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___30064771138" [label="ctrl dep"];
+  "HVAC_Room__HVAC_Room__init__void___30064771114" -> "HVAC_Room__HVAC_Room_tempchange_void___107374182403" [label="act dep"];
+  "HVAC_Room__HVAC_Room__init__void___107374182402" -> "HVAC_Room__HVAC_Room__init__void___30064771114" [label="ctrl dep"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_if_26" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771093" [label="ctrl dep"];
+  "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__107374182406" -> "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" [label="ctrl dep"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771099" -> "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___107374182410" [label="act dep"];
+  "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__107374182401" [label="act dep"];
+  "HVAC_Room__sv_tempchange_3eb828" -> "HVAC_Room__HVAC_Room__init__void___30064771114" [color="blue"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int___param_1_temp_3643d4" -> "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_elseif_29" [color="blue"];
+  "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___107374182410" -> "HVAC_HC_Unit__HVAC_HC_Unit_switchoff_void___30064771142" [label="ctrl dep"];
+  "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" -> "HVAC_Controller__HVAC_Controller_getSense_void_int___param_1_temp_3643d4" [color="purple"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771091" -> "HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___107374182409" [label="act dep"];
+  "HVAC_Sensor__HVAC_Sensor_getTemp_void_int___param_1_temp_3643d4" -> "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__30064771134" [color="blue"];
+  "HVAC_Room__HVAC_Room__init__void___107374182402" -> "HVAC_Room__HVAC_Room__init__void___30064771108" [label="ctrl dep"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int__107374182401" -> "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_elseif_29" [label="ctrl dep"];
+  "HVAC_Controller__HVAC_Controller__init__void___107374182400" -> "HVAC_Controller__HVAC_Controller__init__void___30064771077" [label="ctrl dep"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_elseif_29" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771099" [label="ctrl dep"];
+  "HVAC__HVAC_main_void_java_lang_String____107374182414" -> "HVAC__HVAC_main_void_java_lang_String____30064771154" [label="ctrl dep"];
+  "HVAC_Controller__sv_heating_active_3d7bc3" -> "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_elseif_29" [color="blue"];
+  "HVAC_Controller__HVAC_Controller__init__void___30064771077" -> "HVAC_Controller__sv_heating_active_3d7bc3" [color="red"];
+  "HVAC_Room__HVAC_Room_tempchange_void___30064771118" -> "HVAC_Room__sv_temperature_132cc5" [color="red"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_elseif_29" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771101" [label="ctrl dep"];
+  "HVAC_Room__HVAC_Room_tempchange_void___30064771125" -> "HVAC_Sensor__HVAC_Sensor_getTemp_void_int__107374182406" [label="act dep"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_if_26" -> "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771091" [label="ctrl dep"];
+  "HVAC_Room__HVAC_Room_tempchange_void___107374182403" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771125" [label="ctrl dep"];
+  "HVAC_Controller__sv_heating_active_3d7bc3" -> "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_if_26" [color="blue"];
+  "HVAC_Room__sv_temperature_132cc5" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771125" [color="blue"];
+  "HVAC__HVAC_main_void_java_lang_String____107374182414" -> "HVAC__HVAC_main_void_java_lang_String____30064771152" [label="ctrl dep"];
+  "HVAC_Room__HVAC_Room_tempchange_void___107374182403" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771118" [label="ctrl dep"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int___param_1_temp_3643d4" -> "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_if_26" [color="blue"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771093" -> "HVAC_Controller__sv_heating_active_3d7bc3" [color="red"];
+  "HVAC_Room__HVAC_Room_tempchange_void___107374182403" -> "HVAC_Room__HVAC_Room_tempchange_void___30064771128" [label="ctrl dep"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int__107374182401" -> "HVAC_Controller__HVAC_Controller_getSense_void_int___ctrl_if_26" [label="ctrl dep"];
+  "HVAC_Room__HVAC_Room__init__void___30064771108" -> "HVAC_Room__sv_temperature_132cc5" [color="red"];
+  "HVAC_Controller__HVAC_Controller_getSense_void_int__30064771101" -> "HVAC_Controller__sv_heating_active_3d7bc3" [color="red"];
+}
