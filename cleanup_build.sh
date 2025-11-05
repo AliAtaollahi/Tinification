@@ -1,5 +1,5 @@
-# rm -rf extraction_function/build/*
-# rm -rf castfunction_variables/build/*
+rm -rf extraction_function/build/*
+rm -rf castfunction_variables/build/*
 
 #!/bin/bash
 
@@ -15,7 +15,7 @@ temp_file="temp.txt"
 # Write the argument passed to the temp file
 echo -e "../$1" > "temp.txt" 
 cd castfunction_variables
-# lfc castfunction_variables.lf
+lfc castfunction_variables.lf
 
 ./bin/castfunction_variables> ../castfile.aut
 
@@ -45,20 +45,18 @@ cat "$2">>"temp.txt"
 cd extraction_function
 
 
-# lfc extraction_function.lf
+lfc extraction_function.lf
 ./bin/extraction_function > ../tau_actions.txt
 cd ..
 # sed -i '/<<\|>>/d' tau_actions.txt
 python3 concat.py
 tau_content=$(cat tau_actions.txt)
-ltsconvert --equivalence=weak-bisim --tau="$tau_content" new_castfile.aut new_castfile_tinytwin.aut
-sed -E -i 's/,\s*"tau"\s*,/,"time +=0",/g' new_castfile_tinytwin.aut
+ltsconvert --equivalence=weak-trace --tau="$tau_content" new_castfile.aut new_castfile_tinytwin.aut
 ltsconvert new_castfile_tinytwin.aut 1-withoutacc.dot
 python time_accumulator.py new_castfile_tinytwin.aut > fixed_time_progress.aut
-sed -E -i 's/,\s*"time \+=0"\s*,/,"tau",/g' fixed_time_progress.aut
 ltsconvert fixed_time_progress.aut 2-accoutput.dot
-ltsconvert --equivalence=weak-bisim fixed_time_progress.aut fixed_time_progress.aut
-ltsconvert fixed_time_progress.aut 3-withacc.dot
+# ltsconvert --equivalence=weak-bisim fixed_time_progress.aut fixed_time_progress.aut
+# ltsconvert fixed_time_progress.aut 3-withacc.dot
 # python time_accumulator.py fixed_time_progress.aut > maw.aut
 # ltsconvert --equivalence=weak-bisim maw.aut maw.aut
 # ltsconvert maw.aut 2-withacc.dot
