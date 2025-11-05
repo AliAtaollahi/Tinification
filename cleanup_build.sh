@@ -1,0 +1,65 @@
+# rm -rf extraction_function/build/*
+# rm -rf castfunction_variables/build/*
+
+#!/bin/bash
+
+# Check if the required argument is passed
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Error: Argument missing. Please provide the argument."
+    exit 1
+fi
+
+# Create a temporary file to hold the argument
+temp_file="temp.txt"
+
+# Write the argument passed to the temp file
+echo -e "../$1" > "temp.txt" 
+cd castfunction_variables
+# lfc castfunction_variables.lf
+
+./bin/castfunction_variables> ../castfile.aut
+
+cd ..
+sed -i '1,2d'  castfile.aut
+
+file="castfile.aut"
+
+# Extract the number of states and transitions from the first line
+first_line=$(head -n 1 "$file")
+
+# Get the number of states (the first number after "NUMBER OF STATES:")
+number_of_states=$(echo "$first_line" | awk -F ' ' '{print $4}')
+
+# Get the number of transitions (the first number after "NUMBER OF TRANSITIONS:")
+number_of_transitions=$(echo "$first_line" | awk -F ' ' '{print $8}')
+
+# Prepare the new first line with the des format
+new_first_line="des(0,$number_of_transitions,$number_of_states)"
+
+# Replace the first line with the new line
+sed -i "1s/.*/$new_first_line/" "$file"
+python3 mender.py
+
+echo -e "../new_castfile.aut">"temp.txt"
+cat "$2">>"temp.txt"
+cd extraction_function
+
+
+# lfc extraction_function.lf
+./bin/extraction_function > ../tau_actions.txt
+cd ..
+# sed -i '/<<\|>>/d' tau_actions.txt
+python3 concat.py
+tau_content=$(cat tau_actions.txt)
+ltsconvert --equivalence=weak-bisim --tau="$tau_content" new_castfile.aut new_castfile_tinytwin.aut
+sed -E -i 's/,\s*"tau"\s*,/,"time +=0",/g' new_castfile_tinytwin.aut
+ltsconvert new_castfile_tinytwin.aut 1-withoutacc.dot
+python time_accumulator.py new_castfile_tinytwin.aut > fixed_time_progress.aut
+sed -E -i 's/,\s*"time \+=0"\s*,/,"tau",/g' fixed_time_progress.aut
+ltsconvert fixed_time_progress.aut 2-accoutput.dot
+ltsconvert --equivalence=weak-bisim fixed_time_progress.aut fixed_time_progress.aut
+ltsconvert fixed_time_progress.aut 3-withacc.dot
+# python time_accumulator.py fixed_time_progress.aut > maw.aut
+# ltsconvert --equivalence=weak-bisim maw.aut maw.aut
+# ltsconvert maw.aut 2-withacc.dot
+
