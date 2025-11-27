@@ -52,8 +52,8 @@ cd ..
 python3 concat.py
 tau_content=$(cat tau_actions.txt)
 ltsconvert --equivalence=weak-trace --tau="$tau_content" new_castfile.aut new_castfile_tinytwin.aut
-python time_accumulator.py new_castfile_tinytwin.aut > fixed_time_progress.aut
-ltsconvert --equivalence=weak-trace fixed_time_progress.aut fixed_time_progress.aut
-ltsconvert fixed_time_progress.aut new.dot
+#python time_accumulator.py new_castfile_tinytwin.aut > fixed_time_progress.aut
+#ltsconvert --equivalence=weak-trace fixed_time_progress.aut fixed_time_progress.aut
+#ltsconvert fixed_time_progress.aut new.dot
 # ltsconvert new_castfile_tinytwin.aut new.dot
 

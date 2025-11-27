@@ -83,11 +83,9 @@ public class HVAC {
         // knownrebecs
         Room room;
         Controller controller;
-        int t1=0;
 
         // msgsrv getTemp(int temp) -> plain method
         public void getTemp(int temp) {
-            temp=t1+10;
             controller.getSense(temp);
         }
     }

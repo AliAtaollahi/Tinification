@@ -1,20 +1,20 @@
 import re
 import sys
-from collections import defaultdict, deque
+from collections import defaultdict
 
 ###############################################################################
-# 1. Parse DOT to get nodes, edges, cluster info
+# Parse DOT
 ###############################################################################
 
 def parse_dot(dot_text):
-    subgraph_start_re = re.compile(r'^\s*subgraph\s+"([^"]+)"\s*\{')
-    subgraph_end_re   = re.compile(r'^\s*\}')
-    edge_re           = re.compile(r'^\s*"([^"]+)"\s*->\s*"([^"]+)"\s*(\[(.*?)\])?')
-    node_re           = re.compile(r'^\s*"([^"]+)"\s*\[(.*?)\]\s*;?$')
-    label_attr_re     = re.compile(r'label\s*=\s*(.+)')
+    subgraph_start = re.compile(r'^\s*subgraph\s+"([^"]+)"\s*\{')
+    subgraph_end   = re.compile(r'^\s*\}')
+    edge_re        = re.compile(r'^\s*"([^"]+)"\s*->\s*"([^"]+)"\s*(\[(.*?)\])?')
+    node_re        = re.compile(r'^\s*"([^"]+)"\s*\[(.*?)\]\s*;?$')
+    label_attr     = re.compile(r'label\s*=\s*(.+)')
 
     nodes     = {}  # node_id -> {"label": raw_label_text, "cluster": cluster_name or None}
-    edges     = []  # list of (src, dst, attr_block)
+    edges     = []  # (src, dst, attr_block_string_or_None)
     incoming  = defaultdict(list)
     outgoing  = defaultdict(list)
     clusters  = {} # cluster_name -> {"attrs":[], "nodes":[]}
@@ -25,20 +25,19 @@ def parse_dot(dot_text):
     header_lines = []
 
     seen_real_content = False
-    lines = dot_text.splitlines()
 
-    for line in lines:
+    for line in dot_text.splitlines():
         stripped = line.strip()
 
-        # digraph start
+        # digraph "..." {
         if digraph_name is None:
             m = re.match(r'^\s*digraph\s+"([^"]+)"\s*\{', line)
             if m:
                 digraph_name = m.group(1)
                 continue
 
-        # subgraph start?
-        m = subgraph_start_re.match(line)
+        # subgraph "cluster_x" {
+        m = subgraph_start.match(line)
         if m:
             seen_real_content = True
             cname = m.group(1)
@@ -47,50 +46,48 @@ def parse_dot(dot_text):
                 clusters[cname] = {"attrs": [], "nodes": []}
             continue
 
-        # subgraph end?
-        if subgraph_end_re.match(line):
+        # }
+        m = subgraph_end.match(line)
+        if m:
             if cluster_stack:
                 cluster_stack.pop()
             continue
 
-        # edge line?
+        # "a" -> "b" [ ... ]
         m = edge_re.match(line)
         if m:
             seen_real_content = True
-            src, dst = m.group(1), m.group(2)
-            attr_block = m.group(4)  # may be None
+            src = m.group(1)
+            dst = m.group(2)
+            attr_block = m.group(4)  # can be None
             edges.append((src, dst, attr_block))
             outgoing[src].append(dst)
             incoming[dst].append(src)
             continue
 
-        # node line?
+        # "node_id" [label = <...> ...]
         m = node_re.match(line)
         if m:
             seen_real_content = True
             nid = m.group(1)
-            attr_block = m.group(2)
+            attrs = m.group(2)
 
-            label_match = label_attr_re.search(attr_block)
-            if label_match:
-                raw_label = label_match.group(1).strip()
-            else:
-                raw_label = None
+            m2 = label_attr.search(attrs)
+            lbl = m2.group(1).strip() if m2 else None
 
             cluster_name = cluster_stack[-1] if cluster_stack else None
             if nid not in nodes:
-                nodes[nid] = {"label": raw_label, "cluster": cluster_name}
+                nodes[nid] = {"label": lbl, "cluster": cluster_name}
             else:
-                nodes[nid]["label"] = raw_label
+                nodes[nid]["label"] = lbl
                 if nodes[nid]["cluster"] is None and cluster_name is not None:
                     nodes[nid]["cluster"] = cluster_name
 
             if cluster_name is not None:
                 clusters[cluster_name]["nodes"].append(nid)
-
             continue
 
-        # cluster/global attrs or header lines
+        # attributes inside a cluster, or global header stuff
         if cluster_stack:
             if stripped and stripped != "{":
                 clusters[cluster_stack[-1]]["attrs"].append(stripped.rstrip(";"))
@@ -102,8 +99,8 @@ def parse_dot(dot_text):
                     header_lines.append(stripped.rstrip(";"))
 
     return {
-        "digraph_name": digraph_name or "G",
-        "header_lines": header_lines,
+        "name": digraph_name or "G",
+        "header": header_lines,
         "nodes": nodes,
         "edges": edges,
         "incoming": dict(incoming),
@@ -112,88 +109,72 @@ def parse_dot(dot_text):
     }
 
 ###############################################################################
-# 2. Find prototype nodes for the functions of interest
-#    Heuristic: node label contains ".funcName(" (case-insensitive)
+# Helpers for prototypes / callsites / reverse slice
 ###############################################################################
 
-def find_prototypes(nodes, func_names):
-    prototypes = set()
+def find_prototypes(nodes, fnames):
+    """
+    A node is a 'prototype' if its label contains ".<fname>(" for any fname.
+    These become RED.
+    """
+    out = set()
     for nid, data in nodes.items():
-        label = data["label"]
-        if not label:
+        lbl = data["label"]
+        if not lbl:
             continue
-        low = label.lower()
-        for f in func_names:
+        low = lbl.lower()
+        for f in fnames:
             if "." + f.lower() + "(" in low:
-                prototypes.add(nid)
+                out.add(nid)
                 break
-    return prototypes
+    return out
 
-###############################################################################
-# 3. Helper: function prefix for body nodes
-#    Node IDs in your graph look like:
-#      HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___107374182409  (prototype)
-#      HVAC_HC_Unit__HVAC_HC_Unit_activateh_void___30064771138   (body stmt)
-#    They share the prefix up to the last "___<digits>".
-###############################################################################
-
-def function_prefix(node_id):
-    m = re.match(r'^(.*?___)\d+$', node_id)
+def func_prefix(nid):
+    """
+    Node IDs that are in one function's body share a prefix up to the last
+    '___<digits>' suffix. We'll slice at the last triple-underscore.
+    """
+    m = re.match(r'^(.*?___)\d+$', nid)
     if m:
         return m.group(1)
-    # fallback
-    parts = node_id.rsplit("___", 1)
+    parts = nid.rsplit("___", 1)
     if len(parts) == 2:
         return parts[0] + "___"
-    return node_id + "___"
+    return nid + "___"
 
-def get_body_nodes(nodes, proto_id):
-    pref = function_prefix(proto_id)
-    body = [nid for nid in nodes.keys() if nid.startswith(pref)]
-    return body
+def body_nodes(nodes, proto_id):
+    prefix = func_prefix(proto_id)
+    return [n for n in nodes.keys() if n.startswith(prefix)]
 
-###############################################################################
-# 4. Find callsite nodes inside each prototype's body.
-#    We want those "regulate, 113 this.room.regulate(0)" style nodes to be blue.
-#    Heuristic for "call":
-#      - node is in the same function body as the prototype
-#      - node != prototype node
-#      - label contains "(" and ")"
-#      - label does NOT start with "<&lt;operator&gt;" (to skip assignments)
-###############################################################################
-
-def is_callsite_node(label):
-    if not label:
+def looks_like_callsite(lbl):
+    """
+    A body statement is considered a 'callsite' if:
+      - it has '(' and ')'
+      - it is NOT an <operator>... node.
+    Those become initial BLUE seeds.
+    """
+    if not lbl:
         return False
-    low = label.lower().lstrip()
-    if low.startswith("<&lt;operator"):
+    test = lbl.lower().lstrip()
+    if test.startswith("<&lt;operator"):
         return False
-    return "(" in label and ")" in label
+    return ("(" in lbl) and (")" in lbl)
 
-def find_callsites_for_proto(nodes, proto_id):
-    body_nodes = get_body_nodes(nodes, proto_id)
-    callsites = []
-    for nid in body_nodes:
+def callsites_in_proto(nodes, proto_id):
+    result = []
+    for nid in body_nodes(nodes, proto_id):
         if nid == proto_id:
             continue
-        label = nodes[nid]["label"]
-        if is_callsite_node(label):
-            callsites.append(nid)
-    return callsites
-
-def collect_all_callsites(nodes, prototypes):
-    blue_starts = set()
-    for p in prototypes:
-        callsites = find_callsites_for_proto(nodes, p)
-        blue_starts.update(callsites)
-    return blue_starts
-
-###############################################################################
-# 5. Reverse DFS from a set of start nodes, following incoming edges.
-#    This gives us "all dependencies" for those starts.
-###############################################################################
+        lbl = nodes[nid]["label"]
+        if looks_like_callsite(lbl):
+            result.append(nid)
+    return result
 
 def reverse_dfs_multi(starts, incoming):
+    """
+    Walk incoming edges ONLY.
+    Everything you can reach backwards from these callsites = BLUE (closure).
+    """
     visited = set()
     stack = list(starts)
     while stack:
@@ -207,119 +188,114 @@ def reverse_dfs_multi(starts, incoming):
     return visited
 
 ###############################################################################
-# 6. Emit DOT with color:
-#    - prototypes (target functions): red
-#    - callsites + their reverse-DFS ancestors: blue
-#    Red wins if overlap.
+# Rendering helpers that avoid the f-string backslash problem
 ###############################################################################
 
-def emit_colored_dot(parsed, red_nodes, blue_nodes, out_file):
-    digraph_name = parsed["digraph_name"]
-    header_lines = parsed["header_lines"]
-    nodes        = parsed["nodes"]
-    edges        = parsed["edges"]
-    clusters     = parsed["clusters"]
+def build_label_part(lbl):
+    if lbl is None:
+        lbl = "\"\""
+    # If it starts with '<', it's already HTML-like label `<...>` or `<<...>>`
+    if lbl.lstrip().startswith("<"):
+        return "label = " + lbl
+    # Otherwise quote it and escape inner quotes
+    safe = lbl.replace('"', '\\"')
+    return 'label = "{}"'.format(safe)
 
-    node_colors = {}
+def render_node_line(nid, nodes, color=None, indent="  "):
+    lbl = nodes[nid]["label"]
+    label_part = build_label_part(lbl)
+    style_part = ""
+    if color is not None:
+        style_part = ' style=filled fillcolor="{}"'.format(color)
+    return '{}"{}" [{}{} ];'.format(indent, nid, label_part, style_part)
+
+def render_edge_line(src, dst, attrs, indent="  "):
+    if attrs and attrs.strip():
+        return '{}"{}" -> "{}" [{}];'.format(indent, src, dst, attrs)
+    else:
+        return '{}"{}" -> "{}";'.format(indent, src, dst)
+
+###############################################################################
+# Emit colored DOT
+###############################################################################
+
+def emit_colored(parsed, red_nodes, blue_nodes, out_path):
+    # build node->color map
+    color_map = {}
     for n in blue_nodes:
-        node_colors[n] = "lightblue"
+        color_map[n] = "lightblue"
     for n in red_nodes:
-        node_colors[n] = "red"  # override blue if conflict
+        color_map[n] = "red"  # red overrides blue if overlap
 
-    def render_node(nid, indent="    "):
-        data = nodes[nid]
-        label = data["label"] if data["label"] is not None else "\"\""
+    with open(out_path, "w") as f:
+        f.write('digraph "{}" {{\n'.format(parsed["name"]))
 
-        # preserve HTML-like labels <...> / <<...>>
-        if label.lstrip().startswith("<"):
-            label_part = f"label = {label}"
-        else:
-            safe_label = label.replace('"', '\\"')
-            label_part = f'label = "{safe_label}"'
+        # global header lines
+        for h in parsed["header"]:
+            if h not in ("{", "}", ""):
+                f.write("  {};\n".format(h))
 
-        color_attr = ""
-        if nid in node_colors:
-            color_attr = f' style=filled fillcolor="{node_colors[nid]}"'
-
-        return f'{indent}"{nid}" [{label_part}{color_attr} ];'
-
-    def render_edge(src, dst, attrs, indent="    "):
-        if attrs and attrs.strip():
-            return f'{indent}"{src}" -> "{dst}" [{attrs}];'
-        else:
-            return f'{indent}"{src}" -> "{dst}";'
-
-    with open(out_file, "w") as f:
-        f.write(f'digraph "{digraph_name}" {{\n')
-
-        # global/header attrs
-        for hl in header_lines:
-            if hl in ("{", "}", ""):
-                continue
-            f.write(f"  {hl};\n")
-
-        # clusters first
-        for cname, cinfo in clusters.items():
-            f.write(f'  subgraph "{cname}" {{\n')
-            for attr in cinfo["attrs"]:
-                f.write(f"    {attr};\n")
+        # clusters
+        for cname, cinfo in parsed["clusters"].items():
+            f.write('  subgraph "{}" {{\n'.format(cname))
+            for a in cinfo["attrs"]:
+                f.write("    {};\n".format(a))
             for nid in cinfo["nodes"]:
-                if nid in nodes:
-                    f.write(render_node(nid, indent="    ") + "\n")
+                if nid in parsed["nodes"]:
+                    clr = color_map.get(nid)
+                    f.write(render_node_line(nid, parsed["nodes"], clr, indent="    ") + "\n")
             f.write("  }\n")
 
-        # any non-clustered nodes
-        clustered_nodes = set()
-        for cinfo in clusters.values():
-            clustered_nodes.update(cinfo["nodes"])
+        # nodes not in any cluster
+        clustered = set()
+        for ci in parsed["clusters"].values():
+            for nid in ci["nodes"]:
+                clustered.add(nid)
 
-        for nid in nodes:
-            if nid not in clustered_nodes:
-                f.write(render_node(nid, indent="  ") + "\n")
+        for nid in parsed["nodes"]:
+            if nid not in clustered:
+                clr = color_map.get(nid)
+                f.write(render_node_line(nid, parsed["nodes"], clr, indent="  ") + "\n")
 
         # edges
-        for (src, dst, attrs) in edges:
-            f.write(render_edge(src, dst, attrs, indent="  ") + "\n")
+        for (s, d, a) in parsed["edges"]:
+            f.write(render_edge_line(s, d, a, indent="  ") + "\n")
 
         f.write("}\n")
 
 ###############################################################################
-# 7. Main
+# Main driver
 ###############################################################################
 
-def main(in_path, out_path, functions_of_interest):
-    with open(in_path, "r") as fin:
-        dot_text = fin.read()
+def main(input_path, output_path, functions_of_interest):
+    with open(input_path, "r") as f:
+        dot_text = f.read()
 
     parsed = parse_dot(dot_text)
 
-    # STEP A: prototypes (functions of interest)
-    proto_nodes = find_prototypes(parsed["nodes"], functions_of_interest)
+    # 1. prototypes -> RED
+    red = find_prototypes(parsed["nodes"], functions_of_interest)
 
-    # STEP B: callsite nodes inside those prototypes
-    blue_start_nodes = collect_all_callsites(parsed["nodes"], proto_nodes)
+    # 2. callsites inside those prototypes -> BLUE seeds
+    blue_seeds = set()
+    for p in red:
+        blue_seeds.update(callsites_in_proto(parsed["nodes"], p))
 
-    # STEP C: reverse DFS from blue_start_nodes
-    blue_closure = reverse_dfs_multi(blue_start_nodes, parsed["incoming"])
+    # 3. reverse DFS from seeds -> BLUE closure
+    blue = reverse_dfs_multi(blue_seeds, parsed["incoming"])
 
-    # Final coloring sets
-    red_nodes  = set(proto_nodes)
-    blue_nodes = set(blue_closure)
+    # emit
+    emit_colored(parsed, red, blue, output_path)
 
-    emit_colored_dot(parsed, red_nodes, blue_nodes, out_path)
-
-    print("Prototypes (red):", len(red_nodes), red_nodes)
-    print("Initial callsites (blue seeds):", len(blue_start_nodes), blue_start_nodes)
-    print("Blue closure size:", len(blue_nodes))
+    print("RED prototypes:", len(red), red)
+    print("BLUE seeds:", len(blue_seeds), blue_seeds)
+    print("BLUE closure:", len(blue))
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("Usage: python color_slice_cfg.py <input.dot> <output_colored.dot>")
+        print("Usage: python3 sliceCfg.py <input.dot> <output.dot>")
         sys.exit(1)
 
-    in_path = sys.argv[1]
-    out_path = sys.argv[2]
+    FUNCTIONS_OF_INTEREST = ["switchoff", "getSense","activateh"]
 
-    FUNCTIONS_OF_INTEREST = ["getSense", "activateh", "switchoff"]
-
-    main(in_path, out_path, FUNCTIONS_OF_INTEREST)
+    main(sys.argv[1], sys.argv[2], FUNCTIONS_OF_INTEREST)
