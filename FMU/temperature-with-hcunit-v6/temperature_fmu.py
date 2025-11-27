@@ -11,24 +11,14 @@ from pythonfmu import (
 )
 
 # ----------------------------------------------------------------------
-# Automaton description (AUT)
+# Load AUT from full path
 # ----------------------------------------------------------------------
 
-AUT_TEXT = """des (6,13,10)
-(7,"room.tempchange[> 21]",9)
-(7,"room.tempchange[< 20]",5)
-(0,"room.tempchange[> 21]",2)
-(0,"room.tempchange[< 20]",1)
-(6,"room.tempchange[> 21]",9)
-(6,"room.tempchange[< 20]",5)
-(5,"hc_unit.activateh[].[]",4)
-(4,"controller.getsense[].[]",3)
-(8,"time +=100",7)
-(3,"time +=100",0)
-(2,"hc_unit.switchoff[].[]",8)
-(9,"controller.getsense[].[]",8)
-(1,"controller.getsense[].[]",3)
-"""
+AUT_FILE = r"/home/marziyeh/tinification/Tinification/FMU/temperature-with-hcunit-v6/RebecaCore.aut"
+
+with open(AUT_FILE, "r", encoding="utf-8") as f:
+    AUT_TEXT = f.read()
+
 
 
 def parse_aut(aut_text: str):
