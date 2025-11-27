@@ -90,8 +90,8 @@ class Temperature(Fmi2Slave):
         self.heating_power = 0.3         # deg per time unit when heater ON
 
         # thermostat thresholds (used by graph guards)
-        self.T_on = 20.0                 # "low" threshold
-        self.T_off = 21.0                # "high" threshold
+        self.T_on = 21.0                 # "low" threshold
+        self.T_off = 24.0                # "high" threshold
 
         # heater state (output)
         self.heater = 0                  # 0 = off, 1 = on
@@ -212,7 +212,7 @@ class Temperature(Fmi2Slave):
             if s == 3:
                 # time += 10  --> 0
                 elapsed = t - self.graph_state_enter_time
-                if elapsed >= 1.0:
+                if elapsed >= 10:
                     self._enter_state(0, t)
                     continue  # keep processing new state
                 else:
@@ -220,7 +220,7 @@ class Temperature(Fmi2Slave):
             if s == 8:
                 # time += 10  --> 7
                 elapsed = t - self.graph_state_enter_time
-                if elapsed >= 1.0:
+                if elapsed >= 10:
                     self._enter_state(7, t)
                     continue
                 else:
