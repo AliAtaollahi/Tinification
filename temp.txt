@@ -1,2 +1,0 @@
-../new_castfile.aut
-getsense,activate,switch,time,tempchange,(

@@ -1,0 +1,107 @@
+digraph "program_cfg_abstract_by_class" {
+compound=true;
+node [shape="rect"];
+
+subgraph "cluster_ABC" {
+  label="ABC";
+  "ABC__ABC_main_void_java_lang_String_____param_1_args_2dd0dd" [label = <<FONT>main_param_args</FONT>> ]
+"ABC__ABC_main_void_java_lang_String____107374182407" [label = <main> ]
+"ABC__ABC_main_void_java_lang_String____30064771114" [label = <&lt;operator&gt;.assignment, 81<BR/>A a = new A()> ]
+"ABC__ABC_main_void_java_lang_String____30064771116" [label = <&lt;operator&gt;.assignment, 82<BR/>B b = new B()> ]
+"ABC__ABC_main_void_java_lang_String____30064771118" [label = <&lt;operator&gt;.assignment, 83<BR/>C c = new C()> ]
+"ABC__ABC_main_void_java_lang_String____30064771120" [label = <&lt;operator&gt;.assignment, 86<BR/>a.b = b> ]
+"ABC__ABC_main_void_java_lang_String____30064771122" [label = <&lt;operator&gt;.assignment, 87<BR/>b.a = a> ]
+"ABC__ABC_main_void_java_lang_String____30064771124" [label = <&lt;operator&gt;.assignment, 88<BR/>b.c = c> ]
+"ABC__ABC_main_void_java_lang_String____107374182407" [label = <<FONT>ABC.main(args)</FONT>> ]
+"ABC__ABC__init__void___107374182408" [label = <&lt;init&gt;> ]
+"ABC__ABC__init__void___107374182408" [label = <<FONT>ABC.&lt;init&gt;()</FONT>> ]
+}
+
+subgraph "cluster_ABC_A" {
+  label="ABC$A";
+  "ABC_A__ABC_A__init__void___107374182400" [label = <&lt;init&gt;> ]
+"ABC_A__ABC_A__init__void___107374182400" [label = <<FONT>ABC$A.&lt;init&gt;()</FONT>> ]
+"ABC_A__ABC_A_m1_void___124554051585" [label = <void> ]
+"ABC_A__ABC_A_m1_void___30064771076" [label = <m2, 22<BR/>this.b.m2()> ]
+"ABC_A__ABC_A_m1_void___107374182401" [label = <<FONT>ABC$A.m1()</FONT>> ]
+}
+
+subgraph "cluster_ABC_B" {
+  label="ABC$B";
+  "ABC_B__sv_rnd_1b9a8" [label = <<FONT>sv_rnd this.rnd</FONT>> ]
+"ABC_B__sv_x_78" [label = <<FONT>sv_x this.x</FONT>> ]
+"ABC_B__ABC_B__init__void___30064771078" [label = <&lt;operator&gt;.assignment, 35<BR/>Random this.rnd = new Random()> ]
+"ABC_B__ABC_B__init__void___107374182402" [label = <&lt;init&gt;> ]
+"ABC_B__ABC_B__init__void___30064771083" [label = <&lt;operator&gt;.assignment, 38<BR/>this.x = 0> ]
+"ABC_B__ABC_B__init__void___107374182402" [label = <<FONT>ABC$B.&lt;init&gt;()</FONT>> ]
+"ABC_B__ABC_B_m2_void____ctrl_if_45" [label = <IF, 45<BR/>x == 0> ]
+"ABC_B__ABC_B_m2_void____ctrl_elseif_47" [label = <ELSEIF, 47<BR/>x == 1> ]
+"ABC_B__ABC_B_m2_void____ctrl_else_49" [label = <ELSE, 49<BR/>else> ]
+"ABC_B__ABC_B_m2_void___124554051587" [label = <void> ]
+"ABC_B__ABC_B_m2_void___30064771088" [label = <&lt;operator&gt;.arrayInitializer, 43<BR/>&lt;operator&gt;.arrayInitializer> ]
+"ABC_B__ABC_B_m2_void___30064771091" [label = <m3, 46<BR/>this.c.m3()> ]
+"ABC_B__ABC_B_m2_void___30064771095" [label = <m3, 48<BR/>this.c.m3()> ]
+"ABC_B__ABC_B_m2_void___30064771097" [label = <m3, 50<BR/>this.c.m3()> ]
+"ABC_B__ABC_B_m2_void___180388626432" [label = <UNKNOWN, 53<BR/>???;> ]
+"ABC_B__ABC_B_m2_void___107374182403" [label = <<FONT>ABC$B.m2()</FONT>> ]
+"ABC_B__ABC_B_choose_int_int_____param_1_options_b58686" [label = <<FONT>choose_param_options</FONT>> ]
+"ABC_B__ABC_B_choose_int_int____107374182404" [label = <choose> ]
+"ABC_B__ABC_B_choose_int_int____141733920768" [label = <RETURN, 57<BR/>return options[rnd.nextInt(options.length)];> ]
+"ABC_B__ABC_B_choose_int_int____107374182404" [label = <<FONT>ABC$B.choose(options)</FONT>> ]
+}
+
+subgraph "cluster_ABC_C" {
+  label="ABC$C";
+  "ABC_C__sv_rnd_1b9a8" [label = <<FONT>sv_rnd this.rnd</FONT>> ]
+"ABC_C__sv_x_78" [label = <<FONT>sv_x this.x</FONT>> ]
+"ABC_C__ABC_C__init__void___30064771103" [label = <&lt;operator&gt;.assignment, 66<BR/>Random this.rnd = new Random()> ]
+"ABC_C__ABC_C__init__void___107374182405" [label = <&lt;init&gt;> ]
+"ABC_C__ABC_C__init__void___30064771108" [label = <&lt;operator&gt;.assignment, 69<BR/>this.x = false> ]
+"ABC_C__ABC_C__init__void___107374182405" [label = <<FONT>ABC$C.&lt;init&gt;()</FONT>> ]
+"ABC_C__ABC_C_m3_void___124554051590" [label = <void> ]
+"ABC_C__ABC_C_m3_void___30064771110" [label = <&lt;operator&gt;.assignment, 74<BR/>this.x = rnd.nextBoolean()> ]
+"ABC_C__ABC_C_m3_void___107374182406" [label = <<FONT>ABC$C.m3()</FONT>> ]
+}
+
+"ABC__ABC_main_void_java_lang_String____107374182407" -> "ABC__ABC_main_void_java_lang_String____30064771116" [label="ctrl dep"]
+"ABC_B__ABC_B_m2_void___107374182403" -> "ABC_B__ABC_B_m2_void____ctrl_elseif_47" [label="ctrl dep"]
+"ABC_B__ABC_B_m2_void___30064771088" -> "ABC_B__ABC_B_choose_int_int_____param_1_options_b58686" [color="purple"]
+"ABC_C__sv_rnd_1b9a8" -> "ABC_C__ABC_C_m3_void___30064771110" [color="blue"]
+"ABC_B__ABC_B_choose_int_int_____param_1_options_b58686" -> "ABC_B__ABC_B_choose_int_int____141733920768" [color="blue"]
+"ABC__ABC_main_void_java_lang_String____107374182407" -> "ABC__ABC_main_void_java_lang_String____30064771124" [label="ctrl dep"]
+"ABC__ABC_main_void_java_lang_String____30064771118" -> "ABC_C__ABC_C__init__void___107374182405" [label="act dep"]
+"ABC_B__sv_x_78" -> "ABC_B__ABC_B_m2_void____ctrl_if_45" [color="blue"]
+"ABC_A__ABC_A_m1_void___107374182401" -> "ABC_A__ABC_A_m1_void___30064771076" [label="ctrl dep"]
+"ABC__ABC_main_void_java_lang_String____30064771116" -> "ABC_B__ABC_B__init__void___107374182402" [label="act dep"]
+"ABC_A__ABC_A_m1_void___30064771076" -> "ABC_B__ABC_B_m2_void___107374182403" [label="act dep"]
+"ABC_B__ABC_B_m2_void___30064771088" -> "ABC_B__ABC_B_choose_int_int____107374182404" [label="act dep"]
+"ABC_B__ABC_B__init__void___107374182402" -> "ABC_B__ABC_B__init__void___30064771078" [label="ctrl dep"]
+"ABC__ABC_main_void_java_lang_String____30064771114" -> "ABC_A__ABC_A__init__void___107374182400" [label="act dep"]
+"ABC_A__ABC_A__init__void___107374182400" -> "ABC_A__ABC_A__init__void___107374182400" [label="ctrl dep"]
+"ABC_B__sv_x_78" -> "ABC_B__ABC_B_m2_void____ctrl_elseif_47" [color="blue"]
+"ABC_B__ABC_B_choose_int_int____107374182404" -> "ABC_B__ABC_B_choose_int_int____141733920768" [label="ctrl dep"]
+"ABC_C__ABC_C_m3_void___30064771110" -> "ABC_C__sv_x_78" [color="red"]
+"ABC_B__ABC_B__init__void___30064771078" -> "ABC_B__sv_rnd_1b9a8" [color="red"]
+"ABC_B__ABC_B_m2_void___30064771095" -> "ABC_C__ABC_C_m3_void___107374182406" [label="act dep"]
+"ABC_B__ABC_B__init__void___107374182402" -> "ABC_B__ABC_B__init__void___30064771083" [label="ctrl dep"]
+"ABC_B__ABC_B_m2_void___30064771091" -> "ABC_C__ABC_C_m3_void___107374182406" [label="act dep"]
+"ABC_B__ABC_B__init__void___30064771083" -> "ABC_B__sv_x_78" [color="red"]
+"ABC_B__ABC_B_m2_void____ctrl_elseif_47" -> "ABC_B__ABC_B_m2_void____ctrl_else_49" [label="ctrl dep"]
+"ABC_B__ABC_B_m2_void___107374182403" -> "ABC_B__ABC_B_m2_void____ctrl_if_45" [label="ctrl dep"]
+"ABC_B__ABC_B_m2_void____ctrl_elseif_47" -> "ABC_B__ABC_B_m2_void___30064771095" [label="ctrl dep"]
+"ABC_C__ABC_C_m3_void___107374182406" -> "ABC_C__ABC_C_m3_void___30064771110" [label="ctrl dep"]
+"ABC_B__ABC_B_m2_void___30064771097" -> "ABC_C__ABC_C_m3_void___107374182406" [label="act dep"]
+"ABC__ABC_main_void_java_lang_String____107374182407" -> "ABC__ABC_main_void_java_lang_String____30064771114" [label="ctrl dep"]
+"ABC_B__sv_rnd_1b9a8" -> "ABC_B__ABC_B_choose_int_int____141733920768" [color="blue"]
+"ABC__ABC_main_void_java_lang_String____107374182407" -> "ABC__ABC_main_void_java_lang_String____30064771118" [label="ctrl dep"]
+"ABC_B__ABC_B_m2_void____ctrl_else_49" -> "ABC_B__ABC_B_m2_void___30064771097" [label="ctrl dep"]
+"ABC_B__ABC_B_m2_void____ctrl_if_45" -> "ABC_B__ABC_B_m2_void___30064771091" [label="ctrl dep"]
+"ABC_B__ABC_B_m2_void___107374182403" -> "ABC_B__ABC_B_m2_void___180388626432" [label="ctrl dep"]
+"ABC_B__ABC_B_m2_void___107374182403" -> "ABC_B__ABC_B_m2_void___30064771088" [label="ctrl dep"]
+"ABC__ABC_main_void_java_lang_String____107374182407" -> "ABC__ABC_main_void_java_lang_String____30064771120" [label="ctrl dep"]
+"ABC__ABC_main_void_java_lang_String____107374182407" -> "ABC__ABC_main_void_java_lang_String____30064771122" [label="ctrl dep"]
+"ABC_C__ABC_C__init__void___30064771108" -> "ABC_C__sv_x_78" [color="red"]
+"ABC_C__ABC_C__init__void___30064771103" -> "ABC_C__sv_rnd_1b9a8" [color="red"]
+"ABC_C__ABC_C__init__void___107374182405" -> "ABC_C__ABC_C__init__void___30064771103" [label="ctrl dep"]
+"ABC_C__ABC_C__init__void___107374182405" -> "ABC_C__ABC_C__init__void___30064771108" [label="ctrl dep"]
+}

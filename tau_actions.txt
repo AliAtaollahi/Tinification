@@ -1,1 +1,0 @@
-sensor.gettemp[20].[],sensor.gettemp[21].[],room.regulate[1].[],room.regulate[0].[],@[10>>10],
