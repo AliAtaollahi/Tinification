@@ -1,0 +1,3 @@
+pythonfmu build -f stair_fmu.py
+fmpy simulate Stair.fmu --stop-time 10 --output-interval 1 --output-file stair.csv
+python plot.py stair.csv
