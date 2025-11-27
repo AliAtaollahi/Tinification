@@ -1,3 +1,4 @@
+# temperature_fmu.py
 from math import sin, pi
 from random import Random
 
@@ -13,25 +14,22 @@ from pythonfmu import (
 class Temperature(Fmi2Slave):
     """
     Room temperature FMU with:
-      - smooth base signal (day/night)
-      - smooth stochastic variation (AR(1) noise)
-      - first-order room dynamics (ODE) integrated with substeps
-      - thermostat-controlled heater with hysteresis
-      - built–in heater schedule: heater_enabled(t) = 1 only in [100,200] and [400,500]
+      - smooth base signal + smooth stochastic variation (AR(1) noise) for T_env(t)
+      - 1st-order room ODE integrated with internal substeps (Euler)
+      - thermostat heater with hysteresis (ON below T_on, OFF above T_off)
+      - built-in schedule heater_enabled(t)=1 only inside heater_schedule intervals
 
-    Actual room temp T follows:
+    Change THESE to get what you asked:
 
-        dT/dt = (T_env(t) - T) / tau + heater * P
+      A) Always heater enabled:
+         self.heater_schedule = [(0.0, 1000.0)]     # (or longer than stop-time)
 
-      T_env(t)  = base(t) + stochastic_noise(t), mapped into [10, 25]
-      tau       = room time constant
-      P         = heating power (deg/time)
-      heater    = 1 if T < 20, 0 if T > 21, else keep previous state
-                  (only if heater_enabled(t) = 1 according to schedule)
+      B) Heater never enabled (no heater variables in CSV output):
+         self.heater_schedule = []                  # empty list
     """
 
     author = "Ali"
-    description = "Smooth room temp with stochastic environment and scheduled heater"
+    description = "Room temperature with stochastic environment + scheduled thermostat heater"
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -43,59 +41,63 @@ class Temperature(Fmi2Slave):
         self.deltaT = 0.5 * (self.T_max - self.T_min)   # 7.5
 
         # ----- base signal (environment temperature without heater) -----
-        # single smooth daily sinusoid in [-1, 1]
-        self.period1 = 24.0              # slow daily cycle
+        self.period1 = 24.0
         self.omega1 = 2.0 * pi / self.period1
         self.base_a1 = 1.0
-        self.phi1 = pi / 2               # start near max
+        self.phi1 = pi / 2  # start near max
 
         # ----- smoothed random component for T_env(t) -----
-        # AR(1) process: noise_k = alpha * noise_{k-1} + (1-alpha) * N(0,1)
-        self.noise_level = 0.6           # strength of noise (0 = deterministic)
-        self.smooth_factor = 0.95        # 0.95 => quite smooth, 0.99 => very smooth
-        self.noise = 2.0                 # initial noise state
-
-        # pseudo-random generator: NO fixed seed -> different each run
-        self.rng = Random()              # use Random(12345) for reproducible runs
+        self.noise_level = 0.6
+        self.smooth_factor = 0.95
+        self.noise = 2.0
+        self.rng = Random()          # Random(12345) for reproducible runs
 
         # ----- room + heater dynamics -----
-        self.tau = 20.0                  # slower room response  (bigger = smoother)
-        self.heating_power = 0.3         # deg per time unit when heater ON
+        self.tau = 20.0
+        self.heating_power = 0.3
 
-        # thermostat thresholds (hysteresis)
-        self.T_on = 20.0                 # heater turns ON when T < 20
-        self.T_off = 21.0                # heater turns OFF when T > 21
+        # ---- thermostat set-points (UPDATED) ----
+        # You asked: when heater is enabled, temperature should live roughly in [21, 24]
+        self.T_on = 21.0             # heater turns ON when temp < 21
+        self.T_off = 24.0            # heater turns OFF when temp > 24
 
-        # heater state (output)
-        self.heater = 0                  # 0 = off, 1 = on
+        # heater state
+        self.heater = 0
 
-        # heater_enabled is now driven by an internal time schedule
-        # Here we hard-code: ON in [100,200] and [400,500], OFF otherwise.
-        self.heater_enabled = 0          # current state of schedule (0/1)
+        # ---- heater schedule (EDIT THIS) ----
+        # Always enabled:
+        # self.heater_schedule = [(0.0, 1000.0)]
+        #
+        # Never enabled (and no heater/heater_enabled columns in output):
+        # self.heater_schedule = []
         self.heater_schedule = [
-            (0.0, 1000.0),
-            # (400.0, 500.0),
-        ]
+            (0.0, 100.0),
+            (300.0, 400.0),
+        ] 
 
-        # internal integration step inside each do_step (for ODE)
-        self.dt_internal = 0.1           # seconds per internal Euler substep
+        # schedule output flag
+        self.heater_enabled = 0
 
-        # ----- internal time -----
+        # If schedule is empty, we will NOT expose heater-related outputs
+        self.expose_heater_outputs = (len(self.heater_schedule) > 0)
+
+        # internal integration step
+        self.dt_internal = 0.1
+
+        # internal time
         self.time = 0.0
 
         # initial environment temperature T_env(0)
-        base0 = self.base_a1 * sin(self.omega1 * 0.0 + self.phi1)  # ~1.0
+        base0 = self.base_a1 * sin(self.omega1 * 0.0 + self.phi1)
         s0 = base0 + self.noise_level * self.noise
-        # clamp s0 to [-1, 1]
         s0 = max(-1.0, min(1.0, s0))
         self.T_env = self.T_mean + self.deltaT * s0
 
-        # start room temp equal to environment
+        # initial room temp
         self.temp = self.T_env
 
         # ----- expose FMU variables -----
-
-        # main room temperature
+        # temp FIRST so your plot.py always picks it
         self.register_variable(
             Real(
                 "temp",
@@ -106,43 +108,44 @@ class Temperature(Fmi2Slave):
             )
         )
 
-        # environment temp (for plotting / debugging)
         self.register_variable(
             Real(
                 "T_env",
                 causality=Fmi2Causality.output,
                 variability=Fmi2Variability.continuous,
                 start=self.T_env,
-                description="Environment/base temperature [°C] (with noise, without heater)",
+                description="Environment temperature [°C] (base + noise)",
             )
         )
 
-        # heater state as discrete integer 0/1
-        self.register_variable(
-            Integer(
-                "heater",
-                causality=Fmi2Causality.output,
-                variability=Fmi2Variability.discrete,
-                start=self.heater,
-                description="Heater state (0 = OFF, 1 = ON)",
+        if self.expose_heater_outputs:
+            self.register_variable(
+                Integer(
+                    "heater",
+                    causality=Fmi2Causality.output,
+                    variability=Fmi2Variability.discrete,
+                    start=self.heater,
+                    description="Heater state (0 = OFF, 1 = ON)",
+                )
             )
-        )
 
-        # heater_enabled as discrete output following the internal schedule
-        self.register_variable(
-            Integer(
-                "heater_enabled",
-                causality=Fmi2Causality.output,
-                variability=Fmi2Variability.discrete,
-                start=self.heater_enabled,
-                description="Heater enable schedule (0 = disabled, 1 = enabled)",
+            self.register_variable(
+                Integer(
+                    "heater_enabled",
+                    causality=Fmi2Causality.output,
+                    variability=Fmi2Variability.discrete,
+                    start=self.heater_enabled,
+                    description="Heater enabled by schedule (0/1)",
+                )
             )
-        )
 
     # ---------- Helper: heater schedule ----------
 
     def _update_heater_enabled(self, t: float):
-        """Update heater_enabled according to fixed time intervals."""
+        if not self.heater_schedule:
+            self.heater_enabled = 0
+            return
+
         enabled = 0
         for start, end in self.heater_schedule:
             if start <= t <= end:
@@ -152,37 +155,23 @@ class Temperature(Fmi2Slave):
 
     # ---------- Helper: environment temperature ----------
 
-    def _compute_env_temperature(self, t):
-        """Compute environment temperature T_env(t) with base + smooth stochastic noise."""
-        # 1) base smooth signal (daily sinusoid), in [-1, 1]
+    def _compute_env_temperature(self, t: float) -> float:
         base = self.base_a1 * sin(self.omega1 * t + self.phi1)
 
-        # 2) update smoothed noise: AR(1) driven by Gaussian
-        xi = self.rng.gauss(0.0, 1.0)  # standard normal
+        xi = self.rng.gauss(0.0, 1.0)
         self.noise = self.smooth_factor * self.noise + (1.0 - self.smooth_factor) * xi
 
-        # 3) combine base and noise
         s = base + self.noise_level * self.noise
-
-        # 4) clamp s to [-1,  +1] to keep temp in [T_min, T_max]
         if s < -1.0:
             s = -1.0
         elif s > 1.0:
             s = 1.0
 
-        # 5) map to [T_min, T_max]
-        T_env = self.T_mean + self.deltaT * s
-
-        return T_env
+        return self.T_mean + self.deltaT * s
 
     # ---------- FMI do_step ----------
 
     def do_step(self, current_time, step_size):
-        """
-        Co-Simulation step:
-          - integrate room ODE with smaller internal steps
-        """
-        # number of internal substeps
         n_sub = max(1, int(round(step_size / self.dt_internal)))
         h = step_size / n_sub
 
@@ -192,28 +181,26 @@ class Temperature(Fmi2Slave):
             t += h
             self.time = t
 
-            # 0) update heater_enabled from schedule
+            # schedule -> heater_enabled
             self._update_heater_enabled(t)
 
-            # 1) environment temperature at this substep
+            # environment
             self.T_env = self._compute_env_temperature(t)
 
-            # 2) thermostat with hysteresis on room temp
-            if self.heater_enabled:  # heater logic active in scheduled intervals
+            # heater logic
+            if self.heater_enabled:
                 if self.temp < self.T_on:
                     self.heater = 1
                 elif self.temp > self.T_off:
                     self.heater = 0
-                # else: keep previous heater state
             else:
-                # heater disabled: always off
                 self.heater = 0
 
-            # 3) room temperature ODE
+            # ODE integration
             dTdt = (self.T_env - self.temp) / self.tau + self.heater * self.heating_power
             self.temp += h * dTdt
 
-            # 4) enforce physical bounds
+            # bounds
             if self.temp < self.T_min:
                 self.temp = self.T_min
             elif self.temp > self.T_max:
