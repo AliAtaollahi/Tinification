@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/cmake_install.cmake",
+		"/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/cmake_install.cmake",
+		"/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/cmake_install.cmake",
+		"/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/castfunction_variables/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

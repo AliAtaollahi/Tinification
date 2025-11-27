@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/ali123ata/Desktop/3/Tinification/extraction_function/build/cmake_install.cmake",
+		"/home/ali123ata/Desktop/3/Tinification/extraction_function/build/reactor-cpp-default/cmake_install.cmake",
+		"/home/ali123ata/Desktop/3/Tinification/extraction_function/build/reactor-cpp-default/lib/cmake_install.cmake",
+		"/home/ali123ata/Desktop/3/Tinification/extraction_function/build/extraction_function/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

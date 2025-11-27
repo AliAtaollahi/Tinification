@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o"
+  "CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o.d"
   "CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o"
+  "CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o.d"
   "CMakeFiles/extraction_function.dir/main.cc.o"
+  "CMakeFiles/extraction_function.dir/main.cc.o.d"
   "extraction_function"
   "extraction_function.pdb"
 )

@@ -12,8 +12,8 @@ set_target_properties(reactor-cpp-default PROPERTIES
   IMPORTED_SONAME_DEBUG "libreactor-cpp-default.so.1"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS reactor-cpp-default )
-list(APPEND _IMPORT_CHECK_FILES_FOR_reactor-cpp-default "${_IMPORT_PREFIX}/lib/libreactor-cpp-default.so.0.0.1" )
+list(APPEND _cmake_import_check_targets reactor-cpp-default )
+list(APPEND _cmake_import_check_files_for_reactor-cpp-default "${_IMPORT_PREFIX}/lib/libreactor-cpp-default.so.0.0.1" )
 
 # Commands beyond this point should not need to know the version.
 set(CMAKE_IMPORT_FILE_VERSION)

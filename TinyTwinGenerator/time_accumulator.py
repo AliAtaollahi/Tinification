@@ -3,6 +3,7 @@ from __future__ import annotations
 import sys, re
 from pathlib import Path
 from typing import List, Tuple, Dict, Set
+PRINT_TIME_PATHS = True
 
 # ---------------- AUT structures & parser ----------------
 
@@ -104,6 +105,9 @@ def accumulate_time_edges(lts: AutLTS) -> List[Tuple[str, str, str]]:
     Traverse from root; whenever a consecutive block of time edges is encountered,
     replace that entire block with a single 'time += SUM' edge from the block's
     entry node to its terminal node. Non-time edges remain unchanged (same order).
+
+    Additionally, if PRINT_TIME_PATHS is True, print every discovered time-only path
+    (the exact sequence of states and increments, and the total sum) to stderr.
     """
     non_time_edges: List[Tuple[str,str,str]] = []
     time_out: Dict[str, List[Tuple[int,str]]] = {}
@@ -141,20 +145,42 @@ def accumulate_time_edges(lts: AutLTS) -> List[Tuple[str, str, str]]:
             seen_triples.add(triple)
             new_time_edges_list.append(triple)
 
-    def dfs(start: str, node: str, acc: int, seen_nodes: Set[str]):
+    # simple counter for pretty logs
+    path_log_counter = {"n": 0}
+
+    def _log_time_path(path_nodes: List[str], deltas: List[int], total: int):
+        if not PRINT_TIME_PATHS:
+            return
+        # Example: [A, B, C] with deltas [2, 5] => "A -(time+=2)-> B ; B -(time+=5)-> C"
+        segments = []
+        for i, d in enumerate(deltas):
+            segments.append(f'{path_nodes[i]} -(time += {d})-> {path_nodes[i+1]}')
+        path_log_counter["n"] += 1
+        print(
+            f'[time-path #{path_log_counter["n"]}] start={path_nodes[0]} end={path_nodes[-1]} '
+            f'sum={total} : ' + ' ; '.join(segments),
+            file=sys.stderr
+        )
+
+    def dfs(start: str, node: str, acc: int, seen_nodes: Set[str],
+            path_nodes: List[str], deltas: List[int]):
         outs = time_out.get(node, [])
         if not outs:
             if node != start:
-                add_time_edge(start, acc, node)
+                # Only record/print if this triple hasn't been added yet
+                if (start, acc, node) not in seen_triples:
+                    add_time_edge(start, acc, node)
+                    _log_time_path(path_nodes, deltas, acc)
             return
         for n, nxt in outs:
             if nxt in seen_nodes:
+                # skip cycles; not a terminal time-only block
                 continue
-            dfs(start, nxt, acc + n, seen_nodes | {nxt})
+            dfs(start, nxt, acc + n, seen_nodes | {nxt}, path_nodes + [nxt], deltas + [n])
 
     for u in entries:
         for n, v in time_out[u]:
-            dfs(u, v, n, {u, v})
+            dfs(u, v, n, {u, v}, [u, v], [n])
 
     out: List[Tuple[str,str,str]] = []
     out.extend(non_time_edges)

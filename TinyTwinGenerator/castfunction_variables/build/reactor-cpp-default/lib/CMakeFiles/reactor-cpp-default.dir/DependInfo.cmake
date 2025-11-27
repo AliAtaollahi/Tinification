@@ -1,33 +1,24 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/action.cc" "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/action.cc.o"
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/assert.cc" "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.o"
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/environment.cc" "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/environment.cc.o"
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/logical_time.cc" "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/logical_time.cc.o"
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/multiport.cc" "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/multiport.cc.o"
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/port.cc" "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/port.cc.o"
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/reaction.cc" "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reaction.cc.o"
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/reactor.cc" "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor.cc.o"
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/reactor_element.cc" "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor_element.cc.o"
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/scheduler.cc" "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/scheduler.cc.o"
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/time.cc" "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/time.cc.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "reactor_cpp_default_EXPORTS"
   )
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include"
-  "reactor-cpp-default/include"
-  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/src"
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/action.cc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/action.cc.o" "gcc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/action.cc.o.d"
+  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/assert.cc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.o" "gcc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.o.d"
+  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/environment.cc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/environment.cc.o" "gcc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/environment.cc.o.d"
+  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/logical_time.cc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/logical_time.cc.o" "gcc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/logical_time.cc.o.d"
+  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/multiport.cc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/multiport.cc.o" "gcc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/multiport.cc.o.d"
+  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/port.cc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/port.cc.o" "gcc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/port.cc.o.d"
+  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/reaction.cc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reaction.cc.o" "gcc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reaction.cc.o.d"
+  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/reactor.cc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor.cc.o" "gcc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor.cc.o.d"
+  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/reactor_element.cc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor_element.cc.o" "gcc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor_element.cc.o.d"
+  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/scheduler.cc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/scheduler.cc.o" "gcc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/scheduler.cc.o.d"
+  "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/time.cc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/time.cc.o" "gcc" "reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/time.cc.o.d"
   )
 
 # Pairs of files generated by the same build rule.
@@ -37,8 +28,12 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   )
 
 
-# Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.
