@@ -1,27 +1,16 @@
 //Write your code here !
 reactiveclass PLC1(10){
 	knownrebecs{ 
-		WaterTank watertank1;
-		WaterTank watertank2;
+		WaterTank watertank;
 		Valve v1;
 		Valve v2;
 		Valve v3;
 	}
 	statevars{
-		int T1_level;
-		int T2_level;
-	
 	}
-	PLC1(){
-		T1_level = 1;
-		T2_level = 1;
-	
+	PLC1(){	
 	}
-	msgsrv update_plc(int tank_number, int water_level){ 
-		if(tank_number == 1)
-			T1_level = water_level;
-		if(tank_number == 2)
-			T2_level = water_level;
+	msgsrv update_plc(int T1_level, int T2_level){ 
 		
 		if(T1_level == 1 && T2_level == 1) { v1.open_valve(); v2.close_valve(); v3.close_valve(); }
 		else if (T1_level == 1 && T2_level == 2) {v1.open_valve();  v2.close_valve(); v3.close_valve();  }
@@ -53,24 +42,31 @@ reactiveclass WaterTank(10){
 		LevelSensor sensor;
 	}
 	statevars{
-		int water_level;
-		int tank_number;
+		int T1_waterlevel;
+		int T2_waterlevel;
 	}
-	WaterTank(int water_level_, int tank_number_){ 
-		water_level = water_level_;
-		tank_number = tank_number_;
+	WaterTank(){ 
+		T1_waterlevel = 1;
+		T2_waterlevel = 1;
 		self.change_level();
 	}
 	msgsrv change_level(){ 
 		// call the sensor instead of PLC directly
-		sensor.senseLevel(tank_number, water_level);
+		sensor.senseLevel(T1_waterlevel, T2_waterlevel);
 
-		if (water_level == 1)
-			water_level = ?(1, 2);
-		else if (water_level == 2)
-			water_level = ?(1, 2, 3);
-		else if (water_level == 3)
-			water_level = ?(2, 3);
+		if (T1_waterlevel == 1)
+			T1_waterlevel = ?(1, 2);
+		else if (T1_waterlevel == 2)
+			T1_waterlevel = ?(1, 2, 3);
+		else if (T1_waterlevel == 3)
+			T1_waterlevel = ?(2, 3);
+
+		if (T2_waterlevel == 1)
+			T2_waterlevel = ?(1, 2);
+		else if (T2_waterlevel == 2)
+			T2_waterlevel = ?(1, 2, 3);
+		else if (T2_waterlevel == 3)
+			T2_waterlevel = ?(2, 3);
 			
 		self.change_level() after(10);
 	}       
@@ -99,10 +95,9 @@ reactiveclass Valve(5){
 }
 
 main {
-	PLC1 plc1(watertank1, watertank2,v1,v2,v3):();
+	PLC1 plc1(watertank,v1,v2,v3):();
 	LevelSensor sensor(plc1):();
-	WaterTank watertank1(sensor):(1, 1);
-	WaterTank watertank2(sensor):(1, 2);
+	WaterTank watertank(sensor):();
 	Valve v1():();
 	Valve v2():();
 	Valve v3():();

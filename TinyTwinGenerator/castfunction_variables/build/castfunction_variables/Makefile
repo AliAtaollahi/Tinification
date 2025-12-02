@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake
+CMAKE_COMMAND = /home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake
 
 # The command to remove a file.
-RM = /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E rm -f
+RM = /home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen
+CMAKE_SOURCE_DIR = /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/src-gen
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build
+CMAKE_BINARY_DIR = /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -97,49 +97,49 @@ list_install_components/fast: list_install_components
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/CMakeFiles /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/castfunction_variables//CMakeFiles/progress.marks
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 castfunction_variables/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/CMakeFiles 0
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build/CMakeFiles /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build/castfunction_variables//CMakeFiles/progress.marks
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 castfunction_variables/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 castfunction_variables/clean
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 castfunction_variables/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,22 +148,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: cmake_check_build_system
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 castfunction_variables/preinstall
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 castfunction_variables/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 castfunction_variables/preinstall
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 castfunction_variables/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 castfunction_variables/CMakeFiles/castfunction_variables.dir/rule:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 castfunction_variables/CMakeFiles/castfunction_variables.dir/rule
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 castfunction_variables/CMakeFiles/castfunction_variables.dir/rule
 .PHONY : castfunction_variables/CMakeFiles/castfunction_variables.dir/rule
 
 # Convenience name for target.
@@ -172,7 +172,7 @@ castfunction_variables: castfunction_variables/CMakeFiles/castfunction_variables
 
 # fast build rule for target.
 castfunction_variables/fast:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/build
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/build
 .PHONY : castfunction_variables/fast
 
 castfunction_variables/_lf_preamble.o: castfunction_variables/_lf_preamble.cc.o
@@ -180,7 +180,7 @@ castfunction_variables/_lf_preamble.o: castfunction_variables/_lf_preamble.cc.o
 
 # target to build an object file
 castfunction_variables/_lf_preamble.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.o
 .PHONY : castfunction_variables/_lf_preamble.cc.o
 
 castfunction_variables/_lf_preamble.i: castfunction_variables/_lf_preamble.cc.i
@@ -188,7 +188,7 @@ castfunction_variables/_lf_preamble.i: castfunction_variables/_lf_preamble.cc.i
 
 # target to preprocess a source file
 castfunction_variables/_lf_preamble.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.i
 .PHONY : castfunction_variables/_lf_preamble.cc.i
 
 castfunction_variables/_lf_preamble.s: castfunction_variables/_lf_preamble.cc.s
@@ -196,7 +196,7 @@ castfunction_variables/_lf_preamble.s: castfunction_variables/_lf_preamble.cc.s
 
 # target to generate assembly for a file
 castfunction_variables/_lf_preamble.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/_lf_preamble.cc.s
 .PHONY : castfunction_variables/_lf_preamble.cc.s
 
 castfunction_variables/castfunction_variables.o: castfunction_variables/castfunction_variables.cc.o
@@ -204,7 +204,7 @@ castfunction_variables/castfunction_variables.o: castfunction_variables/castfunc
 
 # target to build an object file
 castfunction_variables/castfunction_variables.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.o
 .PHONY : castfunction_variables/castfunction_variables.cc.o
 
 castfunction_variables/castfunction_variables.i: castfunction_variables/castfunction_variables.cc.i
@@ -212,7 +212,7 @@ castfunction_variables/castfunction_variables.i: castfunction_variables/castfunc
 
 # target to preprocess a source file
 castfunction_variables/castfunction_variables.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.i
 .PHONY : castfunction_variables/castfunction_variables.cc.i
 
 castfunction_variables/castfunction_variables.s: castfunction_variables/castfunction_variables.cc.s
@@ -220,7 +220,7 @@ castfunction_variables/castfunction_variables.s: castfunction_variables/castfunc
 
 # target to generate assembly for a file
 castfunction_variables/castfunction_variables.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/castfunction_variables/castfunction_variables.cc.s
 .PHONY : castfunction_variables/castfunction_variables.cc.s
 
 main.o: main.cc.o
@@ -228,7 +228,7 @@ main.o: main.cc.o
 
 # target to build an object file
 main.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.o
 .PHONY : main.cc.o
 
 main.i: main.cc.i
@@ -236,7 +236,7 @@ main.i: main.cc.i
 
 # target to preprocess a source file
 main.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.i
 .PHONY : main.cc.i
 
 main.s: main.cc.s
@@ -244,7 +244,7 @@ main.s: main.cc.s
 
 # target to generate assembly for a file
 main.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f castfunction_variables/CMakeFiles/castfunction_variables.dir/build.make castfunction_variables/CMakeFiles/castfunction_variables.dir/main.cc.s
 .PHONY : main.cc.s
 
 # Help Target
@@ -280,6 +280,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

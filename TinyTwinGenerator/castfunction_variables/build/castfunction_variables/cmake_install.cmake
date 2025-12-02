@@ -1,8 +1,8 @@
-# Install script for directory: /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/castfunction_variables
+# Install script for directory: /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/castfunction_variables
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables")
+  set(CMAKE_INSTALL_PREFIX "/home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,7 +43,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE OPTIONAL MESSAGE_NEVER FILES "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/castfunction_variables/castfunction_variables")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE OPTIONAL MESSAGE_NEVER FILES "/home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build/castfunction_variables/castfunction_variables")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/castfunction_variables" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/castfunction_variables")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -55,6 +55,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/castfunction_variables/install_local_manifest.txt"
+  file(WRITE "/home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build/castfunction_variables/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

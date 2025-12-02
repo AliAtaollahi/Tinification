@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/./src -I/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/castfunction_variables -I/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/castfunction_variables/__include__ -I/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/reactor-cpp-default/include -I/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/reactor-cpp-default/include
+CXX_INCLUDES = -I/home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/./src -I/home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/castfunction_variables -I/home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/castfunction_variables/__include__ -I/home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/reactor-cpp-default/include -I/home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build/reactor-cpp-default/include
 
 CXX_FLAGS = -g -std=c++20 -fdiagnostics-color=always -Wall -Wextra -pedantic
 

@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake
+CMAKE_COMMAND = /home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake
 
 # The command to remove a file.
-RM = /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E rm -f
+RM = /home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen
+CMAKE_SOURCE_DIR = /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/src-gen
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build
+CMAKE_BINARY_DIR = /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -97,49 +97,49 @@ list_install_components/fast: list_install_components
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/home/marziyeh/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/CMakeFiles /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/reactor-cpp-default/lib//CMakeFiles/progress.marks
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 reactor-cpp-default/lib/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/CMakeFiles 0
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build/CMakeFiles /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build/reactor-cpp-default/lib//CMakeFiles/progress.marks
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 reactor-cpp-default/lib/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 reactor-cpp-default/lib/clean
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 reactor-cpp-default/lib/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,22 +148,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: cmake_check_build_system
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 reactor-cpp-default/lib/preinstall
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 reactor-cpp-default/lib/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 reactor-cpp-default/lib/preinstall
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 reactor-cpp-default/lib/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/rule:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/rule
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/rule
 .PHONY : reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/rule
 
 # Convenience name for target.
@@ -172,7 +172,7 @@ reactor-cpp-default: reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/
 
 # fast build rule for target.
 reactor-cpp-default/fast:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build
 .PHONY : reactor-cpp-default/fast
 
 action.o: action.cc.o
@@ -180,7 +180,7 @@ action.o: action.cc.o
 
 # target to build an object file
 action.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/action.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/action.cc.o
 .PHONY : action.cc.o
 
 action.i: action.cc.i
@@ -188,7 +188,7 @@ action.i: action.cc.i
 
 # target to preprocess a source file
 action.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/action.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/action.cc.i
 .PHONY : action.cc.i
 
 action.s: action.cc.s
@@ -196,7 +196,7 @@ action.s: action.cc.s
 
 # target to generate assembly for a file
 action.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/action.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/action.cc.s
 .PHONY : action.cc.s
 
 assert.o: assert.cc.o
@@ -204,7 +204,7 @@ assert.o: assert.cc.o
 
 # target to build an object file
 assert.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.o
 .PHONY : assert.cc.o
 
 assert.i: assert.cc.i
@@ -212,7 +212,7 @@ assert.i: assert.cc.i
 
 # target to preprocess a source file
 assert.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.i
 .PHONY : assert.cc.i
 
 assert.s: assert.cc.s
@@ -220,7 +220,7 @@ assert.s: assert.cc.s
 
 # target to generate assembly for a file
 assert.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/assert.cc.s
 .PHONY : assert.cc.s
 
 environment.o: environment.cc.o
@@ -228,7 +228,7 @@ environment.o: environment.cc.o
 
 # target to build an object file
 environment.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/environment.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/environment.cc.o
 .PHONY : environment.cc.o
 
 environment.i: environment.cc.i
@@ -236,7 +236,7 @@ environment.i: environment.cc.i
 
 # target to preprocess a source file
 environment.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/environment.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/environment.cc.i
 .PHONY : environment.cc.i
 
 environment.s: environment.cc.s
@@ -244,7 +244,7 @@ environment.s: environment.cc.s
 
 # target to generate assembly for a file
 environment.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/environment.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/environment.cc.s
 .PHONY : environment.cc.s
 
 logical_time.o: logical_time.cc.o
@@ -252,7 +252,7 @@ logical_time.o: logical_time.cc.o
 
 # target to build an object file
 logical_time.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/logical_time.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/logical_time.cc.o
 .PHONY : logical_time.cc.o
 
 logical_time.i: logical_time.cc.i
@@ -260,7 +260,7 @@ logical_time.i: logical_time.cc.i
 
 # target to preprocess a source file
 logical_time.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/logical_time.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/logical_time.cc.i
 .PHONY : logical_time.cc.i
 
 logical_time.s: logical_time.cc.s
@@ -268,7 +268,7 @@ logical_time.s: logical_time.cc.s
 
 # target to generate assembly for a file
 logical_time.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/logical_time.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/logical_time.cc.s
 .PHONY : logical_time.cc.s
 
 multiport.o: multiport.cc.o
@@ -276,7 +276,7 @@ multiport.o: multiport.cc.o
 
 # target to build an object file
 multiport.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/multiport.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/multiport.cc.o
 .PHONY : multiport.cc.o
 
 multiport.i: multiport.cc.i
@@ -284,7 +284,7 @@ multiport.i: multiport.cc.i
 
 # target to preprocess a source file
 multiport.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/multiport.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/multiport.cc.i
 .PHONY : multiport.cc.i
 
 multiport.s: multiport.cc.s
@@ -292,7 +292,7 @@ multiport.s: multiport.cc.s
 
 # target to generate assembly for a file
 multiport.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/multiport.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/multiport.cc.s
 .PHONY : multiport.cc.s
 
 port.o: port.cc.o
@@ -300,7 +300,7 @@ port.o: port.cc.o
 
 # target to build an object file
 port.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/port.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/port.cc.o
 .PHONY : port.cc.o
 
 port.i: port.cc.i
@@ -308,7 +308,7 @@ port.i: port.cc.i
 
 # target to preprocess a source file
 port.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/port.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/port.cc.i
 .PHONY : port.cc.i
 
 port.s: port.cc.s
@@ -316,7 +316,7 @@ port.s: port.cc.s
 
 # target to generate assembly for a file
 port.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/port.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/port.cc.s
 .PHONY : port.cc.s
 
 reaction.o: reaction.cc.o
@@ -324,7 +324,7 @@ reaction.o: reaction.cc.o
 
 # target to build an object file
 reaction.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reaction.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reaction.cc.o
 .PHONY : reaction.cc.o
 
 reaction.i: reaction.cc.i
@@ -332,7 +332,7 @@ reaction.i: reaction.cc.i
 
 # target to preprocess a source file
 reaction.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reaction.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reaction.cc.i
 .PHONY : reaction.cc.i
 
 reaction.s: reaction.cc.s
@@ -340,7 +340,7 @@ reaction.s: reaction.cc.s
 
 # target to generate assembly for a file
 reaction.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reaction.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reaction.cc.s
 .PHONY : reaction.cc.s
 
 reactor.o: reactor.cc.o
@@ -348,7 +348,7 @@ reactor.o: reactor.cc.o
 
 # target to build an object file
 reactor.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor.cc.o
 .PHONY : reactor.cc.o
 
 reactor.i: reactor.cc.i
@@ -356,7 +356,7 @@ reactor.i: reactor.cc.i
 
 # target to preprocess a source file
 reactor.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor.cc.i
 .PHONY : reactor.cc.i
 
 reactor.s: reactor.cc.s
@@ -364,7 +364,7 @@ reactor.s: reactor.cc.s
 
 # target to generate assembly for a file
 reactor.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor.cc.s
 .PHONY : reactor.cc.s
 
 reactor_element.o: reactor_element.cc.o
@@ -372,7 +372,7 @@ reactor_element.o: reactor_element.cc.o
 
 # target to build an object file
 reactor_element.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor_element.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor_element.cc.o
 .PHONY : reactor_element.cc.o
 
 reactor_element.i: reactor_element.cc.i
@@ -380,7 +380,7 @@ reactor_element.i: reactor_element.cc.i
 
 # target to preprocess a source file
 reactor_element.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor_element.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor_element.cc.i
 .PHONY : reactor_element.cc.i
 
 reactor_element.s: reactor_element.cc.s
@@ -388,7 +388,7 @@ reactor_element.s: reactor_element.cc.s
 
 # target to generate assembly for a file
 reactor_element.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor_element.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/reactor_element.cc.s
 .PHONY : reactor_element.cc.s
 
 scheduler.o: scheduler.cc.o
@@ -396,7 +396,7 @@ scheduler.o: scheduler.cc.o
 
 # target to build an object file
 scheduler.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/scheduler.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/scheduler.cc.o
 .PHONY : scheduler.cc.o
 
 scheduler.i: scheduler.cc.i
@@ -404,7 +404,7 @@ scheduler.i: scheduler.cc.i
 
 # target to preprocess a source file
 scheduler.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/scheduler.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/scheduler.cc.i
 .PHONY : scheduler.cc.i
 
 scheduler.s: scheduler.cc.s
@@ -412,7 +412,7 @@ scheduler.s: scheduler.cc.s
 
 # target to generate assembly for a file
 scheduler.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/scheduler.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/scheduler.cc.s
 .PHONY : scheduler.cc.s
 
 time.o: time.cc.o
@@ -420,7 +420,7 @@ time.o: time.cc.o
 
 # target to build an object file
 time.cc.o:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/time.cc.o
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/time.cc.o
 .PHONY : time.cc.o
 
 time.i: time.cc.i
@@ -428,7 +428,7 @@ time.i: time.cc.i
 
 # target to preprocess a source file
 time.cc.i:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/time.cc.i
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/time.cc.i
 .PHONY : time.cc.i
 
 time.s: time.cc.s
@@ -436,7 +436,7 @@ time.s: time.cc.s
 
 # target to generate assembly for a file
 time.cc.s:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/time.cc.s
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(MAKE) $(MAKESILENT) -f reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/build.make reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/time.cc.s
 .PHONY : time.cc.s
 
 # Help Target
@@ -496,6 +496,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/marziyeh/tinification/Tinification/TinyTwinGenerator/castfunction_variables/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

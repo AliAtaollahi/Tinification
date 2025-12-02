@@ -1,1 +1,1 @@
-update_plc,time,(
+open_valve,close_valve,time,(

@@ -3,7 +3,7 @@ center = TRUE;
 mclimit = 10.0;
 nodesep = 0.05;
 node [ width=0.25, height=0.25, label="" ];
-S33 [ peripheries=2 ];
+S8 [ peripheries=2 ];
 S0
 S1
 S2
@@ -43,111 +43,232 @@ S35
 S36
 S37
 S38
-S37 -> S6[label="plc1.update_plc[1, 1].[]"];
-S0 -> S3[label="plc1.update_plc[1, 2].[]"];
-S0 -> S6[label="plc1.update_plc[1, 1].[]"];
-S35 -> S27[label="plc1.update_plc[1, 1].[]"];
-S35 -> S1[label="plc1.update_plc[1, 2].[]"];
-S31 -> S10[label="plc1.update_plc[1, 1].[]"];
-S31 -> S15[label="plc1.update_plc[1, 2].[]"];
-S33 -> S34[label="plc1.update_plc[1, 1].[]"];
-S33 -> S37[label="plc1.update_plc[2, 1].[]"];
-S22 -> S7[label="plc1.update_plc[1, 1].[]"];
-S22 -> S0[label="plc1.update_plc[2, 1].[]"];
-S22 -> S35[label="plc1.update_plc[2, 2].[]"];
-S22 -> S18[label="plc1.update_plc[1, 2].[]"];
-S38 -> S3[label="plc1.update_plc[1, 2].[]"];
-S38 -> S24[label="plc1.update_plc[1, 3].[]"];
-S21 -> S24[label="plc1.update_plc[1, 3].[]"];
-S21 -> S3[label="plc1.update_plc[1, 2].[]"];
-S21 -> S6[label="plc1.update_plc[1, 1].[]"];
-S32 -> S28[label="plc1.update_plc[1, 3].[]"];
-S32 -> S15[label="plc1.update_plc[1, 2].[]"];
-S20 -> S28[label="plc1.update_plc[1, 3].[]"];
-S20 -> S10[label="plc1.update_plc[1, 1].[]"];
-S20 -> S15[label="plc1.update_plc[1, 2].[]"];
-S36 -> S30[label="plc1.update_plc[1, 3].[]"];
-S36 -> S1[label="plc1.update_plc[1, 2].[]"];
-S16 -> S30[label="plc1.update_plc[1, 3].[]"];
-S16 -> S27[label="plc1.update_plc[1, 1].[]"];
-S16 -> S1[label="plc1.update_plc[1, 2].[]"];
-S18 -> S3[label="plc1.update_plc[2, 1].[]"];
-S18 -> S1[label="plc1.update_plc[2, 2].[]"];
-S18 -> S1[label="plc1.update_plc[1, 2].[]"];
-S12 -> S24[label="plc1.update_plc[2, 1].[]"];
-S12 -> S30[label="plc1.update_plc[1, 3].[]"];
-S12 -> S30[label="plc1.update_plc[2, 2].[]"];
-S34 -> S6[label="plc1.update_plc[2, 1].[]"];
-S34 -> S6[label="plc1.update_plc[1, 1].[]"];
-S7 -> S6[label="plc1.update_plc[2, 1].[]"];
-S7 -> S27[label="plc1.update_plc[2, 2].[]"];
-S7 -> S27[label="plc1.update_plc[1, 1].[]"];
-S23 -> S12[label="plc1.update_plc[1, 3].[]"];
-S23 -> S38[label="plc1.update_plc[2, 1].[]"];
-S23 -> S36[label="plc1.update_plc[2, 2].[]"];
-S23 -> S18[label="plc1.update_plc[1, 2].[]"];
-S5 -> S12[label="plc1.update_plc[1, 3].[]"];
-S5 -> S7[label="plc1.update_plc[1, 1].[]"];
-S5 -> S16[label="plc1.update_plc[2, 2].[]"];
-S5 -> S21[label="plc1.update_plc[2, 1].[]"];
-S5 -> S18[label="plc1.update_plc[1, 2].[]"];
-S17 -> S15[label="plc1.update_plc[2, 3].[]"];
-S17 -> S1[label="plc1.update_plc[2, 2].[]"];
-S17 -> S1[label="plc1.update_plc[1, 2].[]"];
-S13 -> S28[label="plc1.update_plc[2, 3].[]"];
-S13 -> S30[label="plc1.update_plc[1, 3].[]"];
-S13 -> S30[label="plc1.update_plc[2, 2].[]"];
-S19 -> S3[label="plc1.update_plc[2, 1].[]"];
-S19 -> S15[label="plc1.update_plc[2, 3].[]"];
-S19 -> S1[label="plc1.update_plc[2, 2].[]"];
-S19 -> S1[label="plc1.update_plc[1, 2].[]"];
-S4 -> S28[label="plc1.update_plc[2, 3].[]"];
-S4 -> S24[label="plc1.update_plc[2, 1].[]"];
-S4 -> S30[label="plc1.update_plc[1, 3].[]"];
-S4 -> S30[label="plc1.update_plc[2, 2].[]"];
-S11 -> S10[label="plc1.update_plc[2, 3].[]"];
-S11 -> S27[label="plc1.update_plc[2, 2].[]"];
-S11 -> S27[label="plc1.update_plc[1, 1].[]"];
-S8 -> S6[label="plc1.update_plc[2, 1].[]"];
-S8 -> S10[label="plc1.update_plc[2, 3].[]"];
-S8 -> S27[label="plc1.update_plc[2, 2].[]"];
-S8 -> S27[label="plc1.update_plc[1, 1].[]"];
-S26 -> S31[label="plc1.update_plc[2, 3].[]"];
-S26 -> S8[label="plc1.update_plc[1, 1].[]"];
-S26 -> S0[label="plc1.update_plc[2, 1].[]"];
-S26 -> S35[label="plc1.update_plc[2, 2].[]"];
-S26 -> S19[label="plc1.update_plc[1, 2].[]"];
-S9 -> S31[label="plc1.update_plc[2, 3].[]"];
-S9 -> S11[label="plc1.update_plc[1, 1].[]"];
-S9 -> S35[label="plc1.update_plc[2, 2].[]"];
-S9 -> S17[label="plc1.update_plc[1, 2].[]"];
-S25 -> S13[label="plc1.update_plc[1, 3].[]"];
-S25 -> S32[label="plc1.update_plc[2, 3].[]"];
-S25 -> S36[label="plc1.update_plc[2, 2].[]"];
-S25 -> S17[label="plc1.update_plc[1, 2].[]"];
-S14 -> S13[label="plc1.update_plc[1, 3].[]"];
-S14 -> S11[label="plc1.update_plc[1, 1].[]"];
-S14 -> S20[label="plc1.update_plc[2, 3].[]"];
-S14 -> S16[label="plc1.update_plc[2, 2].[]"];
-S14 -> S17[label="plc1.update_plc[1, 2].[]"];
-S29 -> S4[label="plc1.update_plc[1, 3].[]"];
-S29 -> S32[label="plc1.update_plc[2, 3].[]"];
-S29 -> S38[label="plc1.update_plc[2, 1].[]"];
-S29 -> S36[label="plc1.update_plc[2, 2].[]"];
-S29 -> S19[label="plc1.update_plc[1, 2].[]"];
-S2 -> S4[label="plc1.update_plc[1, 3].[]"];
-S2 -> S8[label="plc1.update_plc[1, 1].[]"];
-S2 -> S20[label="plc1.update_plc[2, 3].[]"];
-S2 -> S16[label="plc1.update_plc[2, 2].[]"];
-S2 -> S21[label="plc1.update_plc[2, 1].[]"];
-S2 -> S19[label="plc1.update_plc[1, 2].[]"];
-S28 -> S25[label="time +=10"];
-S15 -> S14[label="time +=10"];
-S30 -> S29[label="time +=10"];
-S1 -> S2[label="time +=10"];
-S27 -> S26[label="time +=10"];
+S39
+S40
+S41
+S42
+S43
+S44
+S45
+S46
+S47
+S48
+S49
+S50
+S51
+S52
+S53
+S54
+S55
+S56
+S57
+S58
+S59
+S60
+S61
+S62
+S63
+S64
+S65
+S66
+S67
+S68
+S69
+S70
+S71
+S72
+S73
+S74
+S75
+S76
+S77
+S78
+S79
+S80
+S81
+S82
+S83
+S84
+S85
+S86
+S87
+S88
+S89
+S90
+S90 -> S10[label="v3.close_valve[].[]"];
+S0 -> S16[label="v3.close_valve[].[]"];
+S89 -> S17[label="v3.close_valve[].[]"];
+S88 -> S19[label="v3.close_valve[].[]"];
+S87 -> S51[label="v3.close_valve[].[]"];
+S86 -> S1[label="v3.close_valve[].[]"];
+S83 -> S39[label="v3.close_valve[].[]"];
+S83 -> S90[label="v1.open_valve[].[]"];
+S82 -> S45[label="v3.close_valve[].[]"];
+S82 -> S88[label="v1.open_valve[].[]"];
+S81 -> S54[label="v3.close_valve[].[]"];
+S81 -> S87[label="v1.open_valve[].[]"];
+S79 -> S46[label="v3.close_valve[].[]"];
+S79 -> S86[label="v1.open_valve[].[]"];
+S72 -> S78[label="plc1.update_plc[2, 1].[]"];
+S71 -> S38[label="plc1.update_plc[1, 2].[]"];
+S70 -> S55[label="plc1.update_plc[2, 2].[]"];
+S69 -> S10[label="v2.open_valve[].[]"];
+S68 -> S16[label="v2.open_valve[].[]"];
+S67 -> S36[label="v2.open_valve[].[]"];
+S66 -> S5[label="v2.open_valve[].[]"];
+S65 -> S17[label="v2.open_valve[].[]"];
+S64 -> S19[label="v2.open_valve[].[]"];
+S59 -> S39[label="v2.open_valve[].[]"];
+S59 -> S69[label="v1.open_valve[].[]"];
+S58 -> S40[label="v2.open_valve[].[]"];
+S58 -> S66[label="v1.open_valve[].[]"];
+S57 -> S45[label="v2.open_valve[].[]"];
+S57 -> S64[label="v1.open_valve[].[]"];
+S78 -> S57[label="v3.close_valve[].[]"];
+S78 -> S82[label="v2.open_valve[].[]"];
+S78 -> S77[label="v1.open_valve[].[]"];
+S55 -> S59[label="v3.close_valve[].[]"];
+S55 -> S73[label="v1.open_valve[].[]"];
+S55 -> S83[label="v2.open_valve[].[]"];
+S77 -> S64[label="v3.close_valve[].[]"];
+S77 -> S88[label="v2.open_valve[].[]"];
+S76 -> S65[label="v3.close_valve[].[]"];
+S76 -> S89[label="v2.open_valve[].[]"];
+S74 -> S68[label="v3.close_valve[].[]"];
+S74 -> S0[label="v2.open_valve[].[]"];
+S73 -> S69[label="v3.close_valve[].[]"];
+S73 -> S90[label="v2.open_valve[].[]"];
+S54 -> S51[label="v1.open_valve[].[]"];
+S46 -> S1[label="v1.open_valve[].[]"];
+S45 -> S19[label="v1.open_valve[].[]"];
+S42 -> S11[label="v1.open_valve[].[]"];
+S40 -> S5[label="v1.open_valve[].[]"];
+S39 -> S10[label="v1.open_valve[].[]"];
+S85 -> S52[label="v3.close_valve[].[]"];
+S85 -> S87[label="v2.close_valve[].[]"];
+S49 -> S86[label="v2.close_valve[].[]"];
+S49 -> S3[label="v3.close_valve[].[]"];
+S80 -> S85[label="v1.open_valve[].[]"];
+S80 -> S81[label="v2.close_valve[].[]"];
+S80 -> S53[label="v3.close_valve[].[]"];
+S38 -> S79[label="v2.close_valve[].[]"];
+S38 -> S47[label="v3.close_valve[].[]"];
+S38 -> S49[label="v1.open_valve[].[]"];
+S53 -> S54[label="v2.close_valve[].[]"];
+S53 -> S52[label="v1.open_valve[].[]"];
+S47 -> S3[label="v1.open_valve[].[]"];
+S47 -> S46[label="v2.close_valve[].[]"];
+S43 -> S42[label="v2.close_valve[].[]"];
+S43 -> S12[label="v1.open_valve[].[]"];
+S35 -> S71[label="sensor.senselevel[1, 2].[]"];
+S35 -> S70[label="sensor.senselevel[2, 2].[]"];
+S35 -> S33[label="sensor.senselevel[2, 3].[]"];
+S35 -> S32[label="sensor.senselevel[1, 3].[]"];
+S33 -> S48[label="plc1.update_plc[2, 3].[]"];
+S32 -> S29[label="plc1.update_plc[1, 3].[]"];
+S31 -> S56[label="plc1.update_plc[3, 1].[]"];
+S37 -> S36[label="v3.open_valve[].[]"];
+S30 -> S5[label="v3.open_valve[].[]"];
+S28 -> S11[label="v3.open_valve[].[]"];
+S27 -> S12[label="v3.open_valve[].[]"];
+S27 -> S28[label="v2.close_valve[].[]"];
+S60 -> S37[label="v2.open_valve[].[]"];
+S60 -> S67[label="v3.open_valve[].[]"];
+S24 -> S66[label="v3.open_valve[].[]"];
+S24 -> S30[label="v2.open_valve[].[]"];
+S48 -> S24[label="v1.open_valve[].[]"];
+S48 -> S58[label="v3.open_valve[].[]"];
+S48 -> S41[label="v2.open_valve[].[]"];
+S44 -> S42[label="v3.open_valve[].[]"];
+S44 -> S28[label="v1.open_valve[].[]"];
+S41 -> S40[label="v3.open_valve[].[]"];
+S41 -> S30[label="v1.open_valve[].[]"];
+S29 -> S44[label="v2.close_valve[].[]"];
+S29 -> S43[label="v3.open_valve[].[]"];
+S29 -> S27[label="v1.open_valve[].[]"];
+S23 -> S16[label="v1.close_valve[].[]"];
+S22 -> S36[label="v1.close_valve[].[]"];
+S21 -> S17[label="v1.close_valve[].[]"];
+S84 -> S89[label="v1.close_valve[].[]"];
+S84 -> S21[label="v3.close_valve[].[]"];
+S20 -> S23[label="v3.close_valve[].[]"];
+S20 -> S0[label="v1.close_valve[].[]"];
+S63 -> S21[label="v2.open_valve[].[]"];
+S63 -> S65[label="v1.close_valve[].[]"];
+S62 -> S22[label="v2.open_valve[].[]"];
+S62 -> S67[label="v1.close_valve[].[]"];
+S61 -> S23[label="v2.open_valve[].[]"];
+S61 -> S68[label="v1.close_valve[].[]"];
+S75 -> S74[label="v1.close_valve[].[]"];
+S75 -> S20[label="v2.open_valve[].[]"];
+S75 -> S61[label="v3.close_valve[].[]"];
+S56 -> S84[label="v2.open_valve[].[]"];
+S56 -> S76[label="v1.close_valve[].[]"];
+S56 -> S63[label="v3.close_valve[].[]"];
+S26 -> S22[label="v3.open_valve[].[]"];
+S26 -> S37[label="v1.close_valve[].[]"];
+S25 -> S60[label="v1.close_valve[].[]"];
+S25 -> S62[label="v3.open_valve[].[]"];
+S25 -> S26[label="v2.open_valve[].[]"];
+S14 -> S72[label="sensor.senselevel[2, 1].[]"];
+S14 -> S31[label="sensor.senselevel[3, 1].[]"];
+S14 -> S6[label="sensor.senselevel[3, 2].[]"];
+S14 -> S70[label="sensor.senselevel[2, 2].[]"];
+S13 -> S80[label="plc1.update_plc[1, 1].[]"];
+S8 -> S13[label="sensor.senselevel[1, 1].[]"];
+S50 -> S70[label="sensor.senselevel[2, 2].[]"];
+S50 -> S71[label="sensor.senselevel[1, 2].[]"];
+S50 -> S72[label="sensor.senselevel[2, 1].[]"];
+S50 -> S13[label="sensor.senselevel[1, 1].[]"];
+S7 -> S13[label="sensor.senselevel[1, 1].[]"];
+S7 -> S72[label="sensor.senselevel[2, 1].[]"];
+S7 -> S71[label="sensor.senselevel[1, 2].[]"];
+S7 -> S70[label="sensor.senselevel[2, 2].[]"];
+S7 -> S33[label="sensor.senselevel[2, 3].[]"];
+S7 -> S32[label="sensor.senselevel[1, 3].[]"];
+S18 -> S31[label="sensor.senselevel[3, 1].[]"];
+S18 -> S72[label="sensor.senselevel[2, 1].[]"];
+S18 -> S13[label="sensor.senselevel[1, 1].[]"];
+S18 -> S6[label="sensor.senselevel[3, 2].[]"];
+S18 -> S71[label="sensor.senselevel[1, 2].[]"];
+S18 -> S70[label="sensor.senselevel[2, 2].[]"];
+S6 -> S75[label="plc1.update_plc[3, 2].[]"];
+S34 -> S6[label="sensor.senselevel[3, 2].[]"];
+S34 -> S2[label="sensor.senselevel[3, 3].[]"];
+S34 -> S70[label="sensor.senselevel[2, 2].[]"];
+S34 -> S33[label="sensor.senselevel[2, 3].[]"];
+S4 -> S2[label="sensor.senselevel[3, 3].[]"];
+S4 -> S6[label="sensor.senselevel[3, 2].[]"];
+S4 -> S71[label="sensor.senselevel[1, 2].[]"];
+S4 -> S70[label="sensor.senselevel[2, 2].[]"];
+S4 -> S33[label="sensor.senselevel[2, 3].[]"];
+S4 -> S32[label="sensor.senselevel[1, 3].[]"];
+S15 -> S72[label="sensor.senselevel[2, 1].[]"];
+S15 -> S2[label="sensor.senselevel[3, 3].[]"];
+S15 -> S31[label="sensor.senselevel[3, 1].[]"];
+S15 -> S6[label="sensor.senselevel[3, 2].[]"];
+S15 -> S70[label="sensor.senselevel[2, 2].[]"];
+S15 -> S33[label="sensor.senselevel[2, 3].[]"];
+S9 -> S13[label="sensor.senselevel[1, 1].[]"];
+S9 -> S2[label="sensor.senselevel[3, 3].[]"];
+S9 -> S72[label="sensor.senselevel[2, 1].[]"];
+S9 -> S31[label="sensor.senselevel[3, 1].[]"];
+S9 -> S6[label="sensor.senselevel[3, 2].[]"];
+S9 -> S71[label="sensor.senselevel[1, 2].[]"];
+S9 -> S70[label="sensor.senselevel[2, 2].[]"];
+S9 -> S33[label="sensor.senselevel[2, 3].[]"];
+S9 -> S32[label="sensor.senselevel[1, 3].[]"];
+S52 -> S51[label="v2.close_valve[].[]"];
+S3 -> S1[label="v2.close_valve[].[]"];
+S12 -> S11[label="v2.close_valve[].[]"];
+S2 -> S25[label="plc1.update_plc[3, 3].[]"];
+S51 -> S50[label="time +=10"];
+S1 -> S7[label="time +=10"];
+S19 -> S18[label="time +=10"];
+S17 -> S14[label="time +=10"];
+S11 -> S35[label="time +=10"];
+S36 -> S34[label="time +=10"];
+S5 -> S4[label="time +=10"];
+S16 -> S15[label="time +=10"];
 S10 -> S9[label="time +=10"];
-S24 -> S23[label="time +=10"];
-S3 -> S5[label="time +=10"];
-S6 -> S22[label="time +=10"];
 }
