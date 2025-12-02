@@ -29,15 +29,28 @@ reactiveclass PLC1(10){
 		else if (T1_level == 2 && T2_level == 1) { V1_opened = true;  V2_opened = true; V3_opened = false; }
 		else if (T1_level == 2 && T2_level == 2) { V1_opened = true;  V2_opened = true; V3_opened = false; }
 		else if (T1_level == 2 && T2_level == 3) { V1_opened = true;  V2_opened = true; V3_opened = true; }
-		else if (T1_level == 3 && T2_level == 1) { V1_opened = false;  V2_opened = true; V3_opened = false; }
-		else if (T1_level == 3 && T2_level == 2) { V1_opened = false;  V2_opened = true; V3_opened = false; }
-		else if (T1_level == 3 && T2_level == 3) { V1_opened = false;  V2_opened = true; V3_opened = true; }
+		else if (T1_level == 3 && T2_level == 1) { V1_opened = false; V2_opened = true; V3_opened = false; }
+		else if (T1_level == 3 && T2_level == 2) { V1_opened = false; V2_opened = true; V3_opened = false; }
+		else if (T1_level == 3 && T2_level == 3) { V1_opened = false; V2_opened = true; V3_opened = true; }
 	}       
+}
+
+reactiveclass LevelSensor(10) {
+	knownrebecs {
+		PLC1 plc1;
+	}
+
+	LevelSensor() { }
+
+	// WaterTank → LevelSensor → PLC1
+	msgsrv senseLevel(int tank_number, int water_level) {
+		plc1.update_plc(tank_number, water_level);
+	}
 }
 
 reactiveclass WaterTank(10){
 	knownrebecs{ 
-		PLC1 plc1; 
+		LevelSensor sensor;
 	}
 	statevars{
 		int water_level;
@@ -49,7 +62,9 @@ reactiveclass WaterTank(10){
 		self.change_level();
 	}
 	msgsrv change_level(){ 
-		plc1.update_plc(tank_number, water_level);
+		// call the sensor instead of PLC directly
+		sensor.senseLevel(tank_number, water_level);
+
 		if (water_level == 1)
 			water_level = ?(1, 2);
 		else if (water_level == 2)
@@ -63,6 +78,7 @@ reactiveclass WaterTank(10){
 
 main {
 	PLC1 plc1(watertank1, watertank2):();
-	WaterTank watertank1(plc1):(1, 1);
-	WaterTank watertank2(plc1):(1, 2);
+	LevelSensor sensor(plc1):();
+	WaterTank watertank1(sensor):(1, 1);
+	WaterTank watertank2(sensor):(1, 2);
 }
