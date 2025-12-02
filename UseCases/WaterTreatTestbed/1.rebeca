@@ -1,21 +1,21 @@
+//Write your code here !
 reactiveclass PLC1(10){
 	knownrebecs{ 
 		WaterTank watertank1;
 		WaterTank watertank2;
+		Valve v1;
+		Valve v2;
+		Valve v3;
 	}
 	statevars{
 		int T1_level;
 		int T2_level;
-		boolean V1_opened;
-		boolean V2_opened;
-		boolean V3_opened;
+	
 	}
 	PLC1(){
 		T1_level = 1;
 		T2_level = 1;
-		V1_opened = false;
-		V2_opened = false;
-		V3_opened = false;
+	
 	}
 	msgsrv update_plc(int tank_number, int water_level){ 
 		if(tank_number == 1)
@@ -23,15 +23,15 @@ reactiveclass PLC1(10){
 		if(tank_number == 2)
 			T2_level = water_level;
 		
-		if(T1_level == 1 && T2_level == 1) { V1_opened = true;  V2_opened = false; V3_opened = false; }
-		else if (T1_level == 1 && T2_level == 2) { V1_opened = true;  V2_opened = false; V3_opened = false; }
-		else if (T1_level == 1 && T2_level == 3) { V1_opened = true;  V2_opened = false; V3_opened = true; }
-		else if (T1_level == 2 && T2_level == 1) { V1_opened = true;  V2_opened = true; V3_opened = false; }
-		else if (T1_level == 2 && T2_level == 2) { V1_opened = true;  V2_opened = true; V3_opened = false; }
-		else if (T1_level == 2 && T2_level == 3) { V1_opened = true;  V2_opened = true; V3_opened = true; }
-		else if (T1_level == 3 && T2_level == 1) { V1_opened = false; V2_opened = true; V3_opened = false; }
-		else if (T1_level == 3 && T2_level == 2) { V1_opened = false; V2_opened = true; V3_opened = false; }
-		else if (T1_level == 3 && T2_level == 3) { V1_opened = false; V2_opened = true; V3_opened = true; }
+		if(T1_level == 1 && T2_level == 1) { v1.open_valve(); v2.close_valve(); v3.close_valve(); }
+		else if (T1_level == 1 && T2_level == 2) {v1.open_valve();  v2.close_valve(); v3.close_valve();  }
+		else if (T1_level == 1 && T2_level == 3) {v1.open_valve();  v2.close_valve();  v3.open_valve();  }
+		else if (T1_level == 2 && T2_level == 1) {v1.open_valve();  v2.open_valve(); v3.close_valve();  }
+		else if (T1_level == 2 && T2_level == 2) {v1.open_valve();  v2.open_valve(); v3.close_valve();  }
+		else if (T1_level == 2 && T2_level == 3) {v1.open_valve();  v2.open_valve(); v3.open_valve();  }
+		else if (T1_level == 3 && T2_level == 1) { v1.close_valve(); v2.open_valve(); v3.close_valve();  }
+		else if (T1_level == 3 && T2_level == 2) { v1.close_valve();  v2.open_valve(); v3.close_valve();  }
+		else if (T1_level == 3 && T2_level == 3) { v1.close_valve();  v2.open_valve();  v3.open_valve();  }
 	}       
 }
 
@@ -75,10 +75,36 @@ reactiveclass WaterTank(10){
 		self.change_level() after(10);
 	}       
 }
+reactiveclass Valve(5){
+
+
+	statevars{
+		boolean is_open;
+	}
+
+	Valve(){
+		is_open = false;         
+	}
+
+
+	msgsrv open_valve(){
+		is_open = true;
+	
+	}
+
+	msgsrv close_valve(){
+		is_open = false;
+		
+	}
+}
 
 main {
-	PLC1 plc1(watertank1, watertank2):();
+	PLC1 plc1(watertank1, watertank2,v1,v2,v3):();
 	LevelSensor sensor(plc1):();
 	WaterTank watertank1(sensor):(1, 1);
 	WaterTank watertank2(sensor):(1, 2);
+	Valve v1():();
+	Valve v2():();
+	Valve v3():();
+	
 }
