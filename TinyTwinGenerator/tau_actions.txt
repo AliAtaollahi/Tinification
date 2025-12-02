@@ -1,1 +1,1 @@
-room.tempchange[].[],sensor.gettemp[20].[],sensor.gettemp[21].[],room.regulate[1].[],room.regulate[0].[],@[10>>10],
+watertank1.change_level[].[],watertank2.change_level[].[],@[10>>10],@[20>>10],@[20>>20],@[30>>10],@[30>>20],

@@ -1,5 +1,5 @@
-rm -rf extraction_function/build/*
-rm -rf castfunction_variables/build/*
+# rm -rf extraction_function/build/*
+# rm -rf castfunction_variables/build/*
 
 #!/bin/bash
 
@@ -15,7 +15,7 @@ temp_file="temp.txt"
 # Write the argument passed to the temp file
 echo -e "../$1" > "temp.txt" 
 cd castfunction_variables
-lfc castfunction_variables.lf
+# lfc castfunction_variables.lf
 
 ./bin/castfunction_variables> ../castfile.aut
 
@@ -45,7 +45,7 @@ cat "$2">>"temp.txt"
 cd extraction_function
 
 
-lfc extraction_function.lf
+# lfc extraction_function.lf
 ./bin/extraction_function > ../tau_actions.txt
 cd ..
 # sed -i '/<<\|>>/d' tau_actions.txt

@@ -1,0 +1,68 @@
+reactiveclass PLC1(10){
+	knownrebecs{ 
+		WaterTank watertank1;
+		WaterTank watertank2;
+	}
+	statevars{
+		int T1_level;
+		int T2_level;
+		boolean V1_opened;
+		boolean V2_opened;
+		boolean V3_opened;
+	}
+	PLC1(){
+		T1_level = 1;
+		T2_level = 1;
+		V1_opened = false;
+		V2_opened = false;
+		V3_opened = false;
+	}
+	msgsrv update_plc(int tank_number, int water_level){ 
+		if(tank_number == 1)
+			T1_level = water_level;
+		if(tank_number == 2)
+			T2_level = water_level;
+		
+		if(T1_level == 1 && T2_level == 1) { V1_opened = true;  V2_opened = false; V3_opened = false; }
+		else if (T1_level == 1 && T2_level == 2) { V1_opened = true;  V2_opened = false; V3_opened = false; }
+		else if (T1_level == 1 && T2_level == 3) { V1_opened = true;  V2_opened = false; V3_opened = true; }
+		else if (T1_level == 2 && T2_level == 1) { V1_opened = true;  V2_opened = true; V3_opened = false; }
+		else if (T1_level == 2 && T2_level == 2) { V1_opened = true;  V2_opened = true; V3_opened = false; }
+		else if (T1_level == 2 && T2_level == 3) { V1_opened = true;  V2_opened = true; V3_opened = true; }
+		else if (T1_level == 3 && T2_level == 1) { V1_opened = false;  V2_opened = true; V3_opened = false; }
+		else if (T1_level == 3 && T2_level == 2) { V1_opened = false;  V2_opened = true; V3_opened = false; }
+		else if (T1_level == 3 && T2_level == 3) { V1_opened = false;  V2_opened = true; V3_opened = true; }
+	}       
+}
+
+reactiveclass WaterTank(10){
+	knownrebecs{ 
+		PLC1 plc1; 
+	}
+	statevars{
+		int water_level;
+		int tank_number;
+	}
+	WaterTank(int water_level_, int tank_number_){ 
+		water_level = water_level_;
+		tank_number = tank_number_;
+		self.change_level();
+	}
+	msgsrv change_level(){ 
+		plc1.update_plc(tank_number, water_level);
+		if (water_level == 1)
+			water_level = ?(1, 2);
+		else if (water_level == 2)
+			water_level = ?(1, 2, 3);
+		else if (water_level == 3)
+			water_level = ?(2, 3);
+			
+		self.change_level() after(10);
+	}       
+}
+
+main {
+	PLC1 plc1(watertank1, watertank2):();
+	WaterTank watertank1(plc1):(1, 1);
+	WaterTank watertank2(plc1):(1, 2);
+}

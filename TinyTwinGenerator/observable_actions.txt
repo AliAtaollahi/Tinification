@@ -1,1 +1,1 @@
-getsense,activate,switch,time,(
+update_plc,time,(
