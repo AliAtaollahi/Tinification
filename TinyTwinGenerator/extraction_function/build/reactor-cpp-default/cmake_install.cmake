@@ -1,8 +1,8 @@
-# Install script for directory: /home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/reactor-cpp-default
+# Install script for directory: /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/reactor-cpp-default
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ali123ata/Desktop/3/Tinification/extraction_function")
+  set(CMAKE_INSTALL_PREFIX "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,18 +43,18 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/reactor-cpp-default" TYPE DIRECTORY MESSAGE_NEVER FILES "/home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/reactor-cpp-default/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/reactor-cpp-default" TYPE DIRECTORY MESSAGE_NEVER FILES "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/reactor-cpp-default/include/")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ali123ata/Desktop/3/Tinification/extraction_function/build/reactor-cpp-default/lib/cmake_install.cmake")
+  include("/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/reactor-cpp-default/lib/cmake_install.cmake")
 
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/reactor-cpp-default/install_local_manifest.txt"
+  file(WRITE "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/reactor-cpp-default/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

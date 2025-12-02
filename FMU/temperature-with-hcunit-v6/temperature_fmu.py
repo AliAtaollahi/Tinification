@@ -14,7 +14,7 @@ from pythonfmu import (
 # Load AUT from full path
 # ----------------------------------------------------------------------
 
-AUT_FILE = r"/home/marziyeh/tinification/Tinification/FMU/temperature-with-hcunit-v6/RebecaCore.aut"
+AUT_FILE = r"RebecaCore.aut"
 
 with open(AUT_FILE, "r", encoding="utf-8") as f:
     AUT_TEXT = f.read()

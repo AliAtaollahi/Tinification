@@ -1,1 +1,1 @@
-getsense,activate,switch,time,[10>>10],(
+getsense,activate,switch,time,(

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -Dreactor_cpp_default_EXPORTS
 
-CXX_INCLUDES = -I/home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/reactor-cpp-default/include -I/home/ali123ata/Desktop/3/Tinification/extraction_function/build/reactor-cpp-default/include -I/home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/reactor-cpp-default/lib/src
+CXX_INCLUDES = -I/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/reactor-cpp-default/include -I/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/reactor-cpp-default/include -I/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/reactor-cpp-default/lib/src
 
 CXX_FLAGS = -g -std=c++17 -fPIC -fdiagnostics-color=always -Wall -Wextra -pedantic -Werror
 

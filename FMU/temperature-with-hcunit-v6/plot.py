@@ -48,7 +48,7 @@ def main():
 
     # ----- plotting -----
     # square figure: x * x
-    fig, ax = plt.subplots(figsize=(5, 5))
+    fig, ax = plt.subplots(figsize=(10, 10))
 
     # main signal
     ax.plot(time, y, label=y_name)

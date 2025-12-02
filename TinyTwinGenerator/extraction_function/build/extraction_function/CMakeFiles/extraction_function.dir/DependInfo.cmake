@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/extraction_function/extraction_function/_lf_preamble.cc" "extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o" "gcc" "extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o.d"
-  "/home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/extraction_function/extraction_function/extraction_function.cc" "extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o" "gcc" "extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o.d"
-  "/home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/extraction_function/main.cc" "extraction_function/CMakeFiles/extraction_function.dir/main.cc.o" "gcc" "extraction_function/CMakeFiles/extraction_function.dir/main.cc.o.d"
+  "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/extraction_function/extraction_function/_lf_preamble.cc" "extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o" "gcc" "extraction_function/CMakeFiles/extraction_function.dir/extraction_function/_lf_preamble.cc.o.d"
+  "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/extraction_function/extraction_function/extraction_function.cc" "extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o" "gcc" "extraction_function/CMakeFiles/extraction_function.dir/extraction_function/extraction_function.cc.o.d"
+  "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/extraction_function/main.cc" "extraction_function/CMakeFiles/extraction_function.dir/main.cc.o" "gcc" "extraction_function/CMakeFiles/extraction_function.dir/main.cc.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

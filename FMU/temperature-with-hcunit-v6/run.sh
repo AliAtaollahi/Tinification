@@ -4,7 +4,7 @@ set -euo pipefail
 FMU_SCRIPT="temperature_fmu.py"
 FMU_FILE="Temperature.fmu"
 CSV_FILE="Temperature.csv"
-STOP_TIME=500
+STOP_TIME=1000
 
 echo ">>> Building FMU..."
 pythonfmu build -f "$FMU_SCRIPT"
