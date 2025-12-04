@@ -1,8 +1,8 @@
 reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/logical_time.cc.o: \
- /home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/lib/logical_time.cc \
+ /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/reactor-cpp-default/lib/logical_time.cc \
  /usr/include/stdc-predef.h \
- /home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/logical_time.hh \
- /home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/time.hh \
+ /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/logical_time.hh \
+ /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/time.hh \
  /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
  /usr/include/c++/11/type_traits \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -148,9 +148,9 @@ reactor-cpp-default/lib/CMakeFiles/reactor-cpp-default.dir/logical_time.cc.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/assert.hh \
- /home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/include/reactor-cpp/config.hh \
- /home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/fwd.hh \
+ /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/assert.hh \
+ /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/reactor-cpp-default/include/reactor-cpp/config.hh \
+ /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen/reactor-cpp-default/include/reactor-cpp/fwd.hh \
  /usr/include/c++/11/functional /usr/include/c++/11/tuple \
  /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \

@@ -107,11 +107,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/Platform/UnixPaths.cmake"
   "CMakeFiles/4.1.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.1.2/CMakeSystem.cmake"
-  "/home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/CMakeLists.txt"
-  "/home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/extraction_function/CMakeLists.txt"
-  "/home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/reactor-cpp-default/CMakeLists.txt"
-  "/home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/reactor-cpp-default/include/reactor-cpp/config.hh.in"
-  "/home/ali123ata/Desktop/3/Tinification/extraction_function/src-gen/reactor-cpp-default/lib/CMakeLists.txt"
+  "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/CMakeLists.txt"
+  "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/extraction_function/CMakeLists.txt"
+  "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/reactor-cpp-default/CMakeLists.txt"
+  "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/reactor-cpp-default/include/reactor-cpp/config.hh.in"
+  "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/src-gen/reactor-cpp-default/lib/CMakeLists.txt"
   )
 
 # The corresponding makefile is:

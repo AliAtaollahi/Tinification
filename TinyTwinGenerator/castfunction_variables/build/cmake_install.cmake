@@ -1,8 +1,8 @@
-# Install script for directory: /home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen
+# Install script for directory: /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ali123ata/Desktop/3/Tinification/castfunction_variables")
+  set(CMAKE_INSTALL_PREFIX "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,15 +44,15 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/reactor-cpp-default/cmake_install.cmake")
-  include("/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/castfunction_variables/cmake_install.cmake")
+  include("/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/reactor-cpp-default/cmake_install.cmake")
+  include("/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/castfunction_variables/cmake_install.cmake")
 
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/install_local_manifest.txt"
+  file(WRITE "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -68,6 +68,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

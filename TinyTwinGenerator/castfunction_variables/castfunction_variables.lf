@@ -3,16 +3,16 @@ target Cpp {
 }
 
 main reactor {
-  state state_timeValue: std::vector<int>
+  state state_timeValue: std::vector<long>
   state stateId_msg: {= std::vector<std::vector<std::string>> =}(1000000)
-  state advancesTime: int(0)
-  state cntShift: int(0)
+  state advancesTime: long(0)
+  state cntShift: long(0)
   state stateId_varValue: {= std::vector<std::vector<std::string>> =}(10000000)
   state stateId_varName: {= std::vector<std::vector<std::string>> =}(10000000)
 
   state state_Id: std::vector<std::string>
   state stateId: std::vector<std::string>
-  state index: int(-1)
+  state index: long(-1)
 
   private preamble {=
     #include <fstream>
@@ -98,7 +98,6 @@ main reactor {
     	//ignoreList = "N";
 
     	//readFile.open("/Users/fmi04/runtime-EclipseXtext/roomT_GitHub/src-gen/bin/RV-Example.statespace"); // miniModel_trans.statespace ASYDE-Published.statespace
-
     	while(!readFile.eof()){
 
     		std::string line;
@@ -224,126 +223,11 @@ main reactor {
     	std::vector<std::vector<std::string> > edges(state_Id.size() + cntShift);
     	std::vector<std::vector<std::string> > labels(state_Id.size() + cntShift);
 
-    	//find transitions that have same sources
-    	std::vector<std::string> branch;
-    	for(int i = 0; i <= index; i++){
-               branch.push_back("NO");
-           }
 
-    	for(int i = 0; i < transitions.size(); i++){
-               size_t source1 = transitions[i].find("source");
-    		size_t endSource1 = transitions[i].find("_");
-    		std::string srcNumber1 = transitions[i].substr(source1+8, endSource1-source1-8);
-
-               for(int j = 1; i+j < transitions.size(); j++){
-                size_t source2 = transitions[i+j].find("source");
-    			size_t endSource2 = transitions[i+j].find("_");
-    			std::string srcNumber2 = transitions[i+j].substr(source2+8, endSource2-source2-8);
-
-                if(srcNumber1 == srcNumber2){
-                    for(int i = 0; i <= index; i++){
-                   		if(stateId_varValue[i][0] == srcNumber1){
-                               branch[i] = "YES";
-    					}
-                    }
-                }
-
-            }
-
-           }
-           //for(int i = 0; i <= index; i++){
-           //    std::cout << branch[i] << "\n";
-           //}
-
-
-           //find transitions that have the same sources and titles (nondeterministic transitions)
-    	std::vector<std::string> branch_nondeter;
-    	for(int i = 0; i <= index; i++){
-               branch_nondeter.push_back("NO");
-           }
-
-    	for(int i = 0; i < transitions.size(); i++){
-               size_t source1 = transitions[i].find("source");
-    		size_t endSource1 = transitions[i].find("_");
-    		std::string srcNumber1 = transitions[i].substr(source1+8, endSource1-source1-8);
-
-    		size_t startTitle = transitions[i].find("title=");
-    		size_t endTitle = transitions[i].find("/>");
-    		std::string titleSR1 = transitions[i].substr(startTitle+7, endTitle-startTitle-8);
-
-               for(int j = 1; i+j < transitions.size(); j++){
-                size_t source2 = transitions[i+j].find("source");
-    			size_t endSource2 = transitions[i+j].find("_");
-    			std::string srcNumber2 = transitions[i+j].substr(source2+8, endSource2-source2-8);
-
-    			size_t startTitle = transitions[i+j].find("title=");
-    			size_t endTitle = transitions[i+j].find("/>");
-    			std::string titleSR2 = transitions[i+j].substr(startTitle+7, endTitle-startTitle-8);
-
-                if(srcNumber1 == srcNumber2 && titleSR1 == titleSR2){
-                    for(int i = 0; i <= index; i++){
-                   		if(stateId_varValue[i][0] == srcNumber1){
-                               branch_nondeter[i] = "YES";
-    					}
-                    }
-                }
-
-            }
-
-           }
-          //for(int i = 0; i <= index; i++){
-           //    std::cout << branch_nondeter[i] << "\n";
-           //}
-
-
-
-
-
-           /*
-           //find transitions that have the same sources and titles (nondeterministic transitions)
-    	std::vector<std::string> branch_nondeter;
-    	for(int i = 0; i <= transitions.size(); i++){
-               branch_nondeter.push_back("NO");
-           }
-
-    	for(int i = 0; i < transitions.size(); i++){
-               size_t source1 = transitions[i].find("source");
-    		size_t endSource1 = transitions[i].find("_");
-    		std::string srcNumber1 = transitions[i].substr(source1+8, endSource1-source1-8);
-
-               size_t startTitle = transitions[i].find("title=");
-    		size_t endTitle = transitions[i].find("/>");
-    		std::string titleSR1 = transitions[i].substr(startTitle+7, endTitle-startTitle-8);
-
-               for(int j = 1; i+j < transitions.size(); j++){
-                size_t source2 = transitions[i+j].find("source");
-    			size_t endSource2 = transitions[i+j].find("_");
-    			std::string srcNumber2 = transitions[i+j].substr(source2+8, endSource2-source2-8);
-
-                size_t startTitle = transitions[i+j].find("title=");
-    			size_t endTitle = transitions[i+j].find("/>");
-    			std::string titleSR2 = transitions[i+j].substr(startTitle+7, endTitle-startTitle-8);
-
-
-
-                if(srcNumber1 == srcNumber2 && titleSR1 == titleSR2){
-                    branch_nondeter[i] = "YES";
-                    branch_nondeter[i+j] = "YES";
-                }
-
-            }
-
-           }
-           */
-
-           //for(int i = 0; i < transitions.size(); i++){
-              // std::cout << branch_nondeter[i] << "\n";
-          // }
-
-    	for(int i = 0; i < transitions.size(); i++){
-
+    	for(long i = 0; i < transitions.size(); i++){
+			// std::cout << i << '\n';
     		std::string trans = transitions[i];
-    		int shiftV = 0;
+    		long shiftV = 0;
 
     		size_t source = trans.find("source");
     		size_t endSource = trans.find("_");
@@ -397,10 +281,10 @@ main reactor {
 
     		/*
     		//replace title of transition with msg from Q
-    		for(int i = 0; i <= index; i++){
+    		for(long i = 0; i <= index; i++){
                    if(stateId_varValue[i][0] == srcNumber){
                       //replace title of transition with msg from Q
-                       for(int msg = 1; msg < stateId_msg[i].size(); msg++){
+                       for(long msg = 1; msg < stateId_msg[i].size(); msg++){
                        if(stateId_msg[i][msg].find(title) != std::string::npos){
 
                        				std::cout << stateId_msg[i][msg]  + "    to     " + title << "\n";
@@ -418,9 +302,9 @@ main reactor {
 			if (annotateVar == "Y") {
 				// Try to swap the XML title with the actual queued message name (case-insensitive)
 				if (ignoreListTrans.find(title) == std::string::npos) {
-					for (int i = 0; i <= index; ++i) {
+					for (long i = 0; i <= index; ++i) {
 						if (stateId_varValue[i][0] == srcNumber) {
-							for (int msg = 1; msg < (int)stateId_msg[i].size(); ++msg) {
+							for (long msg = 1; msg < (long)stateId_msg[i].size(); ++msg) {
 								std::string cand = stateId_msg[i][msg];
 								for (char &ch : cand) ch = std::tolower(static_cast<unsigned char>(ch));
 								if (cand.find(title) != std::string::npos) {
@@ -453,11 +337,11 @@ main reactor {
     		if(annotateVar == "Y"){ // && branch[i]=="YES"
                if(ignoreListTrans.find(title) == std::string::npos){
                title = title + "_[";
-               for(int i = 0; i <= index; i++){
+               for(long i = 0; i <= index; i++){
                    if(stateId_varValue[i][0] == srcNumber){
-                       for(int m = 0; m <= index; m++){
+                       for(long m = 0; m <= index; m++){
                            if(stateId_varValue[m][0] == destNumber){
-                               for(int v = 1; v < stateId_varValue[i].size(); v++){
+                               for(long v = 1; v < stateId_varValue[i].size(); v++){
                                    //if(stateId_varValue[i][v] != stateId_varValue[m][v]){
                                       	 //consider ignore list
                                       	if(ignoreList.find(stateId_varName[m][v]) == std::string::npos){
@@ -488,11 +372,11 @@ main reactor {
     		//put variable values on labels when they changes (source state to destination state)
     		if(annotateVar == "Y"){
                title = title + ",[";
-               for(int i = 0; i <= index; i++){
+               for(long i = 0; i <= index; i++){
                    if(stateId_varValue[i][0] == srcNumber){
-                       for(int m = 0; m <= index; m++){
+                       for(long m = 0; m <= index; m++){
                            if(stateId_varValue[m][0] == destNumber){
-                               for(int v = 1; v < stateId_varValue[i].size(); v++){
+                               for(long v = 1; v < stateId_varValue[i].size(); v++){
                                    if(stateId_varValue[i][v] != stateId_varValue[m][v]){
                                       	 //consider ignore list
                                       	if(ignoreList.find(stateId_varName[m][v]) == std::string::npos){
@@ -513,7 +397,7 @@ main reactor {
     		*/
 
     		/*
-    		for(int j = 0; j < state_Id.size(); j++){
+    		for(long j = 0; j < state_Id.size(); j++){
 
     			if(state_Id[j] == srcNumber){
     				edges[j].push_back(destNumber);
@@ -531,8 +415,8 @@ main reactor {
     		*/
 
 
-    		int cnt = state_Id.size();
-    		for(int j = 0; j < state_Id.size(); j++){
+    		long cnt = state_Id.size();
+    		for(long j = 0; j < state_Id.size(); j++){
     			if(state_Id[j] == srcNumber){
                        if(shiftV != 0){
                            cnt = cnt +1;
@@ -564,11 +448,13 @@ main reactor {
 
     	}
 
+		// std::cout<<"after big for" << '\n';
+
     	/*
     	//print out the state transition system
-    	for(int i = 0; i < edges.size(); i++){
+    	for(long i = 0; i < edges.size(); i++){
     		std::cout << state_Id[i] << "\t";
-    		for(int j = 0 ; j < edges[i].size(); j++)
+    		for(long j = 0 ; j < edges[i].size(); j++)
     			if(j>0) {
                        std::cout << state_Id[i] << "\t" << labels[i][j] << "\t" <<  edges[i][j] << '\n';
                        stateId.push_back(state_Id[i]);
@@ -584,10 +470,10 @@ main reactor {
     	writeFile.open("/Users/fmi04/runtime-EclipseXtext/roomT_GitHub/src-gen/bin/castfile.aut", std::ofstream::out | std::ofstream::trunc);
     	std::cout << "NUBMER OF STATES: " << state_Id.size() << " NUBMER OF TRANSITIONS: " << transitions.size() +  cntShift <<"\n";
     	writeFile << "des (0, " << transitions.size() +  cntShift << ", " << state_Id.size() << ")" <<'\n';
-    	for(int i = 0; i < state_Id.size(); i++){
+    	for(long i = 0; i < state_Id.size(); i++){
     		std::cout << "("<<  stoi(state_Id[i])-1 << ",\"";
     		writeFile << "("<<  stoi(state_Id[i])-1 << ",\"";
-    		for(int j = 0 ; j < edges[i].size(); j++)
+    		for(long j = 0 ; j < edges[i].size(); j++)
     			if(j>0) {
                        std::cout << "("<< stoi(state_Id[i])-1 << ",\"" << labels[i][j] << "\"," <<  stoi(edges[i][j])-1 << ")"<< '\n';
                        writeFile << "("<< stoi(state_Id[i])-1 << ",\"" << labels[i][j] << "\"," <<  stoi(edges[i][j])-1 << ")"<< '\n';

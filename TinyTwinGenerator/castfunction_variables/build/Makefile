@@ -57,10 +57,10 @@ RM = /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ali123ata/Desktop/3/Tinification/castfunction_variables/src-gen
+CMAKE_SOURCE_DIR = /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/src-gen
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ali123ata/Desktop/3/Tinification/castfunction_variables/build
+CMAKE_BINARY_DIR = /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/CMakeFiles /home/ali123ata/Desktop/3/Tinification/castfunction_variables/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/CMakeFiles /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ali123ata/Desktop/3/Tinification/castfunction_variables/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/castfunction_variables/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

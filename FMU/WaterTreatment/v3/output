@@ -1,0 +1,464 @@
+>>> Build Tank1 FMU...
+>>> Build Tank2 FMU...
+>>> Co-simulate two FMUs using Rebeca controller...
+4
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+34
+[Edge(src=34, dst=6, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+33
+[Edge(src=33, dst=16, kind='time', label='time +=10', delay=10.0, action=None, guard=None)]
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+Saved TwoTanks.csv
+>>> Plot...
+Columns: ('time', 'tank1_level', 'tank2_level', 'v1_cmd', 'v2_cmd', 'v3_cmd', 'q_transfer')
+Saved plot to TwoTanks_output.png
+>>> Done.

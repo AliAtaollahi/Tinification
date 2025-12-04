@@ -1,0 +1,105 @@
+//Write your code here !
+reactiveclass PLC1(10){
+	knownrebecs{ 
+		WaterTank watertank;
+		Valve v1;
+		Valve v2;
+		Valve v3;
+	}
+	statevars{
+	}
+	PLC1(){	
+	}
+	msgsrv update_plc(int T1_level, int T2_level){ 
+		
+		if(T1_level == 1 && T2_level == 1) { v1.open_valve(); v2.close_valve(); v3.close_valve(); }
+		else if (T1_level == 1 && T2_level == 2) {v1.open_valve();  v2.close_valve(); v3.close_valve();  }
+		else if (T1_level == 1 && T2_level == 3) {v1.open_valve();  v2.close_valve();  v3.open_valve();  }
+		else if (T1_level == 2 && T2_level == 1) {v1.open_valve();  v2.open_valve(); v3.close_valve();  }
+		else if (T1_level == 2 && T2_level == 2) {v1.open_valve();  v2.open_valve(); v3.close_valve();  }
+		else if (T1_level == 2 && T2_level == 3) {v1.open_valve();  v2.open_valve(); v3.open_valve();  }
+		else if (T1_level == 3 && T2_level == 1) { v1.close_valve(); v2.open_valve(); v3.close_valve();  }
+		else if (T1_level == 3 && T2_level == 2) { v1.close_valve();  v2.open_valve(); v3.close_valve();  }
+		else if (T1_level == 3 && T2_level == 3) { v1.close_valve();  v2.open_valve();  v3.open_valve();  }
+	}       
+}
+
+reactiveclass LevelSensor(10) {
+	knownrebecs {
+		PLC1 plc1;
+	}
+
+	LevelSensor() { }
+
+	// WaterTank → LevelSensor → PLC1
+	msgsrv senseLevel(int tank_number, int water_level) {
+		plc1.update_plc(tank_number, water_level);
+	}
+}
+
+reactiveclass WaterTank(10){
+	knownrebecs{ 
+		LevelSensor sensor;
+	}
+	statevars{
+		int T1_waterlevel;
+		int T2_waterlevel;
+	}
+	WaterTank(){ 
+		T1_waterlevel = 1;
+		T2_waterlevel = 1;
+		self.change_level();
+	}
+	msgsrv change_level(){ 
+		// call the sensor instead of PLC directly
+		sensor.senseLevel(T1_waterlevel, T2_waterlevel);
+
+		if (T1_waterlevel == 1)
+			T1_waterlevel = ?(1, 2);
+		else if (T1_waterlevel == 2)
+			T1_waterlevel = ?(1, 2, 3);
+		else if (T1_waterlevel == 3)
+			T1_waterlevel = ?(2, 3);
+
+		if (T2_waterlevel == 1)
+			T2_waterlevel = ?(1, 2);
+		else if (T2_waterlevel == 2)
+			T2_waterlevel = ?(1, 2, 3);
+		else if (T2_waterlevel == 3)
+			T2_waterlevel = ?(2, 3);
+			
+		self.change_level() after(10);
+	}       
+}
+reactiveclass Valve(5){
+
+
+	statevars{
+		boolean is_open;
+	}
+
+	Valve(){
+		is_open = false;         
+	}
+
+
+	msgsrv open_valve(){
+		is_open = true;
+	
+	}
+
+	msgsrv close_valve(){
+		is_open = false;
+		
+	}
+}
+
+main {
+	PLC1 plc1(watertank,v1,v2,v3):();
+	LevelSensor sensor(plc1):();
+	WaterTank watertank(sensor):();
+	Valve v1():();
+	Valve v2():();
+	Valve v3():();
+	
+}

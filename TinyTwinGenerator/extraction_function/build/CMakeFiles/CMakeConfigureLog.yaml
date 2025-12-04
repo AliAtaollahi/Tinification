@@ -57,7 +57,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "message-v1"
     backtrace:
@@ -136,7 +136,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -203,7 +203,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -245,7 +245,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "message-v1"
     backtrace:
@@ -266,7 +266,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
       
       The CXX compiler identification is GNU, found in:
-        /home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/4.1.2/CompilerIdCXX/a.out
+        /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/4.1.2/CompilerIdCXX/a.out
       
   -
     kind: "find-v1"
@@ -318,7 +318,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -369,7 +369,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -420,7 +420,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -471,7 +471,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -522,7 +522,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -573,7 +573,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -624,7 +624,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -675,7 +675,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -740,7 +740,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -791,7 +791,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -856,7 +856,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -924,7 +924,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "find-v1"
     backtrace:
@@ -992,7 +992,7 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
   -
     kind: "try_compile-v1"
     backtrace:
@@ -1002,8 +1002,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ENG4bN"
-      binary: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ENG4bN"
+      source: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-e7UC8h"
+      binary: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-e7UC8h"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
@@ -1012,13 +1012,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ENG4bN'
+        Change Dir: '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-e7UC8h'
         
-        Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_075aa/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_075aa.dir/build.make CMakeFiles/cmTC_075aa.dir/build
-        make[1]: Entering directory '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ENG4bN'
-        Building CXX object CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -v -o CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o -c /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b7ede/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_b7ede.dir/build.make CMakeFiles/cmTC_b7ede.dir/build
+        make[1]: Entering directory '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-e7UC8h'
+        Building CXX object CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o -c /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
@@ -1028,8 +1028,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 11.4.0 (Ubuntu 11.4.0-2ubuntu1~20.04) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_075aa.dir/'
-         /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_075aa.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccK13xU4.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_b7ede.dir/'
+         /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_b7ede.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cc7u6zjF.s
         GNU C++17 (Ubuntu 11.4.0-2ubuntu1~20.04) version 11.4.0 (x86_64-linux-gnu)
         	compiled by GNU C version 11.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
         
@@ -1053,14 +1053,14 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 9a55a23eecc346a189dae569855eff82
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_075aa.dir/'
-         as -v --64 -o CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccK13xU4.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_b7ede.dir/'
+         as -v --64 -o CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc7u6zjF.s
         GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_075aa
-        /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_075aa.dir/link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_b7ede
+        /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b7ede.dir/link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
@@ -1073,14 +1073,14 @@ events:
         gcc version 11.4.0 (Ubuntu 11.4.0-2ubuntu1~20.04) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_075aa' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_075aa.'
-         /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cceSg29v.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_075aa /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b7ede' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_b7ede.'
+         /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccrSMMZ8.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_b7ede /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
         collect2 version 11.4.0
-        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cceSg29v.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_075aa /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccrSMMZ8.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_b7ede /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
         GNU ld (GNU Binutils for Ubuntu) 2.34
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_075aa' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_075aa.'
-        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_075aa
-        make[1]: Leaving directory '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ENG4bN'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b7ede' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_b7ede.'
+        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_b7ede
+        make[1]: Leaving directory '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-e7UC8h'
         
       exitCode: 0
   -
@@ -1121,13 +1121,13 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ENG4bN']
+        ignore line: [Change Dir: '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-e7UC8h']
         ignore line: []
-        ignore line: [Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_075aa/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_075aa.dir/build.make CMakeFiles/cmTC_075aa.dir/build]
-        ignore line: [make[1]: Entering directory '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ENG4bN']
-        ignore line: [Building CXX object CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o -c /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b7ede/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_b7ede.dir/build.make CMakeFiles/cmTC_b7ede.dir/build]
+        ignore line: [make[1]: Entering directory '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-e7UC8h']
+        ignore line: [Building CXX object CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o -c /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
@@ -1137,8 +1137,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-2ubuntu1~20.04) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_075aa.dir/']
-        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_075aa.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccK13xU4.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_b7ede.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_b7ede.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cc7u6zjF.s]
         ignore line: [GNU C++17 (Ubuntu 11.4.0-2ubuntu1~20.04) version 11.4.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
         ignore line: []
@@ -1162,14 +1162,14 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 9a55a23eecc346a189dae569855eff82]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_075aa.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccK13xU4.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_b7ede.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc7u6zjF.s]
         ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_075aa]
-        ignore line: [/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_075aa.dir/link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_b7ede]
+        ignore line: [/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b7ede.dir/link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
@@ -1182,13 +1182,13 @@ events:
         ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-2ubuntu1~20.04) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_075aa' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_075aa.']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cceSg29v.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_075aa /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b7ede' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_b7ede.']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccrSMMZ8.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_b7ede /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/cceSg29v.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccrSMMZ8.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -1206,7 +1206,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_075aa] ==> ignore
+          arg [cmTC_b7ede] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
@@ -1219,7 +1219,7 @@ events:
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -1230,7 +1230,7 @@ events:
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
         ignore line: [collect2 version 11.4.0]
-        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cceSg29v.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_075aa /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_075aa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccrSMMZ8.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_b7ede /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_b7ede.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
         linker tool for 'CXX': /usr/bin/ld
         collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
         collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
@@ -1270,8 +1270,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-RQZl8N"
-      binary: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-RQZl8N"
+      source: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-oGFRHl"
+      binary: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-oGFRHl"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1280,25 +1280,25 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-RQZl8N'
+        Change Dir: '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-oGFRHl'
         
-        Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_fffa0/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_fffa0.dir/build.make CMakeFiles/cmTC_fffa0.dir/build
-        make[1]: Entering directory '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-RQZl8N'
-        Building CXX object CMakeFiles/cmTC_fffa0.dir/src.cxx.o
-        /usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=c++17 -o CMakeFiles/cmTC_fffa0.dir/src.cxx.o -c /home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-RQZl8N/src.cxx
-        Linking CXX executable cmTC_fffa0
-        /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fffa0.dir/link.txt --verbose=1
-        /usr/bin/ld: CMakeFiles/cmTC_fffa0.dir/src.cxx.o: in function `main':
+        Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_5f6c0/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_5f6c0.dir/build.make CMakeFiles/cmTC_5f6c0.dir/build
+        make[1]: Entering directory '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-oGFRHl'
+        Building CXX object CMakeFiles/cmTC_5f6c0.dir/src.cxx.o
+        /usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=c++17 -o CMakeFiles/cmTC_5f6c0.dir/src.cxx.o -c /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-oGFRHl/src.cxx
+        Linking CXX executable cmTC_5f6c0
+        /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5f6c0.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_5f6c0.dir/src.cxx.o: in function `main':
         src.cxx:(.text+0x46): undefined reference to `pthread_create'
         /usr/bin/ld: src.cxx:(.text+0x52): undefined reference to `pthread_detach'
         /usr/bin/ld: src.cxx:(.text+0x5e): undefined reference to `pthread_cancel'
         /usr/bin/ld: src.cxx:(.text+0x6f): undefined reference to `pthread_join'
         collect2: error: ld returned 1 exit status
-        /usr/bin/c++ CMakeFiles/cmTC_fffa0.dir/src.cxx.o -o cmTC_fffa0
-        make[1]: *** [CMakeFiles/cmTC_fffa0.dir/build.make:102: cmTC_fffa0] Error 1
-        make[1]: Leaving directory '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-RQZl8N'
-        make: *** [Makefile:134: cmTC_fffa0/fast] Error 2
+        /usr/bin/c++ CMakeFiles/cmTC_5f6c0.dir/src.cxx.o -o cmTC_5f6c0
+        make[1]: *** [CMakeFiles/cmTC_5f6c0.dir/build.make:102: cmTC_5f6c0] Error 1
+        make[1]: Leaving directory '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-oGFRHl'
+        make: *** [Makefile:134: cmTC_5f6c0/fast] Error 2
         
       exitCode: 2
   -
@@ -1311,8 +1311,8 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-OzrAmO"
-      binary: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-OzrAmO"
+      source: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-2WKIhj"
+      binary: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-2WKIhj"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1321,21 +1321,21 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-OzrAmO'
+        Change Dir: '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-2WKIhj'
         
-        Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d879f/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_d879f.dir/build.make CMakeFiles/cmTC_d879f.dir/build
-        make[1]: Entering directory '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-OzrAmO'
-        Building CXX object CMakeFiles/cmTC_d879f.dir/CheckFunctionExists.cxx.o
-        /usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create -std=c++17 -o CMakeFiles/cmTC_d879f.dir/CheckFunctionExists.cxx.o -c /home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-OzrAmO/CheckFunctionExists.cxx
-        Linking CXX executable cmTC_d879f
-        /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d879f.dir/link.txt --verbose=1
+        Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a02db/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_a02db.dir/build.make CMakeFiles/cmTC_a02db.dir/build
+        make[1]: Entering directory '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-2WKIhj'
+        Building CXX object CMakeFiles/cmTC_a02db.dir/CheckFunctionExists.cxx.o
+        /usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create -std=c++17 -o CMakeFiles/cmTC_a02db.dir/CheckFunctionExists.cxx.o -c /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-2WKIhj/CheckFunctionExists.cxx
+        Linking CXX executable cmTC_a02db
+        /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a02db.dir/link.txt --verbose=1
         /usr/bin/ld: cannot find -lpthreads
         collect2: error: ld returned 1 exit status
-        /usr/bin/c++  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_d879f.dir/CheckFunctionExists.cxx.o -o cmTC_d879f  -lpthreads
-        make[1]: *** [CMakeFiles/cmTC_d879f.dir/build.make:102: cmTC_d879f] Error 1
-        make[1]: Leaving directory '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-OzrAmO'
-        make: *** [Makefile:134: cmTC_d879f/fast] Error 2
+        /usr/bin/c++  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_a02db.dir/CheckFunctionExists.cxx.o -o cmTC_a02db  -lpthreads
+        make[1]: *** [CMakeFiles/cmTC_a02db.dir/build.make:102: cmTC_a02db] Error 1
+        make[1]: Leaving directory '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-2WKIhj'
+        make: *** [Makefile:134: cmTC_a02db/fast] Error 2
         
       exitCode: 2
   -
@@ -1348,8 +1348,8 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-qb9XTL"
-      binary: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-qb9XTL"
+      source: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-5JR0Lk"
+      binary: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-5JR0Lk"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1358,17 +1358,17 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-qb9XTL'
+        Change Dir: '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-5JR0Lk'
         
-        Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7ccf1/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_7ccf1.dir/build.make CMakeFiles/cmTC_7ccf1.dir/build
-        make[1]: Entering directory '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-qb9XTL'
-        Building CXX object CMakeFiles/cmTC_7ccf1.dir/CheckFunctionExists.cxx.o
-        /usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create -std=c++17 -o CMakeFiles/cmTC_7ccf1.dir/CheckFunctionExists.cxx.o -c /home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-qb9XTL/CheckFunctionExists.cxx
-        Linking CXX executable cmTC_7ccf1
-        /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ccf1.dir/link.txt --verbose=1
-        /usr/bin/c++  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_7ccf1.dir/CheckFunctionExists.cxx.o -o cmTC_7ccf1  -lpthread
-        make[1]: Leaving directory '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-qb9XTL'
+        Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b766f/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_b766f.dir/build.make CMakeFiles/cmTC_b766f.dir/build
+        make[1]: Entering directory '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-5JR0Lk'
+        Building CXX object CMakeFiles/cmTC_b766f.dir/CheckFunctionExists.cxx.o
+        /usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create -std=c++17 -o CMakeFiles/cmTC_b766f.dir/CheckFunctionExists.cxx.o -c /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-5JR0Lk/CheckFunctionExists.cxx
+        Linking CXX executable cmTC_b766f
+        /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b766f.dir/link.txt --verbose=1
+        /usr/bin/c++  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_b766f.dir/CheckFunctionExists.cxx.o -o cmTC_b766f  -lpthread
+        make[1]: Leaving directory '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-5JR0Lk'
         
       exitCode: 0
   -
@@ -1414,9 +1414,9 @@ events:
       - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/x86_64-linux-gnu/"
       - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/"
       - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/"
-      - "/home/ali123ata/Desktop/3/Tinification/extraction_function/include/x86_64-linux-gnu/"
-      - "/home/ali123ata/Desktop/3/Tinification/extraction_function/include/"
-      - "/home/ali123ata/Desktop/3/Tinification/extraction_function/"
+      - "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/include/x86_64-linux-gnu/"
+      - "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/include/"
+      - "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/"
       - "/usr/X11R6/include/x86_64-linux-gnu/"
       - "/usr/X11R6/include/"
       - "/usr/X11R6/"
@@ -1462,13 +1462,13 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/usr/local"
         - "/usr"
         - "/"
         - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data"
-        - "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+        - "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
         - "/usr/X11R6"
         - "/usr/pkg"
         - "/opt"
@@ -1484,8 +1484,8 @@ events:
     checks:
       - "Looking for backtrace"
     directories:
-      source: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-dFqvmM"
-      binary: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-dFqvmM"
+      source: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ulXblj"
+      binary: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ulXblj"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1494,17 +1494,17 @@ events:
       variable: "_Backtrace_SYM_FOUND"
       cached: true
       stdout: |
-        Change Dir: '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-dFqvmM'
+        Change Dir: '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ulXblj'
         
-        Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_0e6a2/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_0e6a2.dir/build.make CMakeFiles/cmTC_0e6a2.dir/build
-        make[1]: Entering directory '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-dFqvmM'
-        Building CXX object CMakeFiles/cmTC_0e6a2.dir/CheckSymbolExists.cxx.o
-        /usr/bin/c++   -std=c++17 -o CMakeFiles/cmTC_0e6a2.dir/CheckSymbolExists.cxx.o -c /home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-dFqvmM/CheckSymbolExists.cxx
-        Linking CXX executable cmTC_0e6a2
-        /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e6a2.dir/link.txt --verbose=1
-        /usr/bin/c++ CMakeFiles/cmTC_0e6a2.dir/CheckSymbolExists.cxx.o -o cmTC_0e6a2
-        make[1]: Leaving directory '/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-dFqvmM'
+        Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_336a6/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_336a6.dir/build.make CMakeFiles/cmTC_336a6.dir/build
+        make[1]: Entering directory '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ulXblj'
+        Building CXX object CMakeFiles/cmTC_336a6.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++17 -o CMakeFiles/cmTC_336a6.dir/CheckSymbolExists.cxx.o -c /home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ulXblj/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_336a6
+        /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_336a6.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_336a6.dir/CheckSymbolExists.cxx.o -o cmTC_336a6
+        make[1]: Leaving directory '/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/CMakeScratch/TryCompile-ulXblj'
         
       exitCode: 0
   -
@@ -1543,11 +1543,11 @@ events:
         CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
     candidates:
       -
-        path: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/pkgRedirects/reactor-cppConfig.cmake"
+        path: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/pkgRedirects/reactor-cppConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/home/ali123ata/Desktop/3/Tinification/extraction_function/build/CMakeFiles/pkgRedirects/reactor-cpp-config.cmake"
+        path: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/build/CMakeFiles/pkgRedirects/reactor-cpp-config.cmake"
         mode: "config"
         reason: "no_exist"
       -
@@ -1639,27 +1639,27 @@ events:
         mode: "config"
         reason: "no_exist"
       -
-        path: "/home/ali123ata/Desktop/3/Tinification/extraction_function/reactor-cppConfig.cmake"
+        path: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/reactor-cppConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/home/ali123ata/Desktop/3/Tinification/extraction_function/reactor-cpp-config.cmake"
+        path: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/reactor-cpp-config.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/home/ali123ata/Desktop/3/Tinification/extraction_function/share/reactor-cpp-default/reactor-cppConfig.cmake"
+        path: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/share/reactor-cpp-default/reactor-cppConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/home/ali123ata/Desktop/3/Tinification/extraction_function/share/reactor-cpp-default/reactor-cpp-config.cmake"
+        path: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/share/reactor-cpp-default/reactor-cpp-config.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/home/ali123ata/Desktop/3/Tinification/extraction_function/share/reactor-cpp-default/cmake/reactor-cppConfig.cmake"
+        path: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/share/reactor-cpp-default/cmake/reactor-cppConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/home/ali123ata/Desktop/3/Tinification/extraction_function/share/reactor-cpp-default/cmake/reactor-cpp-config.cmake"
+        path: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function/share/reactor-cpp-default/cmake/reactor-cpp-config.cmake"
         mode: "config"
         reason: "no_exist"
       -
@@ -1687,13 +1687,13 @@ events:
         - "/usr/local/games"
         - "/snap/bin"
         - "/home/ali123ata/Isabelle2025/bin"
-      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+      CMAKE_INSTALL_PREFIX: "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/usr/local"
         - "/usr"
         - "/"
         - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data"
-        - "/home/ali123ata/Desktop/3/Tinification/extraction_function"
+        - "/home/ali123ata/Desktop/3/new/Tinification/TinyTwinGenerator/extraction_function"
         - "/usr/X11R6"
         - "/usr/pkg"
         - "/opt"
