@@ -13,7 +13,7 @@ import java.util.regex.Pattern
  */
 object CfgByClass {
 
-  // ---------------- robust property helpers (avoid Char|String issues) ----------------
+  // ---------------- helpers ----------------
 
   private def asString(x: Any): String = x match {
     case null                => ""
@@ -33,6 +33,9 @@ object CfgByClass {
 
   private def html(s: String): String =
     s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+  private def sanitizeId(s: String): String =
+    s.replaceAll("[^A-Za-z0-9_]", "_")
 
   private def prefixIds(dot: String, prefix: String): String = {
     val idRx = "\"(\\d+)\"".r
@@ -71,9 +74,6 @@ object CfgByClass {
 
   // ---------------- def/use extraction ----------------
 
-  private val thisFieldRx: Regex = "\\bthis\\.([A-Za-z_]\\w*)".r
-
-  // assignment operators; plain "=" must not be "==" etc.
   private val assignOpRx: Regex =
     "(\\+=|-=|\\*=|/=|%=|<<=|>>=|\\|=|&=|\\^=|(?<![!<>=])=(?!=))".r
 
@@ -83,12 +83,6 @@ object CfgByClass {
   private def maybeThisFieldRx(field: String): Regex =
     ("(?<![\\w$])(?:this\\.)?" + Pattern.quote(field) + "(?![\\w$])").r
 
-  /**
-    * Extract defs/uses from one statement string.
-    * Track only:
-    *   SV::<field> for this.field (also matches field without explicit this.)
-    *   P::<param>  for parameters
-    */
   private def extractDefsUses(
       code0: String,
       ownerFields: Set[String],
@@ -128,22 +122,18 @@ object CfgByClass {
         val lhs = code.substring(0, m.start)
         val rhs = code.substring(m.end)
 
-        // defs: vars in LHS
         ownerFields.foreach { f => if (maybeThisFieldRx(f).findFirstIn(lhs).nonEmpty) addFieldDef(f) }
         paramNames.foreach { p => if (wordRx(p).findFirstIn(lhs).nonEmpty) addParamDef(p) }
 
-        // uses: vars in RHS
         ownerFields.foreach { f => if (maybeThisFieldRx(f).findFirstIn(rhs).nonEmpty) addFieldUse(f) }
         paramNames.foreach { p => if (wordRx(p).findFirstIn(rhs).nonEmpty) addParamUse(p) }
 
-        // compound assigns read old LHS value too
         if (op != "=") {
           ownerFields.foreach { f => if (maybeThisFieldRx(f).findFirstIn(lhs).nonEmpty) addFieldUse(f) }
           paramNames.foreach { p => if (wordRx(p).findFirstIn(lhs).nonEmpty) addParamUse(p) }
         }
 
       case None =>
-        // no assignment: everything is use
         ownerFields.foreach { f => if (maybeThisFieldRx(f).findFirstIn(code).nonEmpty) addFieldUse(f) }
         paramNames.foreach { p => if (wordRx(p).findFirstIn(code).nonEmpty) addParamUse(p) }
     }
@@ -151,34 +141,47 @@ object CfgByClass {
     (defs.toSet, uses.toSet)
   }
 
-  // ---------------- DOT abstraction ----------------
+  // ---------------- DOT abstraction (prefer CALL nodes per line) ----------------
 
-  case class AbsNode(id: String, kind: String, line: String, code: String, methodName: Option[String] = None)
+  case class AbsNode(id: String, kind: String, line: String, code: String)
+  case class AbstractedCfg(dot: String, nodes: List[AbsNode], cfgEdges: Set[(String, String)])
 
-  case class AbstractedCfg(
-    dot: String,
-    nodes: List[AbsNode],
-    cfgEdges: Set[(String, String)]
-  )
+  private def isMethodKind(k: String): Boolean =
+    k == "METHOD" || k.startsWith("METHOD,")
 
-  /**
-    * Collapse DOT nodes by source line (keep longest code), rewire CFG edges.
-    * CFG edges are labeled "cfg".
-    */
-  private def abstractDotByLine(dot: String, rootLabelOverride: Option[String]): AbstractedCfg = {
+  private def isOperatorKind(k: String): Boolean =
+    Option(k).exists(_.startsWith("<operator>"))
+
+  private def isReturnLike(k: String): Boolean =
+    k == "METHOD_RETURN" || k == "RETURN" || k.endsWith("RETURN")
+
+  private def looksLikeCall(code: String, kind: String): Boolean = {
+    val c = Option(code).getOrElse("")
+    val hasParens = c.contains("(") && c.contains(")")
+    hasParens && !isOperatorKind(kind) && !isMethodKind(kind) && !isReturnLike(kind)
+  }
+
+  private def chooseBestNodeForLine(nodes: List[AbsNode]): AbsNode = {
+    def score(n: AbsNode): (Int, Int) = {
+      val s1 =
+        if (isMethodKind(n.kind)) 1000
+        else if (looksLikeCall(n.code, n.kind)) 900
+        else if (isOperatorKind(n.kind)) 700
+        else 500
+      (s1, n.code.length)
+    }
+    nodes.maxBy(score)
+  }
+
+  private def abstractDotByLine(dot: String, rootLabel: String): AbstractedCfg = {
     val nodeRx: Regex =
       "\"(\\d+)\"\\s*\\[label\\s*=\\s*<([^,>]+),\\s*(\\d+)<BR/>(.*?)>\\s*\\]".r
-
     val edgeRx: Regex =
       "\"(\\d+)\"\\s*->\\s*\"(\\d+)\"".r
 
     val nodesAll: List[AbsNode] =
       nodeRx.findAllMatchIn(dot).map { m =>
-        val kind = m.group(2)
-        val code = m.group(4)
-        val methName =
-          if (kind.startsWith("METHOD") || kind.equalsIgnoreCase("init")) Some(code) else None
-        AbsNode(m.group(1), kind, m.group(3), code, methName)
+        AbsNode(m.group(1), m.group(2), m.group(3), m.group(4))
       }.toList
 
     val edgesAll: List[(String, String)] =
@@ -190,7 +193,7 @@ object CfgByClass {
     }
 
     val bestByLine: Map[String, AbsNode] =
-      nodesAll.groupBy(_.line).map { case (line, xs) => line -> xs.maxBy(_.code.length) }
+      nodesAll.groupBy(_.line).view.mapValues(chooseBestNodeForLine).toMap
 
     val nodeById: Map[String, AbsNode] = nodesAll.iterator.map(n => n.id -> n).toMap
     val keptNodes: List[AbsNode] = bestByLine.values.toList
@@ -206,8 +209,11 @@ object CfgByClass {
       keptNodes
         .sortBy(n => toIntOpt(n.line).getOrElse(Int.MaxValue))
         .map { n =>
-          val label = s"${n.kind}, ${n.line}<BR/>${n.code}"
-          s""""${n.id}" [label = <${label}> ]"""
+          if (isMethodKind(n.kind)) {
+            s""""${n.id}" [label = <<FONT>${html(rootLabel)}</FONT>> ]"""
+          } else {
+            s""""${n.id}" [label = <${n.kind}, ${n.line}<BR/>${n.code}> ]"""
+          }
         }
 
     val edgeLines: List[String] =
@@ -225,26 +231,87 @@ ${(nodeLines ++ edgeLines).mkString("\n")}
   // ---------------- per-method info ----------------
 
   case class MethodInfo(
+    methodKey: String,
     methodFull: String,
     owner: String,
     typeKey: String,
     pfx: String,
+    pretty: String,
     bodyDotStripped: String,
+
     stmtIds: Set[String],
+    entryNodeId: String,
+
     lineByNode: Map[String, Int],
+    codeByNode: Map[String, String],
+    kindByNode: Map[String, String],
+
     preds: Map[String, Set[String]],
     defVars: Map[String, Set[String]],
     useVars: Map[String, Set[String]],
+
     fieldsTracked: Set[String],
     paramsTracked: Set[String],
     isConstructor: Boolean
   )
 
-  // ---------------- main entry ----------------
+  // ---------------- action dependency helpers ----------------
+
+  private def isMessageSendCall(callName: String, callCode: String): Boolean = {
+    val n = Option(callName).getOrElse("").trim
+    val c = Option(callCode).getOrElse("").trim
+    if (n.isEmpty) return false
+    if (n.startsWith("<operator>")) return false
+    if (n == "<init>" || n == "init") return false
+    if (!(c.contains("(") && c.contains(")"))) return false
+    if (c.startsWith("super(") || c.startsWith("this(")) return false
+    if (c.startsWith("new ") || c.contains(" new ")) return false
+    true
+  }
+
+  private def pickCallNodeId(mi: MethodInfo, ln: Option[Int], callName: String, callCode: String): Option[String] = {
+    val byLine: List[String] =
+      ln.toList.flatMap { l =>
+        mi.lineByNode.collect { case (nid, ll) if ll == l => nid }.toList
+      }
+
+    def best(cands: List[String]): Option[String] = {
+      if (cands.isEmpty) None
+      else {
+        val scored = cands.map { nid =>
+          val k = mi.kindByNode.getOrElse(nid, "")
+          val c = mi.codeByNode.getOrElse(nid, "")
+          val looks = looksLikeCall(c, k)
+          val nameHit = callName.nonEmpty && (c.contains(callName + "(") || k == callName)
+          val codeHit = callCode.nonEmpty && (c == callCode || c.contains(callCode) || callCode.contains(c))
+          val score =
+            (if (looks) 100 else 0) +
+              (if (nameHit) 50 else 0) +
+              (if (codeHit) 30 else 0) +
+              c.length
+          (nid, score)
+        }
+        Some(scored.maxBy(_._2)._1)
+      }
+    }
+
+    best(byLine).orElse {
+      val cands =
+        mi.codeByNode.collect {
+          case (nid, c) if
+            (callName.nonEmpty && (c.contains(callName + "(") || mi.kindByNode.getOrElse(nid, "") == callName)) ||
+              (callCode.nonEmpty && (c == callCode || c.contains(callCode) || callCode.contains(c)))
+          => nid
+        }.toList
+      best(cands)
+    }
+  }
+
+  // ---------------- main ----------------
 
   def run(fileRegex: String = ".*\\.java"): String = {
 
-    val methods =
+    val methods: List[Method] =
       cpg.method
         .where(_.isExternal(false))
         .where(_.file.name(fileRegex))
@@ -252,21 +319,23 @@ ${(nodeLines ++ edgeLines).mkString("\n")}
 
     val methodInfos = mutable.ListBuffer.empty[MethodInfo]
 
-    // Build per-method info (CFG + def/use)
     methods.foreach { m =>
       val raw = m.dotCfg.l.headOption.getOrElse("")
       if (raw.nonEmpty) {
 
+        val mid     = m.id.toString
         val mFull   = asString(m.fullName)
+        val pretty  = prettyMethodLabel(m)
+
         val owner0  = asString(m.typeDecl.name)
         val owner   = if (owner0.nonEmpty) owner0 else ownerTypeOf(mFull)
 
         val typeKey0 = asString(m.typeDecl.fullName)
         val typeKey  = if (typeKey0.nonEmpty) typeKey0 else owner
 
-        val pfx = (owner + "__" + mFull).replaceAll("[^A-Za-z0-9_]", "_")
+        val pfx = sanitizeId(owner + "__" + mid + "__" + asString(m.name))
 
-        val absCfg = abstractDotByLine(raw, Some(prettyMethodLabel(m)))
+        val absCfg = abstractDotByLine(raw, pretty)
         val body   = stripDotWrapper(prefixIds(absCfg.dot, pfx))
 
         def pref(id: String): String = pfx + "_" + id
@@ -276,8 +345,15 @@ ${(nodeLines ++ edgeLines).mkString("\n")}
 
         val lineByNode: Map[String, Int] =
           prefNodes.map(n => n.id -> toIntOpt(n.line).getOrElse(Int.MaxValue)).toMap
+        val codeByNode: Map[String, String] =
+          prefNodes.map(n => n.id -> n.code).toMap
+        val kindByNode: Map[String, String] =
+          prefNodes.map(n => n.id -> n.kind).toMap
 
-        // preds from collapsed CFG (only if both ends are in stmtIds)
+        val entryNodeId: String =
+          prefNodes.find(n => isMethodKind(n.kind)).map(_.id)
+            .getOrElse(stmtIds.minBy(id => lineByNode.getOrElse(id, Int.MaxValue)))
+
         val predsM = mutable.Map.empty[String, Set[String]].withDefaultValue(Set.empty)
         absCfg.cfgEdges.foreach { case (s0, t0) =>
           val s = pref(s0); val t = pref(t0)
@@ -285,16 +361,14 @@ ${(nodeLines ++ edgeLines).mkString("\n")}
         }
         val preds: Map[String, Set[String]] = predsM.toMap.withDefaultValue(Set.empty)
 
-        // fields tracked if they appear as this.<field> somewhere in this method
         val declaredFields: Set[String] = m.typeDecl.member.name.l.toSet
-        val usedFields: Set[String] =
-          absCfg.nodes.flatMap(n => thisFieldRx.findAllMatchIn(n.code).map(_.group(1))).toSet
-        val fieldsTracked: Set[String] = usedFields.intersect(declaredFields)
+        val methodText: String          = absCfg.nodes.map(_.code).mkString("\n")
+        val fieldsTracked: Set[String]  =
+          declaredFields.filter(f => maybeThisFieldRx(f).findFirstIn(methodText).nonEmpty)
 
         val paramsTracked: Set[String] =
           m.parameter.orderGt(0).name.l.map(_.trim).filter(_.nonEmpty).toSet
 
-        // def/use sets
         val defVarsM = mutable.Map.empty[String, Set[String]].withDefaultValue(Set.empty)
         val useVarsM = mutable.Map.empty[String, Set[String]].withDefaultValue(Set.empty)
 
@@ -305,16 +379,25 @@ ${(nodeLines ++ edgeLines).mkString("\n")}
         }
 
         methodInfos += MethodInfo(
+          methodKey       = mid,
           methodFull      = mFull,
           owner           = owner,
           typeKey         = typeKey,
           pfx             = pfx,
+          pretty          = pretty,
           bodyDotStripped = body,
+
           stmtIds         = stmtIds,
+          entryNodeId     = entryNodeId,
+
           lineByNode      = lineByNode,
+          codeByNode      = codeByNode,
+          kindByNode      = kindByNode,
+
           preds           = preds,
           defVars         = defVarsM.toMap.withDefaultValue(Set.empty),
           useVars         = useVarsM.toMap.withDefaultValue(Set.empty),
+
           fieldsTracked   = fieldsTracked,
           paramsTracked   = paramsTracked,
           isConstructor   = isCtor(m)
@@ -322,17 +405,21 @@ ${(nodeLines ++ edgeLines).mkString("\n")}
       }
     }
 
-    // (A) Constructor seeds per type: last def in <init> for each SV::<field>
+    val infoByFull: Map[String, MethodInfo] =
+      methodInfos.toList.map(mi => mi.methodFull -> mi).toMap
+
+    // ---------------- ctor seeds for data dep ----------------
+
     val initSeedsByType: Map[String, Map[String, String]] = {
       methodInfos.toList.groupBy(_.typeKey).map { case (typeKey, infos) =>
-        val lastDefByVar = mutable.Map.empty[String, (Int, String)] // var -> (line, defNodeId)
+        val lastDefByVar = mutable.Map.empty[String, (Int, String)]
         infos.filter(_.isConstructor).foreach { initInfo =>
           initInfo.stmtIds.foreach { nid =>
             val ln = initInfo.lineByNode.getOrElse(nid, Int.MaxValue)
             initInfo.defVars.getOrElse(nid, Set.empty).foreach { v =>
               if (v.startsWith("SV::")) {
                 lastDefByVar.get(v) match {
-                  case Some((oldLn, _)) if oldLn >= ln => // keep old
+                  case Some((oldLn, _)) if oldLn >= ln =>
                   case _ => lastDefByVar.update(v, (ln, nid))
                 }
               }
@@ -343,30 +430,25 @@ ${(nodeLines ++ edgeLines).mkString("\n")}
       }
     }
 
-    // nodeId -> methodFull (to block backwards deps only within same method)
-    val nodeToMethodFull: Map[String, String] =
-      methodInfos.toList.flatMap(mi => mi.stmtIds.map(id => id -> mi.methodFull)).toMap
+    val nodeToMethodKey: Map[String, String] =
+      methodInfos.toList.flatMap(mi => mi.stmtIds.map(id => id -> mi.methodKey)).toMap
 
-    // (B) Data dependency edges via reaching definitions (+ constructor seeding)
-    type DefPair = (String, String) // (varKey, defNodeId)
+    // ---------------- DATA DEP edges ----------------
+
+    type DefPair = (String, String)
     val dataDepEdges = mutable.Set.empty[String]
 
     methodInfos.foreach { mi =>
       val stmtIds = mi.stmtIds
       if (stmtIds.nonEmpty) {
 
-        // IMPORTANT FIX: seed at real CFG start nodes (nodes with no preds)
         val sources = stmtIds.filter(id => mi.preds.getOrElse(id, Set.empty).isEmpty)
         val startNodes =
           if (sources.nonEmpty) sources
           else Set(stmtIds.minBy(id => mi.lineByNode.getOrElse(id, Int.MaxValue)))
 
-        // Seed parameters at "entry" (we approximate by seeding startNodes)
-        val paramSeeds: Set[DefPair] =
-          mi.paramsTracked.map(p => (s"P::$p", startNodes.head)) // def node id for params not important; we keep it distinct below
-
-        // Seed state vars from constructor last defs (skip for constructors themselves)
         val initSeedMap = initSeedsByType.getOrElse(mi.typeKey, Map.empty)
+
         val svSeeds: Set[DefPair] =
           if (mi.isConstructor) Set.empty
           else mi.fieldsTracked.flatMap { f =>
@@ -374,21 +456,16 @@ ${(nodeLines ++ edgeLines).mkString("\n")}
             initSeedMap.get(v).map(defNodeId => (v, defNodeId))
           }
 
-        // We do NOT want param seed "def nodes" to show as edges; instead, treat params as defined at startNodes themselves:
         val paramSeedsAtStart: Set[DefPair] =
-          startNodes.flatMap { start =>
-            mi.paramsTracked.map(p => (s"P::$p", start))
-          }
+          startNodes.flatMap(start => mi.paramsTracked.map(p => (s"P::$p", start)))
 
         val initialDefs: Set[DefPair] = paramSeedsAtStart ++ svSeeds
 
         def gen(nodeId: String): Set[DefPair] =
           mi.defVars.getOrElse(nodeId, Set.empty).map(v => (v, nodeId))
 
-        // IN / OUT maps
         var inMap: Map[String, Set[DefPair]] =
           stmtIds.map(id => id -> Set.empty[DefPair]).toMap
-
         var outMap: Map[String, Set[DefPair]] =
           stmtIds.map(id => id -> Set.empty[DefPair]).toMap
 
@@ -424,26 +501,69 @@ ${(nodeLines ++ edgeLines).mkString("\n")}
           }
         }
 
-        // Emit data deps: def reaches use
         for (useNodeId <- stmtIds; v <- mi.useVars.getOrElse(useNodeId, Set.empty)) {
           val reachingDefs: Set[String] =
             inMap.getOrElse(useNodeId, Set.empty).collect { case (`v`, defId) => defId }
 
           reachingDefs.foreach { defId =>
             if (defId != useNodeId) {
-              val defMeth = nodeToMethodFull.getOrElse(defId, "")
-              val useMeth = nodeToMethodFull.getOrElse(useNodeId, "")
+              val defMk = nodeToMethodKey.getOrElse(defId, "")
+              val useMk = nodeToMethodKey.getOrElse(useNodeId, "")
 
-              // block backward deps ONLY within the same method
               val ok =
-                if (defMeth.nonEmpty && defMeth == useMeth) {
+                if (defMk.nonEmpty && defMk == useMk) {
                   val dl = mi.lineByNode.getOrElse(defId, Int.MaxValue)
                   val ul = mi.lineByNode.getOrElse(useNodeId, Int.MaxValue)
                   dl < ul
-                } else true // allow <init> -> other-method deps
+                } else true
 
-              if (ok) {
-                dataDepEdges += s""""$defId" -> "$useNodeId" [label="data dep", color="purple"]"""
+              if (ok) dataDepEdges += s""""$defId" -> "$useNodeId" [label="data dep", color="purple"]"""
+            }
+          }
+        }
+      }
+    }
+
+    // ---------------- ACTION DEP edges (UPDATED: add new-><init> edges) ----------------
+    //
+    // Rule:
+    // - caller must NOT be a constructor
+    // - for non-ctor callees: only when the call looks like a message-send
+    // - for ctor callees (<init>): ALWAYS add (this gives main's `new A()` -> `A.<init>`)
+
+    val actDepEdges = mutable.Set.empty[String]
+
+    val nonCtorCallers: List[Method] = methods.filterNot(isCtor)
+
+    nonCtorCallers.foreach { callerM =>
+      val callerFull = asString(callerM.fullName)
+      infoByFull.get(callerFull).foreach { callerInfo =>
+
+        callerM.call.l.foreach { call =>
+          val callName = asString(call.name)
+          val callCode = asString(call.code)
+          val callLn   = call.lineNumber.map(_.toInt)
+
+          val internalCallees: List[MethodInfo] =
+            call.callee.l
+              .map(cm => asString(cm.fullName))
+              .distinct
+              .flatMap(fn => infoByFull.get(fn))
+
+          if (internalCallees.nonEmpty) {
+            val callNodeIdOpt = pickCallNodeId(callerInfo, callLn, callName, callCode)
+            callNodeIdOpt.foreach { callNodeId =>
+
+              internalCallees.foreach { calleeInfo =>
+                if (calleeInfo.isConstructor) {
+                  // constructor call (new X()) -> X.<init>
+                  actDepEdges += s""""$callNodeId" -> "${calleeInfo.entryNodeId}" [label="act dep", color="red"]"""
+                } else {
+                  // normal msg-server/procedure call
+                  if (isMessageSendCall(callName, callCode)) {
+                    actDepEdges += s""""$callNodeId" -> "${calleeInfo.entryNodeId}" [label="act dep", color="red"]"""
+                  }
+                }
               }
             }
           }
@@ -451,16 +571,22 @@ ${(nodeLines ++ edgeLines).mkString("\n")}
       }
     }
 
-    // Cluster by owner/class
+    // --- clusters: class cluster containing per-method subclusters ---
     val clustersByClass: List[String] =
       methodInfos.toList.groupBy(_.owner).toList.sortBy(_._1).flatMap { case (owner, infos) =>
-        val ownerSan = owner.replaceAll("[^A-Za-z0-9_]", "_")
-        val bodies   = infos.map(_.bodyDotStripped)
-        if (bodies.isEmpty) None
+        val ownerSan = sanitizeId(owner)
+        val methodClusters =
+          infos.sortBy(_.pretty).map { mi =>
+            s"""subgraph "cluster_${ownerSan}_m${mi.methodKey}" {
+  label="${html(mi.pretty)}";
+  ${mi.bodyDotStripped}
+}"""
+          }
+        if (methodClusters.isEmpty) None
         else Some(
           s"""subgraph "cluster_$ownerSan" {
   label="${html(owner)}";
-  ${bodies.mkString("\n")}
+  ${methodClusters.mkString("\n")}
 }"""
         )
       }
@@ -471,7 +597,7 @@ compound=true;
 node [shape="rect"];
 ${clustersByClass.mkString("\n\n")}
 
-${dataDepEdges.toList.sorted.mkString("\n")}
+${(dataDepEdges.toList.sorted ++ actDepEdges.toList.sorted).mkString("\n")}
 }"""
 
     println(out)

@@ -42,9 +42,9 @@ public class AB_StaticEquivalent {
         // msgsrv m2() -> plain method
         public void m2() {
             // t = ?(true, false);
-         
+            y = y + x;
                 x = x + y;
-                y = y + x;
+             
             
 
             if (y > z) {
