@@ -324,8 +324,11 @@ class TwoTanksRebecaController:
         self.valves = {"v1": 0, "v2": 0, "v3": 0}
 
     def compute(self, t: float, L1: float, L2: float) -> Tuple[int, int, int]:
+        print(f"t={t}, state={self.state}, L1={L1}, L2={L2}, valves={self.valves}")
+
         steps = 0
         while steps < self.max_internal_steps:
+            
             steps += 1
             edges = self.out.get(self.state, [])
 
@@ -447,6 +450,8 @@ def main():
             L1 = tank1.getReal([t1_level])[0]
             L2 = tank2.getReal([t2_level])[0]
             rows.append([t, L1, L2, v1, v2, v3, q_trans])
+            print(f"t={t}, v1={v1}, v2={v2}, v3={v3}, q_in1={q_in1}, q_trans={q_trans}, q_drain2={q_drain2}")
+
 
     finally:
         for fmu in (tank1, tank2):

@@ -1,0 +1,88 @@
+digraph "program_cfg_abstract_by_class" {
+compound=true;
+node [shape="rect"];
+
+subgraph "cluster_AB_StaticEquivalent" {
+  label="AB_StaticEquivalent";
+  "AB_StaticEquivalent__AB_StaticEquivalent_main_void_java_lang_String_____param_1_args_2dd0dd" [label = <<FONT>main_param_args</FONT>> ]
+"AB_StaticEquivalent__AB_StaticEquivalent_main_void_java_lang_String____107374182405" [label = <main> ]
+"AB_StaticEquivalent__AB_StaticEquivalent_main_void_java_lang_String____30064771129" [label = <&lt;operator&gt;.assignment, 78<BR/>A a = new A()> ]
+"AB_StaticEquivalent__AB_StaticEquivalent_main_void_java_lang_String____30064771131" [label = <&lt;operator&gt;.assignment, 79<BR/>B b = new B()> ]
+"AB_StaticEquivalent__AB_StaticEquivalent_main_void_java_lang_String____30064771133" [label = <&lt;operator&gt;.assignment, 82<BR/>a.b = b> ]
+"AB_StaticEquivalent__AB_StaticEquivalent_main_void_java_lang_String____30064771135" [label = <&lt;operator&gt;.assignment, 83<BR/>b.a = a> ]
+"AB_StaticEquivalent__AB_StaticEquivalent_main_void_java_lang_String____107374182405" [label = <<FONT>AB_StaticEquivalent.main(args)</FONT>> ]
+"AB_StaticEquivalent__AB_StaticEquivalent__init__void___107374182406" [label = <&lt;init&gt;> ]
+"AB_StaticEquivalent__AB_StaticEquivalent__init__void___107374182406" [label = <<FONT>AB_StaticEquivalent.&lt;init&gt;()</FONT>> ]
+}
+
+subgraph "cluster_AB_StaticEquivalent_A" {
+  label="AB_StaticEquivalent$A";
+  "AB_StaticEquivalent_A__AB_StaticEquivalent_A__init__void___107374182400" [label = <&lt;init&gt;> ]
+"AB_StaticEquivalent_A__AB_StaticEquivalent_A__init__void___107374182400" [label = <<FONT>AB_StaticEquivalent$A.&lt;init&gt;()</FONT>> ]
+"AB_StaticEquivalent_A__AB_StaticEquivalent_A_m1_void___124554051585" [label = <void> ]
+"AB_StaticEquivalent_A__AB_StaticEquivalent_A_m1_void___30064771074" [label = <m2, 19<BR/>this.b.m2()> ]
+"AB_StaticEquivalent_A__AB_StaticEquivalent_A_m1_void___107374182401" [label = <<FONT>AB_StaticEquivalent$A.m1()</FONT>> ]
+}
+
+subgraph "cluster_AB_StaticEquivalent_B" {
+  label="AB_StaticEquivalent$B";
+  "AB_StaticEquivalent_B__sv_x_78" [label = <<FONT>sv_x this.x</FONT>> ]
+"AB_StaticEquivalent_B__sv_y_79" [label = <<FONT>sv_y this.y</FONT>> ]
+"AB_StaticEquivalent_B__sv_t_74" [label = <<FONT>sv_t this.t</FONT>> ]
+"AB_StaticEquivalent_B__sv_rnd_1b9a8" [label = <<FONT>sv_rnd this.rnd</FONT>> ]
+"AB_StaticEquivalent_B__sv_z_7a" [label = <<FONT>sv_z this.z</FONT>> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___30064771076" [label = <&lt;operator&gt;.assignment, 34<BR/>Random this.rnd = new Random()> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___107374182402" [label = <&lt;init&gt;> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___30064771081" [label = <&lt;operator&gt;.assignment, 37<BR/>this.x = 0> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___30064771083" [label = <&lt;operator&gt;.assignment, 38<BR/>this.y = 1> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___30064771085" [label = <&lt;operator&gt;.assignment, 39<BR/>this.z = 3> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___30064771087" [label = <&lt;operator&gt;.assignment, 40<BR/>this.t = false> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___107374182402" [label = <<FONT>AB_StaticEquivalent$B.&lt;init&gt;()</FONT>> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___124554051587" [label = <void> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771089" [label = <&lt;operator&gt;.assignment, 46<BR/>this.t = choose(true, false)> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771093" [label = <&lt;operator&gt;.assignment, 49<BR/>this.x = x + y> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771098" [label = <&lt;operator&gt;.assignment, 50<BR/>this.y = y + x> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771103" [label = <&lt;operator&gt;.assignment, 52<BR/>this.x = x + y> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771108" [label = <&lt;operator&gt;.assignment, 53<BR/>this.y = y + x> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771116" [label = <m1, 58<BR/>this.a.m1()> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771118" [label = <m1, 61<BR/>this.a.m1()> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771122" [label = <&lt;operator&gt;.assignment, 65<BR/>this.y = 1> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771124" [label = <&lt;operator&gt;.assignment, 66<BR/>this.x = 0> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___107374182403" [label = <<FONT>AB_StaticEquivalent$B.m2()</FONT>> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean___param_1_a_61" [label = <<FONT>choose_param_a</FONT>> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean___param_2_b_62" [label = <<FONT>choose_param_b</FONT>> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean__124554051588" [label = <boolean> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean__141733920768" [label = <RETURN, 72<BR/>return rnd.nextBoolean() ? a : b;> ]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean__107374182404" [label = <<FONT>AB_StaticEquivalent$B.choose(a, b)</FONT>> ]
+}
+
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771124" -> "AB_StaticEquivalent_B__sv_x_78" [color="red"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___30064771087" -> "AB_StaticEquivalent_B__sv_t_74" [color="red"]
+"AB_StaticEquivalent_B__sv_x_78" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771098" [color="blue"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771089" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean___param_1_a_61" [color="purple"]
+"AB_StaticEquivalent_B__sv_y_79" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771093" [color="blue"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771089" -> "AB_StaticEquivalent_B__sv_t_74" [color="red"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771093" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771098" [label="data dep", color="purple"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean___param_1_a_61" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean__141733920768" [color="blue"]
+"AB_StaticEquivalent__AB_StaticEquivalent_main_void_java_lang_String____30064771131" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___107374182402" [label="act dep"]
+"AB_StaticEquivalent_A__AB_StaticEquivalent_A_m1_void___30064771074" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___107374182403" [label="act dep"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771098" -> "AB_StaticEquivalent_B__sv_y_79" [color="red"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771116" -> "AB_StaticEquivalent_A__AB_StaticEquivalent_A_m1_void___107374182401" [label="act dep"]
+"AB_StaticEquivalent__AB_StaticEquivalent_main_void_java_lang_String____30064771129" -> "AB_StaticEquivalent_A__AB_StaticEquivalent_A__init__void___107374182400" [label="act dep"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771089" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean__107374182404" [label="act dep"]
+"AB_StaticEquivalent_B__sv_y_79" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771103" [color="blue"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771089" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean___param_2_b_62" [color="purple"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771118" -> "AB_StaticEquivalent_A__AB_StaticEquivalent_A_m1_void___107374182401" [label="act dep"]
+"AB_StaticEquivalent_B__sv_x_78" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771108" [color="blue"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___30064771083" -> "AB_StaticEquivalent_B__sv_y_79" [color="red"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean___param_2_b_62" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean__141733920768" [color="blue"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771122" -> "AB_StaticEquivalent_B__sv_y_79" [color="red"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771103" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771108" [label="data dep", color="purple"]
+"AB_StaticEquivalent_B__sv_rnd_1b9a8" -> "AB_StaticEquivalent_B__AB_StaticEquivalent_B_choose_boolean_boolean_boolean__141733920768" [color="blue"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___30064771076" -> "AB_StaticEquivalent_B__sv_rnd_1b9a8" [color="red"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771103" -> "AB_StaticEquivalent_B__sv_x_78" [color="red"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771093" -> "AB_StaticEquivalent_B__sv_x_78" [color="red"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B_m2_void___30064771108" -> "AB_StaticEquivalent_B__sv_y_79" [color="red"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___30064771085" -> "AB_StaticEquivalent_B__sv_z_7a" [color="red"]
+"AB_StaticEquivalent_B__AB_StaticEquivalent_B__init__void___30064771081" -> "AB_StaticEquivalent_B__sv_x_78" [color="red"]
+}

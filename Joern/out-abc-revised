@@ -1,0 +1,18 @@
+digraph "program_cfg_abstract_by_class" {
+  compound=true;
+  node [shape="rect"];
+  subgraph "cluster_ABC_A" {
+    label="ABC$A";
+    "ABC_A__ABC_A_m1_void___30064771076" [label = <m2, 22<BR/>this.b.m2()> style=filled fillcolor="red" ];
+    "ABC_A__ABC_A_m1_void___107374182401" [label = <<FONT>ABC$A.m1()</FONT>> style=filled fillcolor="red" ];
+  }
+  subgraph "cluster_ABC_B" {
+    label="ABC$B";
+    "ABC_B__ABC_B_m2_void___30064771099" [label = <m1, 53<BR/>this.a.m1()> style=filled fillcolor="red" ];
+    "ABC_B__ABC_B_m2_void___107374182403" [label = <<FONT>ABC$B.m2()</FONT>> style=filled fillcolor="red" ];
+  }
+  "ABC_A__ABC_A_m1_void___107374182401" -> "ABC_A__ABC_A_m1_void___30064771076" [label="ctrl dep"];
+  "ABC_A__ABC_A_m1_void___30064771076" -> "ABC_B__ABC_B_m2_void___107374182403" [label="act dep"];
+  "ABC_B__ABC_B_m2_void___30064771099" -> "ABC_A__ABC_A_m1_void___107374182401" [label="act dep"];
+  "ABC_B__ABC_B_m2_void___107374182403" -> "ABC_B__ABC_B_m2_void___30064771099" [label="ctrl dep"];
+}
